@@ -27,6 +27,8 @@ body, html {height: 100%}
     <p class="w3-large w3-center">ima mengu jos 4 dana</p>
   </div>
 </div>
-
+<?
+  echo "HELLO FUCKING WORLD!";
+?>
 </body>
 </html>
