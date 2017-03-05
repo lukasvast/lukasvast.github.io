@@ -15,18 +15,25 @@
 <body class="w3-light-grey">
 
 <!-- Navigation Bar -->
-<div class="w3-bar w3-white w3-large">
+<div id="nav_bar" class="w3-bar w3-white w3-large w3-hide-small w3-animate-opacity">
+  <a id="close_nav_bar" class="w3-bar-item w3-button w3-mobile"><i class="fa fa-close"></i></a>
   <a id="home" class="w3-bar-item w3-button w3-red w3-mobile">Julija</a>
-  <a href="#apartments" class="w3-bar-item w3-button w3-mobile">Apartments</a>
-  <a href="#about" class="w3-bar-item w3-button w3-mobile">About</a>
-  <a href="#contact" class="w3-bar-item w3-button w3-mobile">Contact</a>
-  <a href="#contact" class="w3-bar-item w3-button w3-right w3-light-grey w3-mobile">Book Now</a>
+  <a href="#apartments" class="w3-bar-item w3-button w3-mobile">{{Apartments}}</a>
+  <a href="#about" class="w3-bar-item w3-button w3-mobile">{{About}}</a>
+  <a href="#contact" class="w3-bar-item w3-button w3-mobile">{{Contact}}</a>
+  <a href="#contact" class="w3-bar-item w3-button w3-right w3-light-grey w3-mobile">{{Book_Now}}</a>
+  <a id="DE" class="w3-bar-item w3-button w3-right w3-mobile">DE</a>
+  <a id="ENG" class="w3-bar-item w3-button w3-right w3-mobile">ENG</a>
 </div>
 
 <!-- Header -->
 <header class="w3-display-container w3-content" style="max-width:1500px;">
   <img class="w3-image" src="./img/crikvenica_beach_bg.jpg" alt="Crikvenica Beach" style="min-width:1000px" width="1500" height="800">
 
+  <!-- Show NavBar Button -->
+  <a id="show_nav_bar" class="w3-button w3-margin w3-white w3-animate-opacity w3-display-topleft w3-hide"><i class="fa fa-plus"></i></a>
+
+  <!-- Booking Form -->
   <div id="booking" class="w3-display-left w3-animate-opacity w3-padding w3-col l6 m8">
     <div class="w3-container w3-red">
       <h2><i class="fa fa-bed w3-margin-right"></i>House Julija</h2>
@@ -58,7 +65,8 @@
     </div>
   </div>
 
-  <div id="weather" class="w3-display-topright w3-animate-opacity w3-padding w3-col l4 m4 w3-hide-small">
+  <!-- Weather Container -->
+  <div id="weather" class="w3-display-topright w3-margin w3-animate-opacity w3-padding w3-col l4 m4 w3-hide-small">
     <div class="w3-container w3-blue">
       <h2><i class="fa fa-cloud w3-margin-right"></i>Weather</h2>
     </div>
@@ -74,7 +82,7 @@
 </header>
 
 <!-- Page content -->
-<div class="w3-content" style="max-width:1532px;">
+<div class="w3-content w3-hide" style="max-width:1532px;">
 
   <div class="w3-container w3-margin-top" id="apartments">
     <h3>Apartments</h3>
@@ -196,9 +204,8 @@
 </div>
 
 <!-- Footer -->
-<footer class="w3-padding-32 w3-black w3-center w3-margin-top">
-  <h5>Find Us On</h5>
-  <div class="w3-xlarge w3-padding-16">
+<footer class="w3-padding-16 w3-black w3-center w3-margin-top">
+  <div class="w3-xlarge w3-padding-8">
     <i class="fa fa-facebook-official w3-hover-text-indigo"></i>
     <i class="fa fa-instagram w3-hover-text-purple"></i>
     <i class="fa fa-snapchat w3-hover-text-yellow"></i>

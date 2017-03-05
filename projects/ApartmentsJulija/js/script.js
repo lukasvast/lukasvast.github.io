@@ -15,7 +15,28 @@ function myMap()
 }
 
 $(document).ready(function(){
-    $("#home").click(function(){
-        $("#booking").toggle();
-    });
+
+  myObject = {"Apartments" : "Apartments", "About" : "About", "Contact" : "Contact", "Book_Now" : "Book Now"};
+  w3.displayObject("nav_bar", myObject);
+
+  $("#show_nav_bar").click(function(){
+      $("#nav_bar").show();
+      $("#show_nav_bar").addClass("w3-hide");
+  });
+
+  $("#close_nav_bar").click(function(){
+      $("#nav_bar").hide();
+      $("#show_nav_bar").removeClass("w3-hide");
+  });
+
+  $("#home").click(function(){
+      $("#booking").toggle();
+  });
+
 });
+/*
+$(document).ready(function(){
+  myObject = {"Apartments" : "Apartments", "About" : "About", "Contact" : "Contact", "Book_Now" : "Book Now"};
+  w3.displayObject("nav_bar", myObject);
+});
+*/
