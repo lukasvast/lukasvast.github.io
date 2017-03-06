@@ -14,10 +14,16 @@ function myMap()
   marker.setMap(map);
 }
 
-$(document).ready(function(){
+var app = angular.module('navBar', []);
+app.controller('navBarCtrl', function($scope) {
+    $scope.apartments = "Apartments";
+    $scope.about = "About";
+    $scope.contact = "Contact";
+    $scope.book_now = "Book Now";
+});
 
-  myObject = {"Apartments" : "Apartments", "About" : "About", "Contact" : "Contact", "Book_Now" : "Book Now"};
-  w3.displayObject("nav_bar", myObject);
+
+$(document).ready(function(){
 
   $("#show_nav_bar").click(function(){
       $("#nav_bar").show();
@@ -29,14 +35,40 @@ $(document).ready(function(){
       $("#show_nav_bar").removeClass("w3-hide");
   });
 
-  $("#home").click(function(){
-      $("#booking").toggle();
+  $("#show_contact").click(function(){
+      $("#contact").removeClass("w3-hide");
+      $("#about").addClass("w3-hide");
+      $("#apartments").addClass("w3-hide");
+  });
+
+  $("#show_about").click(function(){
+      $("#about").removeClass("w3-hide");
+      $("#contact").addClass("w3-hide");
+      $("#apartments").addClass("w3-hide");
+  });
+
+  $("#show_apartments").click(function(){
+      $("#apartments").removeClass("w3-hide");
+      $("#contact").addClass("w3-hide");
+      $("#about").addClass("w3-hide");
+  });
+
+  $("#first_floor_gallery").click(function(){
+      $("#first_floor").removeClass("w3-hide");
+      $("#second_floor").addClass("w3-hide");
+      $("#third_floor").addClass("w3-hide");
+  });
+
+  $("#second_floor_gallery").click(function(){
+      $("#second_floor").removeClass("w3-hide");
+      $("#first_floor").addClass("w3-hide");
+      $("#third_floor").addClass("w3-hide");
+  });
+
+  $("#third_floor_gallery").click(function(){
+      $("#third_floor").removeClass("w3-hide");
+      $("#first_floor").addClass("w3-hide");
+      $("#second_floor").addClass("w3-hide");
   });
 
 });
-/*
-$(document).ready(function(){
-  myObject = {"Apartments" : "Apartments", "About" : "About", "Contact" : "Contact", "Book_Now" : "Book Now"};
-  w3.displayObject("nav_bar", myObject);
-});
-*/

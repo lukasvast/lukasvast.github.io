@@ -3,38 +3,39 @@
 <title>Apartments Julija</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gruppo">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://www.w3schools.com/lib/w3.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
 <link rel="stylesheet" href="./css/style.css">
 <script src="./js/script.js"></script>
 
 <body class="w3-light-grey">
 
 <!-- Navigation Bar -->
-<div id="nav_bar" class="w3-bar w3-white w3-large w3-hide-small w3-animate-opacity">
+<div ng-app="navBar" ng-controller="navBarCtrl" id="nav_bar" class="w3-bar w3-top w3-white w3-large w3-hide-small w3-animate-opacity">
   <a id="close_nav_bar" class="w3-bar-item w3-button w3-mobile"><i class="fa fa-close"></i></a>
   <a id="home" class="w3-bar-item w3-button w3-red w3-mobile">Julija</a>
-  <a href="#apartments" class="w3-bar-item w3-button w3-mobile">{{Apartments}}</a>
-  <a href="#about" class="w3-bar-item w3-button w3-mobile">{{About}}</a>
-  <a href="#contact" class="w3-bar-item w3-button w3-mobile">{{Contact}}</a>
-  <a href="#contact" class="w3-bar-item w3-button w3-right w3-light-grey w3-mobile">{{Book_Now}}</a>
+  <a id="show_apartments" href="#page_content" class="w3-bar-item w3-button w3-mobile">{{apartments}}</a>
+  <a id="show_about" href="#page_content" class="w3-bar-item w3-button w3-mobile">{{about}}</a>
+  <a id="show_contact" href="#page_content" class="w3-bar-item w3-button w3-mobile">{{contact}}</a>
   <a id="DE" class="w3-bar-item w3-button w3-right w3-mobile">DE</a>
   <a id="ENG" class="w3-bar-item w3-button w3-right w3-mobile">ENG</a>
 </div>
 
 <!-- Header -->
-<header class="w3-display-container w3-content" style="max-width:1500px;">
+<header class="w3-display-container" style="max-width:1500px;">
   <img class="w3-image" src="./img/crikvenica_beach_bg.jpg" alt="Crikvenica Beach" style="min-width:1000px" width="1500" height="800">
 
   <!-- Show NavBar Button -->
   <a id="show_nav_bar" class="w3-button w3-margin w3-white w3-animate-opacity w3-display-topleft w3-hide"><i class="fa fa-plus"></i></a>
 
   <!-- Booking Form -->
-  <div id="booking" class="w3-display-left w3-animate-opacity w3-padding w3-col l6 m8">
+  <div id="booking" class="w3-display-left w3-margin w3-animate-opacity w3-padding w3-col l7 m7 s10">
     <div class="w3-container w3-red">
       <h2><i class="fa fa-bed w3-margin-right"></i>House Julija</h2>
     </div>
@@ -66,7 +67,7 @@
   </div>
 
   <!-- Weather Container -->
-  <div id="weather" class="w3-display-topright w3-margin w3-animate-opacity w3-padding w3-col l4 m4 w3-hide-small">
+  <div id="weather" class="w3-display-topright w3-animate-opacity w3-margin w3-padding-128 w3-col l4 m4 w3-hide-small">
     <div class="w3-container w3-blue">
       <h2><i class="fa fa-cloud w3-margin-right"></i>Weather</h2>
     </div>
@@ -79,139 +80,202 @@
       </div>
     </div>
   </div>
+
 </header>
 
-<!-- Page content -->
-<div class="w3-content w3-hide" style="max-width:1532px;">
+<section id="page_content" class="w3-display-container w3-black">
 
-  <div class="w3-container w3-margin-top" id="apartments">
-    <h3>Apartments</h3>
-    <p>Make yourself at home is our slogan. We offer the best beds in the industry. Sleep well and rest well.</p>
+  <!-- Contact Container -->
+  <div id="contact" class="w3-display-middle w3-margin w3-animate-opacity w3-col l6 m6 w3-hide">
+    <div class="w3-container w3-blue">
+      <h2>Contact</h2>
+      <p>If you have any questions, do not hesitate to ask them.</p>
+      <i class="fa fa-map-marker w3-text-red" style="width:30px"></i> Crikvenica, CRO<br>
+      <i class="fa fa-phone w3-text-red" style="width:30px"></i> Phone: +385 51/785-481<br>
+      <i class="fa fa-envelope w3-text-red" style="width:30px"> </i> Email: ksvast@gmail.com<br>
+      <form action="/action_page.php" target="_blank">
+        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
+        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email"></p>
+        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message" required name="Message"></p>
+        <p><button class="w3-button w3-black w3-padding-large" type="submit">SEND MESSAGE</button></p>
+      </form>
+    </div>
   </div>
 
-  <div class="w3-row-padding w3-padding-16">
-    <div class="w3-third w3-margin-bottom">
-      <img src="/w3images/room_single.jpg" alt="Norway" style="width:100%">
-      <div class="w3-container w3-white">
-        <h3>Single Room</h3>
-        <h6 class="w3-opacity">From $99</h6>
-        <p>Single bed</p>
-        <p>15m<sup>2</sup></p>
-        <p class="w3-large"><i class="fa fa-bath"></i> <i class="fa fa-phone"></i> <i class="fa fa-wifi"></i></p>
-        <button class="w3-button w3-block w3-black w3-margin-bottom">Choose Room</button>
+  <!-- About Container -->
+  <div id="about" class="w3-hide">
+    <div class="w3-display-left w3-margin w3-col l4 m5">
+      <div class="w3-container w3-blue">
+        <h2>About us:</h2>
+      </div>
+      <div class="w3-container w3-white w3-animate-left">
+        <p>Vacation apartments located at the coast of North Adriatic Sea.
+          We have 12 apartments available that can accommodate from 2 to 6 people in each apartment.
+          All of our guests have free parking, free wireless internet access, international satellite tv access and access to outside grill area.
+          Our sea facing appartments are all air conditioned. We are very close to the beach and restaurants which are only 100 meters away.
+          Also city center of Crikvenica is within a 1 kilometer walking distance from the house.</p>
       </div>
     </div>
-    <div class="w3-third w3-margin-bottom">
-      <img src="/w3images/room_double.jpg" alt="Norway" style="width:100%">
-      <div class="w3-container w3-white">
-        <h3>Double Room</h3>
-        <h6 class="w3-opacity">From $149</h6>
-        <p>Queen-size bed</p>
-        <p>25m<sup>2</sup></p>
-        <p class="w3-large"><i class="fa fa-bath"></i> <i class="fa fa-phone"></i> <i class="fa fa-wifi"></i> <i class="fa fa-tv"></i></p>
-        <button class="w3-button w3-block w3-black w3-margin-bottom">Choose Room</button>
+    <div class="w3-display-topright w3-margin w3-padding-48 w3-col l4 m5">
+      <div class="w3-container w3-blue">
+        <h2>Informations:</h2>
       </div>
-    </div>
-    <div class="w3-third w3-margin-bottom">
-      <img src="/w3images/room_deluxe.jpg" alt="Norway" style="width:100%">
-      <div class="w3-container w3-white">
-        <h3>Deluxe Room</h3>
-        <h6 class="w3-opacity">From $199</h6>
-        <p>King-size bed</p>
-        <p>40m<sup>2</sup></p>
-        <p class="w3-large"><i class="fa fa-bath"></i> <i class="fa fa-phone"></i> <i class="fa fa-wifi"></i> <i class="fa fa-tv"></i> <i class="fa fa-glass"></i> <i class="fa fa-cutlery"></i></p>
-        <button class="w3-button w3-block w3-black w3-margin-bottom">Choose Room</button>
+      <div class="w3-container w3-white w3-animate-right">
+        <p>Vacation apartments located at the coast of North Adriatic Sea.
+          We have 12 apartments available that can accommodate from 2 to 6 people in each apartment.
+          All of our guests have free parking, free wireless internet access, international satellite tv access and access to outside grill area.
+          Our sea facing appartments are all air conditioned. We are very close to the beach and restaurants which are only 100 meters away.
+          Also city center of Crikvenica is within a 1 kilometer walking distance from the house.</p>
       </div>
     </div>
   </div>
 
-  <div class="w3-row-padding" id="about">
-    <div class="w3-col l4 m7">
-      <h3>About</h3>
-      <h6>Our hotel is one of a kind. It is truely amazing. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</h6>
-    <p>We accept: <i class="fa fa-credit-card w3-large"></i> <i class="fa fa-cc-mastercard w3-large"></i> <i class="fa fa-cc-amex w3-large"></i> <i class="fa fa-cc-cc-visa w3-large"></i><i class="fa fa-cc-paypal w3-large"></i></p>
+  <!-- Apartments Container -->
+  <div id="apartments" class="w3-display-topmiddle w3-margin w3-padding-128 w3-col l11 m11 w3-hide-small">
+    <div class="w3-container w3-center">
+      <a id="first_floor_gallery" class="w3-bar-item w3-button w3-red w3-mobile">First Floor</a>
+      <a id="second_floor_gallery" class="w3-bar-item w3-button w3-red w3-mobile">Second Floor</a>
+      <a id="third_floor_gallery" class="w3-bar-item w3-button w3-red w3-mobile">Third Floor</a>
     </div>
-    <div class="w3-col l8 m5">
-      <div id="googleMap" style="width:100%;height:400px;" class="w3-grayscale"></div>
-    </div>
-  </div>
 
-  <div class="w3-row w3-large w3-center" style="margin:32px 0">
-    <div class="w3-third"><i class="fa fa-map-marker w3-text-red"></i> Brace dr. Sobol 16B, Crikvenica, CRO</div>
-    <div class="w3-third"><i class="fa fa-phone w3-text-red"></i> Phone: +385 51/785-481</div>
-    <div class="w3-third"><i class="fa fa-envelope w3-text-red"></i> Email: ksvast@gmail.com</div>
-  </div>
-
-  <div class="w3-container">
-    <h3>Our Hotels</h3>
-    <h6>You can find our hotels anywhere in the world:</h6>
-  </div>
-
-  <div class="w3-row-padding w3-padding-16 w3-text-white w3-large">
-    <div class="w3-half w3-margin-bottom">
-      <div class="w3-display-container">
-        <img src="/w3images/cinqueterre.jpg" alt="Cinque Terre" style="width:100%">
-        <span class="w3-display-bottomleft w3-padding">Cinque Terre</span>
-      </div>
-    </div>
-    <div class="w3-half">
-      <div class="w3-row-padding" style="margin:0 -16px">
-        <div class="w3-half w3-margin-bottom">
-          <div class="w3-display-container">
-            <img src="/w3images/newyork2.jpg" alt="New York" style="width:100%">
-            <span class="w3-display-bottomleft w3-padding">New York</span>
+    <!-- First Floor Gallery -->
+    <div id="first_floor" class="w3-hide">
+      <div class="w3-row-padding w3-margin-top">
+        <div class="w3-third">
+          <div class="w3-card-2">
+            <img src="http://placehold.it/350x150" style="width:100%">
+            <div class="w3-container">
+              <h5>Kety</h5>
+            </div>
           </div>
         </div>
-        <div class="w3-half w3-margin-bottom">
-          <div class="w3-display-container">
-            <img src="/w3images/sanfran.jpg" alt="San Francisco" style="width:100%">
-            <span class="w3-display-bottomleft w3-padding">San Francisco</span>
+
+        <div class="w3-third">
+          <div class="w3-card-2">
+            <img src="http://placehold.it/350x150" style="width:100%">
+            <div class="w3-container">
+              <h5>Sarah Kay</h5>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="w3-row-padding" style="margin:0 -16px">
-        <div class="w3-half w3-margin-bottom">
-          <div class="w3-display-container">
-            <img src="/w3images/pisa.jpg" alt="Pisa" style="width:100%">
-            <span class="w3-display-bottomleft w3-padding">Pisa</span>
-          </div>
-        </div>
-        <div class="w3-half w3-margin-bottom">
-          <div class="w3-display-container">
-            <img src="/w3images/paris.jpg" alt="Paris" style="width:100%">
-            <span class="w3-display-bottomleft w3-padding">Paris</span>
+
+        <div class="w3-third">
+          <div class="w3-card-2">
+            <img src="http://placehold.it/350x150" style="width:100%">
+            <div class="w3-container">
+              <h5>Ruski Raj</h5>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="w3-container" id="contact">
-    <h2>Contact</h2>
-    <p>If you have any questions, do not hesitate to ask them.</p>
-    <i class="fa fa-map-marker w3-text-red" style="width:30px"></i> Crikvenica, CRO<br>
-    <i class="fa fa-phone w3-text-red" style="width:30px"></i> Phone: +385 51/785-481<br>
-    <i class="fa fa-envelope w3-text-red" style="width:30px"> </i> Email: ksvast@gmail.com<br>
-    <form action="/action_page.php" target="_blank">
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message" required name="Message"></p>
-      <p><button class="w3-button w3-black w3-padding-large" type="submit">SEND MESSAGE</button></p>
-    </form>
-  </div>
+    <!-- Second Floor Gallery -->
+    <div id="second_floor" class="w3-hide">
+      <div class="w3-row-padding w3-margin-top">
+        <div class="w3-third">
+          <div class="w3-card-2">
+            <img src="http://placehold.it/350x150" style="width:100%">
+            <div class="w3-container">
+              <h5>App 1</h5>
+            </div>
+          </div>
+        </div>
 
-<!-- End page content -->
-</div>
+        <div class="w3-third">
+          <div class="w3-card-2">
+            <img src="http://placehold.it/350x150" style="width:100%">
+            <div class="w3-container">
+              <h5>App 2</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="w3-third">
+          <div class="w3-card-2">
+            <img src="http://placehold.it/350x150" style="width:100%">
+            <div class="w3-container">
+              <h5>App 3</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w3-row-padding w3-margin-top">
+        <div class="w3-third">
+          <div class="w3-card-2">
+            <img src="http://placehold.it/350x150" style="width:100%">
+            <div class="w3-container">
+              <h5>App 4</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="w3-third">
+          <div class="w3-card-2">
+            <img src="http://placehold.it/350x150" style="width:100%">
+            <div class="w3-container">
+              <h5>App 5</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Third Floor Gallery -->
+    <div id="third_floor" class="w3-hide">
+      <div class="w3-row-padding w3-margin-top">
+        <div class="w3-third">
+          <div class="w3-card-2">
+            <img src="http://placehold.it/350x150" style="width:100%">
+            <div class="w3-container">
+              <h5>App 6</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="w3-third">
+          <div class="w3-card-2">
+            <img src="http://placehold.it/350x150" style="width:100%">
+            <div class="w3-container">
+              <h5>App 7</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="w3-third">
+          <div class="w3-card-2">
+            <img src="http://placehold.it/350x150" style="width:100%">
+            <div class="w3-container">
+              <h5>App 8</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="w3-third">
+          <div class="w3-card-2">
+            <img src="http://placehold.it/350x150" style="width:100%">
+            <div class="w3-container">
+              <h5>App 9</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</section>
 
 <!-- Footer -->
-<footer class="w3-padding-16 w3-black w3-center w3-margin-top">
-  <div class="w3-xlarge w3-padding-8">
-    <i class="fa fa-facebook-official w3-hover-text-indigo"></i>
-    <i class="fa fa-instagram w3-hover-text-purple"></i>
-    <i class="fa fa-snapchat w3-hover-text-yellow"></i>
-    <i class="fa fa-pinterest-p w3-hover-text-red"></i>
-    <i class="fa fa-twitter w3-hover-text-light-blue"></i>
-    <i class="fa fa-linkedin w3-hover-text-indigo"></i>
+<footer>
+  <div class="w3-container w3-padding-16 w3-black w3-center">
+    <div class="w3-xlarge w3-padding-8">
+      <i class="fa fa-facebook-official w3-hover-text-indigo"></i>
+      <i class="fa fa-instagram w3-hover-text-purple"></i>
+      <i class="fa fa-snapchat w3-hover-text-yellow"></i>
+      <i class="fa fa-pinterest-p w3-hover-text-red"></i>
+      <i class="fa fa-twitter w3-hover-text-light-blue"></i>
+      <i class="fa fa-linkedin w3-hover-text-indigo"></i>
+    </div>
   </div>
 </footer>
 
