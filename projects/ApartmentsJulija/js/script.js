@@ -19,6 +19,7 @@ app.controller('navBarCtrl', function($scope) {
     $scope.apartments = "Apartments";
     $scope.about = "About";
     $scope.contact = "Contact";
+    $scope.map = "Map";
     $scope.book_now = "Book Now";
 });
 
