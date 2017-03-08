@@ -17,6 +17,14 @@
 <script src="./js/script.js"></script>
 
 <body class="w3-light-grey" id="home">
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
 
 <!-- Navigation Bar -->
 <div ng-app="navBar" ng-controller="navBarCtrl" id="nav_bar" class="w3-bar w3-top w3-white w3-large w3-hide-small w3-animate-opacity">
@@ -38,7 +46,7 @@
   <a id="show_nav_bar" class="w3-button w3-margin w3-white w3-animate-opacity w3-display-topleft w3-hide"><i class="fa fa-plus"></i></a>
 
   <!-- Booking Form -->
-  <div id="booking" class="w3-display-left w3-margin w3-animate-opacity w3-padding w3-col l7 m7 s10">
+  <div id="booking" class="w3-display-left w3-margin w3-animate-opacity w3-padding w3-col l7 m7 s11">
     <div class="w3-container w3-red">
       <h2><i class="fa fa-bed w3-margin-right"></i>House Julija</h2>
     </div>
@@ -88,25 +96,41 @@
 
 <section id="page_content" class="w3-display-container w3-white">
 
-  <!-- Contact Container -->
-  <div id="contact" class="w3-hide">
-    <div class="w3-display-topright w3-margin w3-padding-64 w3-col l6 m6 w3-hide-small">
+  <!-- Contact Container For Large and Medium Screens -->
+  <div id="contact" class="w3-hide w3-hide-small">
+    <div class="w3-display-topleft w3-padding-128 w3-margin w3-col l4 m5">
       <div class="w3-animate-left">
-        <h3>Feel free to ask us about our apartments.</br>Your holiday in Crikvenica has never been easier to arrange.</h3>
+        <h3>Contact us!</h3>
+        <p>Feel free to ask us about anything regarding your stay at House Julija.</p>
+        <div class="w3-large w3-margin-bottom">
+          <i class="fa fa-map-marker w3-margin-right"></i> Crikvenica, CRO<br>
+          <i class="fa fa-phone w3-margin-right"></i> +385-51-785481<br>
+          <i class="fa fa-envelope w3-margin-right"> </i> ksvast@gmail.com<br>
+        </div>
       </div>
     </div>
-    <div class="w3-display-topleft w3-margin w3-padding-64">
-      <div class="w3-card-24 w3-animate-left">
-        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FappJulija%2F&tabs=messages&width=400&height=400&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" width="400" height="400" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-      </div>
+    <div class="w3-container w3-padding-128 w3-display-right w3-col l7 m5">
+      <form action="/action_page.php" class="w3-animate-right">
+        <p>
+        <input class="w3-input" type="text" name="first" required>
+        <label class="w3-label w3-validate">Full Name</label></p>
+        <p>
+        <input class="w3-input" type="email" name="email" required>
+        <label class="w3-label w3-validate">Your Email</label></p>
+        <p>
+        <input class="w3-input" type="text" name="message" required>
+        <label class="w3-label w3-validate">Your Message</label></p>
+        <p>
+        <button class="w3-btn w3-dark-grey" type="submit"><i class="fa fa-send w3-margin-right"></i> Send</button>
+        </p>
+      </form>
     </div>
-    <div class="w3-display-bottomright w3-margin w3-padding-64 w3-col l6 m6 w3-hide-small">
-      <img class="w3-image w3-animate-right" src="./img/holiday.png" alt="Holiday">
+    <div class="w3-container w3-padding-128 w3-display-left w3-col l3">
     </div>
   </div>
 
-  <!-- Apartments Container -->
-  <div id="apartments" class="w3-display-topmiddle w3-margin w3-animate-opacity w3-padding-128 w3-col l11 m11 w3-hide">
+  <!-- Apartments Container For Large Screens-->
+  <div id="apartments" class="w3-display-topmiddle w3-margin w3-animate-opacity w3-padding-128 w3-col l11 w3-hide-small w3-hide-medium w3-hide">
     <div class="w3-container w3-center">
       <a id="first_floor_gallery" class="w3-bar-item w3-button w3-red w3-mobile">First Floor</a>
       <a id="second_floor_gallery" class="w3-bar-item w3-button w3-red w3-mobile">Second Floor</a>
@@ -244,6 +268,8 @@
     </div>
   </div>
 
+  <!-- Apartments Container For Small and Medium Screen-->
+
   <!-- About Paragraph Container For Large Screen -->
   <div id="about" class="w3-hide-small w3-hide-medium">
     <div class="w3-display-middle w3-padding w3-margin w3-col l4">
@@ -300,6 +326,81 @@
     </div>
   </div>
 
+  <!-- About Paragraph Container For Small and Medium Screens -->
+  <div id="about_mobile" class="w3-hide-large">
+    <div class="w3-display-topleft w3-padding-64 w3-margin w3-col m8 s10">
+      <div class="w3-animate-top">
+        <h3>Our apartments have everything you need.</h3>
+        <p>Our sea facing apartments are air conditioned. All apartments have fully equiped kitchen.</p>
+        <table class="w3-table">
+          <tr>
+            <td><i class="material-icons">&#xe333;</i></td>
+            <td>TV</td>
+            <td><i class="material-icons">&#xe63e;</i></td>
+            <td>WLAN</td>
+            <td><i class="material-icons">&#xeb3b;</i></td>
+            <td>AC</td>
+          </tr>
+          <tr class="w3-hide-medium">
+            <td><i class="material-icons">&#xe54f;</i></td>
+            <td>FREE PARKING</td>
+            <td><i class="material-icons">&#xe561;</i></td>
+            <td>OUTSIDE GRILL</td>
+          </tr>
+          <tr class="w3-hide-medium">
+            <td><i class="material-icons">&#xeb3e;</i></td>
+            <td>60 m</td>
+          </tr>
+          <tr class="w3-hide-medium">
+            <td><i class="material-icons">&#xe56c;</i></td>
+            <td>70 m</td>
+          </tr>
+          <tr class="w3-hide-medium">
+            <td><i class="material-icons">&#xe8cc;</i></td>
+            <td>70 m</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="w3-display-left w3-padding-48 w3-margin w3-col m5 w3-hide-small">
+      <div class="w3-animate-left">
+        <h3>Parking and outside activities.</h3>
+        <p>We have reserved parking spots for our guests and place for outside grill experience.</p>
+        <table class="w3-table">
+          <tr>
+            <td><i class="material-icons">&#xe54f;</i></td>
+            <td>FREE PARKING</td>
+            <td><i class="material-icons">&#xe561;</i></td>
+            <td>OUTSIDE GRILL</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="w3-display-bottomleft w3-margin w3-col m7">
+      <div class="w3-animate-left">
+        <h3>Vacation apartments located at the coast of North Adriatic Sea.</h3>
+        <p>Beach, restaurants and shopping center are all within a short walking distance.</p>
+        <p class="w3-hide-medium">We have reserved parking spots for our guests and place for outside grill experience.</p>
+        <table class="w3-table w3-col w3-hide-small">
+          <tr>
+            <td><i class="material-icons">&#xeb3e;</i></td>
+            <td>60 m</td>
+            <td><i class="material-icons">&#xe56c;</i></td>
+            <td>70 m</td>
+            <td><i class="material-icons">&#xe8cc;</i></td>
+            <td>70 m</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="w3-display-right w3-padding-48 w3-margin w3-col m6 s6">
+      <img src="./img/map_croatia.png" style="width:100%" class="w3-animate-right">
+    </div>
+
+  </div>
 
 </section>
 

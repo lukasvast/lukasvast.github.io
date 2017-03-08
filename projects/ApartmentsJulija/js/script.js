@@ -39,11 +39,13 @@ $(document).ready(function(){
   $("#show_contact").click(function(){
       $("#contact").removeClass("w3-hide");
       $("#about").addClass("w3-hide");
+      $("#about_mobile").addClass("w3-hide");
       $("#apartments").addClass("w3-hide");
   });
 
   $("#show_about").click(function(){
       $("#about").removeClass("w3-hide");
+      $("#about_mobile").removeClass("w3-hide");
       $("#contact").addClass("w3-hide");
       $("#apartments").addClass("w3-hide");
   });
@@ -52,6 +54,7 @@ $(document).ready(function(){
       $("#apartments").removeClass("w3-hide");
       $("#contact").addClass("w3-hide");
       $("#about").addClass("w3-hide");
+      $("#about_mobile").addClass("w3-hide");
   });
 
   $("#first_floor_gallery").click(function(){
