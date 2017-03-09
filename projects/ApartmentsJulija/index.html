@@ -16,33 +16,29 @@
 <link rel="stylesheet" href="./css/style.css">
 <script src="./js/script.js"></script>
 
-<body class="w3-light-grey" id="home" ng-app="content" ng-controller="contentCtrl">
+<body class="w3-light-grey" id="home" ng-app="content" ng-controller="localizationCtrl">
 
-<!-- Navigation Bar -->
-<div id="nav_bar" class="w3-bar w3-top w3-white w3-large w3-hide-small w3-animate-opacity">
-  <a id="close_nav_bar" class="w3-bar-item w3-button w3-mobile"><i class="fa fa-close"></i></a>
+<!-- Navigation Bar for Large and Medium Screens -->
+<div class="w3-bar w3-top w3-white w3-large w3-hide-small w3-animate-opacity">
   <a href="#home" class="w3-bar-item w3-button w3-red w3-mobile">Julija</a>
-  <a id="show_apartments" href="#page_content" class="w3-bar-item w3-button w3-mobile">{{apartments}}</a>
   <a id="show_about" href="#page_content" class="w3-bar-item w3-button w3-mobile">{{about}}</a>
+  <a id="show_apartments" href="#page_content" class="w3-bar-item w3-button w3-mobile">{{apartments}}</a>
   <a id="show_contact" href="#page_content" class="w3-bar-item w3-button w3-mobile">{{contact}}</a>
   <a href="#map" class="w3-bar-item w3-button w3-mobile">{{map}}</a>
 </div>
 
-<!-- Navigation Bar for Mobile -->
-<div class="w3-bar w3-light-grey w3-border w3-top w3-hide-medium w3-hide-large">
+<!-- Navigation Bar for Small Screen -->
+<div class="w3-bar w3-white w3-top w3-hide-medium w3-hide-large">
   <a href="#home" class="w3-bar-item w3-button w3-red"><i class="material-icons">&#xe88a;</i></a>
-  <a href="https://www.facebook.com/appJulija" class="w3-bar-item w3-button"><i class="material-icons">&#xe0c9;</i></i></a>
   <a href="#page_content" class="w3-bar-item w3-button"><i class="material-icons">&#xe619;</i></a>
-  <a href="#map" class="w3-bar-item w3-button"><i class="material-icons">&#xe55e;</i></a>
   <a href="#apartments_small" class="w3-bar-item w3-button"><i class="material-icons">&#xe413;</i></a>
+  <a href="https://www.facebook.com/appJulija" class="w3-bar-item w3-button"><i class="material-icons">&#xe0c9;</i></i></a>
+  <a href="#map" class="w3-bar-item w3-button"><i class="material-icons">&#xe55e;</i></a>
 </div>
 
 <!-- Header -->
 <header class="w3-display-container w3-white">
   <img class="w3-image" src="./img/crikvenica_beach_bg.jpg" alt="Crikvenica Beach">
-
-  <!-- Show NavBar Button -->
-  <a id="show_nav_bar" class="w3-button w3-margin w3-white w3-animate-opacity w3-display-topleft w3-hide"><i class="fa fa-plus"></i></a>
 
   <!-- Booking and Prices Form -->
   <div id="booking" class="w3-display-topleft w3-margin w3-animate-opacity w3-padding-128 w3-col l5 m7 s11">
@@ -124,6 +120,7 @@
 
 </header>
 
+<!-- Large and Medium Screen Activity -->
 <section id="page_content" class="w3-display-container w3-white">
 
   <!-- Contact Container For Large and Medium Screens -->
@@ -528,10 +525,12 @@
     </div>
     </div>
   </div>
+
 </section>
 
 <!-- Small Screen Activity -->
 <section class="w3-hide-large w3-display-container w3-hide-medium w3-white" style="height:2000px;">
+
   <div id="apartments_small" class="w3-animate-top w3-hide-large w3-hide-medium">
       <div class="w3-row-padding w3-padding-128">
 
@@ -645,12 +644,13 @@
 
       </div>
     </div>
+
 </section>
 
 
 <!-- Google Maps Section -->
 <article id="map">
-  <div id="googleMap" class="w3-animate-top" style="width:100%;height:500px;"></div>
+  <div id="googleMap" style="width:100%;height:600px;"></div>
 </article>
 
 <!-- Footer -->
@@ -666,7 +666,6 @@
     </div>
   </div>
 </footer>
-
 
 <!-- Add Google Maps -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDut3IyxXJwxXpbnKxjFVZ66rAW_HSY1gs&callback=myMap"></script>

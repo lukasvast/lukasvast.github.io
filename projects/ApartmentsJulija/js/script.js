@@ -1,5 +1,4 @@
-function myMap()
-{
+function myMap(){
   myCenter=new google.maps.LatLng(45.183672, 14.6810937);
   var mapOptions= {
     center:myCenter,
@@ -15,7 +14,7 @@ function myMap()
 }
 
 var app = angular.module('content', []);
-app.controller('contentCtrl', function($scope) {
+app.controller('localizationCtrl', function($scope) {
     $scope.apartments = "Apartments";
     $scope.about = "About";
     $scope.contact = "Contact";
@@ -103,16 +102,6 @@ app.controller('galleryCtrl', function($scope) {
 
 
 $(document).ready(function(){
-
-  $("#show_nav_bar").click(function(){
-      $("#nav_bar").show();
-      $("#show_nav_bar").addClass("w3-hide");
-  });
-
-  $("#close_nav_bar").click(function(){
-      $("#nav_bar").hide();
-      $("#show_nav_bar").removeClass("w3-hide");
-  });
 
   $("#show_contact").click(function(){
       $("#contact").removeClass("w3-hide");
