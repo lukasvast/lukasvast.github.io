@@ -14,13 +14,23 @@ function myMap()
   marker.setMap(map);
 }
 
-var app = angular.module('navBar', []);
-app.controller('navBarCtrl', function($scope) {
+var app = angular.module('content', []);
+app.controller('contentCtrl', function($scope) {
     $scope.apartments = "Apartments";
     $scope.about = "About";
     $scope.contact = "Contact";
     $scope.map = "Map";
     $scope.book_now = "Book Now";
+    $scope.preseason = "Preseason: 01.05.-01.06.";
+    $scope.preseasonprice = "From: 30 To: 40";
+    $scope.earlyseason = "Early season: 01.06.-01.07.";
+    $scope.earlyseasonprice = "From: 40 To: 55";
+    $scope.midseason = "Mid season: 01.07.-15.08.";
+    $scope.midseasonprice = "From: 50 To: 80";
+    $scope.lateseason = "Late season: 15.08.-01.09.";
+    $scope.lateseasonprice = "From: 40 To: 60";
+    $scope.posteseason = "Postseason: 01.09.-01.10."
+    $scope.posteseasonprice = "From: 30 To: 35"
 });
 
 
