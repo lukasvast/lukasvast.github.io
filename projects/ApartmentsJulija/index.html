@@ -17,14 +17,6 @@
 <script src="./js/script.js"></script>
 
 <body class="w3-light-grey" id="home">
-  <div id="fb-root"></div>
-  <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
 
 <!-- Navigation Bar -->
 <div ng-app="navBar" ng-controller="navBarCtrl" id="nav_bar" class="w3-bar w3-top w3-white w3-large w3-hide-small w3-animate-opacity">
@@ -36,6 +28,15 @@
   <a href="#map" class="w3-bar-item w3-button w3-mobile">{{map}}</a>
   <a id="DE" class="w3-bar-item w3-button w3-right w3-mobile">DE</a>
   <a id="ENG" class="w3-bar-item w3-button w3-right w3-mobile">ENG</a>
+</div>
+
+<!-- Navigation Bar for Mobile -->
+<div class="w3-bar w3-light-grey w3-border w3-top w3-hide-medium w3-hide-large">
+  <a href="#home" class="w3-bar-item w3-button w3-red"><i class="material-icons">&#xe88a;</i></a>
+  <a href="https://www.facebook.com/appJulija" class="w3-bar-item w3-button"><i class="material-icons">&#xe0c9;</i></i></a>
+  <a href="#page_content" class="w3-bar-item w3-button"><i class="material-icons">&#xe619;</i></a>
+  <a href="#map" class="w3-bar-item w3-button"><i class="material-icons">&#xe55e;</i></a>
+  <a href="#apartments_small" class="w3-bar-item w3-button"><i class="material-icons">&#xe413;</i></a>
 </div>
 
 <!-- Header -->
@@ -109,7 +110,7 @@
         </div>
       </div>
     </div>
-    <div class="w3-container w3-padding-128 w3-display-right w3-col l7 m5">
+    <div class="w3-container w3-padding-128 w3-display-right w3-col l7 m7">
       <form action="/action_page.php" class="w3-animate-right">
         <p>
         <input class="w3-input" type="text" name="first" required>
@@ -129,135 +130,112 @@
     </div>
   </div>
 
-  <!-- Apartments Container For Large Screens-->
-  <div id="apartments" class="w3-display-topmiddle w3-margin w3-animate-opacity w3-padding-128 w3-col l11 w3-hide-small w3-hide-medium w3-hide">
-    <div class="w3-container w3-center">
-      <a id="first_floor_gallery" class="w3-bar-item w3-button w3-red w3-mobile">First Floor</a>
-      <a id="second_floor_gallery" class="w3-bar-item w3-button w3-red w3-mobile">Second Floor</a>
-      <a id="third_floor_gallery" class="w3-bar-item w3-button w3-red w3-mobile">Third Floor</a>
-    </div>
+  <!-- Apartments Container For Large and Medium Screens-->
+  <div id="apartments" class="w3-animate-top w3-hide">
+      <div class="w3-row-padding w3-padding-128">
 
-    <!-- First Floor Gallery -->
-    <div id="first_floor" class="w3-hide w3-animate-top">
-      <div class="w3-row-padding w3-margin-top">
-        <div class="w3-third">
+        <div class="w3-col l3 m4 s6">
           <div class="w3-card-2">
-            <img src="http://placehold.it/350x150" style="width:100%">
+            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('kety').style.display='block'" class="w3-hover-opacity">
             <div class="w3-container">
               <h5>Kety</h5>
             </div>
           </div>
         </div>
 
-        <div class="w3-third">
+        <div class="w3-col l3 m4 s6">
           <div class="w3-card-2">
-            <img src="http://placehold.it/350x150" style="width:100%">
+            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('sarah_kay').style.display='block'" class="w3-hover-opacity">
             <div class="w3-container">
               <h5>Sarah Kay</h5>
             </div>
           </div>
         </div>
 
-        <div class="w3-third">
+        <div class="w3-col l3 m4 s6">
           <div class="w3-card-2">
-            <img src="http://placehold.it/350x150" style="width:100%">
+            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('ruski_raj').style.display='block'" class="w3-hover-opacity">
             <div class="w3-container">
               <h5>Ruski Raj</h5>
             </div>
           </div>
         </div>
 
-      </div>
-    </div>
-
-    <!-- Second Floor Gallery -->
-    <div id="second_floor" class="w3-hide w3-animate-top">
-      <div class="w3-row-padding w3-margin-top">
-        <div class="w3-third">
+        <div class="w3-col l3 m4 s6">
           <div class="w3-card-2">
-            <img src="http://placehold.it/350x150" style="width:100%">
+            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('app1').style.display='block'" class="w3-hover-opacity">
             <div class="w3-container">
               <h5>App 1</h5>
             </div>
           </div>
         </div>
 
-        <div class="w3-third">
+        <div class="w3-col l3 m4 s6">
           <div class="w3-card-2">
-            <img src="http://placehold.it/350x150" style="width:100%">
+            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('app2').style.display='block'" class="w3-hover-opacity">
             <div class="w3-container">
               <h5>App 2</h5>
             </div>
           </div>
         </div>
 
-        <div class="w3-third">
+        <div class="w3-col l3 m4 s6">
           <div class="w3-card-2">
-            <img src="http://placehold.it/350x150" style="width:100%">
+            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('app3').style.display='block'" class="w3-hover-opacity">
             <div class="w3-container">
               <h5>App 3</h5>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="w3-row-padding w3-margin-top">
-        <div class="w3-third">
+        <div class="w3-col l3 m4 s12">
           <div class="w3-card-2">
-            <img src="http://placehold.it/350x150" style="width:100%">
+            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('app4').style.display='block'" class="w3-hover-opacity">
             <div class="w3-container">
               <h5>App 4</h5>
             </div>
           </div>
         </div>
 
-        <div class="w3-third">
+        <div class="w3-col l3 m4 s6">
           <div class="w3-card-2">
-            <img src="http://placehold.it/350x150" style="width:100%">
+            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('app5').style.display='block'" class="w3-hover-opacity">
             <div class="w3-container">
               <h5>App 5</h5>
             </div>
           </div>
         </div>
 
-      </div>
-    </div>
-
-    <!-- Third Floor Gallery -->
-    <div id="third_floor" class="w3-hide w3-animate-top">
-      <div class="w3-row-padding w3-margin-top">
-        <div class="w3-third">
+        <div class="w3-col l3 m4 s6">
           <div class="w3-card-2">
-            <img src="http://placehold.it/350x150" style="width:100%">
+            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('app6').style.display='block'" class="w3-hover-opacity">
             <div class="w3-container">
               <h5>App 6</h5>
             </div>
           </div>
         </div>
 
-        <div class="w3-third">
+        <div class="w3-col l3 m4 s6">
           <div class="w3-card-2">
-            <img src="http://placehold.it/350x150" style="width:100%">
+            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('app7').style.display='block'" class="w3-hover-opacity">
             <div class="w3-container">
               <h5>App 7</h5>
             </div>
           </div>
         </div>
 
-        <div class="w3-third">
+        <div class="w3-col l3 m4 s6">
           <div class="w3-card-2">
-            <img src="http://placehold.it/350x150" style="width:100%">
+            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('app8').style.display='block'" class="w3-hover-opacity">
             <div class="w3-container">
               <h5>App 8</h5>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="w3-row-padding w3-margin-top">
-        <div class="w3-third">
+        <div class="w3-col l3 m4 s12">
           <div class="w3-card-2">
-            <img src="http://placehold.it/350x150" style="width:100%">
+            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('app9').style.display='block'" class="w3-hover-opacity">
             <div class="w3-container">
               <h5>App 9</h5>
             </div>
@@ -266,9 +244,6 @@
 
       </div>
     </div>
-  </div>
-
-  <!-- Apartments Container For Small and Medium Screen-->
 
   <!-- About Paragraph Container For Large Screen -->
   <div id="about" class="w3-hide-small w3-hide-medium">
@@ -289,7 +264,7 @@
       </div>
     </div>
 
-    <div class="w3-display-topright w3-padding-48 w3-margin w3-col l4">
+    <div class="w3-display-topright w3-padding-48 w3-margin w3-col l6">
       <img src="./img/map_croatia.png" style="width:100%" class="w3-animate-right">
     </div>
 
@@ -403,6 +378,261 @@
   </div>
 
 </section>
+
+<!-- Small Screen Activity -->
+<section class="w3-hide-large w3-display-container w3-hide-medium w3-white" style="height:2000px;">
+  <div id="apartments_small" class="w3-animate-top w3-hide-large w3-hide-medium">
+      <div class="w3-row-padding w3-padding-128">
+
+        <div class="w3-col l3 m4 s6">
+          <div class="w3-card-2">
+            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('kety').style.display='block'" class="w3-hover-opacity">
+            <div class="w3-container">
+              <h5>Kety</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="w3-col l3 m4 s6">
+          <div class="w3-card-2">
+            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('sarah_kay').style.display='block'" class="w3-hover-opacity">
+            <div class="w3-container">
+              <h5>Sarah Kay</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="w3-col l3 m4 s6">
+          <div class="w3-card-2">
+            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('ruski_raj').style.display='block'" class="w3-hover-opacity">
+            <div class="w3-container">
+              <h5>Ruski Raj</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="w3-col l3 m4 s6">
+          <div class="w3-card-2">
+            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('app1').style.display='block'" class="w3-hover-opacity">
+            <div class="w3-container">
+              <h5>App 1</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="w3-col l3 m4 s6">
+          <div class="w3-card-2">
+            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('app2').style.display='block'" class="w3-hover-opacity">
+            <div class="w3-container">
+              <h5>App 2</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="w3-col l3 m4 s6">
+          <div class="w3-card-2">
+            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('app3').style.display='block'" class="w3-hover-opacity">
+            <div class="w3-container">
+              <h5>App 3</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="w3-col l3 m4 s12">
+          <div class="w3-card-2">
+            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('app4').style.display='block'" class="w3-hover-opacity">
+            <div class="w3-container">
+              <h5>App 4</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="w3-col l3 m4 s6">
+          <div class="w3-card-2">
+            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('app5').style.display='block'" class="w3-hover-opacity">
+            <div class="w3-container">
+              <h5>App 5</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="w3-col l3 m4 s6">
+          <div class="w3-card-2">
+            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('app6').style.display='block'" class="w3-hover-opacity">
+            <div class="w3-container">
+              <h5>App 6</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="w3-col l3 m4 s6">
+          <div class="w3-card-2">
+            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('app7').style.display='block'" class="w3-hover-opacity">
+            <div class="w3-container">
+              <h5>App 7</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="w3-col l3 m4 s6">
+          <div class="w3-card-2">
+            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('app8').style.display='block'" class="w3-hover-opacity">
+            <div class="w3-container">
+              <h5>App 8</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="w3-col l3 m4 s12">
+          <div class="w3-card-2">
+            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('app9').style.display='block'" class="w3-hover-opacity">
+            <div class="w3-container">
+              <h5>App 9</h5>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+</section>
+
+<!-- Modal First Floor -->
+<div id="kety" class="w3-modal" onclick="this.style.display='none'">
+  <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
+  <div class="w3-modal-content w3-animate-zoom">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+  </div>
+</div>
+<div id="sarah_kay" class="w3-modal" onclick="this.style.display='none'">
+  <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
+  <div class="w3-modal-content w3-animate-zoom">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+  </div>
+</div>
+<div id="ruski_raj" class="w3-modal" onclick="this.style.display='none'">
+  <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
+  <div class="w3-modal-content w3-animate-zoom">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+  </div>
+</div>
+
+<!-- Modal Second Floor -->
+<div id="app1" class="w3-modal" onclick="this.style.display='none'">
+  <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
+  <div class="w3-modal-content w3-animate-zoom">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+  </div>
+</div>
+<div id="app2" class="w3-modal" onclick="this.style.display='none'">
+  <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
+  <div class="w3-modal-content w3-animate-zoom">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+  </div>
+</div>
+<div id="app3" class="w3-modal" onclick="this.style.display='none'">
+  <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
+  <div class="w3-modal-content w3-animate-zoom">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+  </div>
+</div>
+<div id="app4" class="w3-modal" onclick="this.style.display='none'">
+  <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
+  <div class="w3-modal-content w3-animate-zoom">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+  </div>
+</div>
+<div id="app5" class="w3-modal" onclick="this.style.display='none'">
+  <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
+  <div class="w3-modal-content w3-animate-zoom">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+  </div>
+</div>
+
+<!-- Modal Third Floor -->
+<div id="app6" class="w3-modal" onclick="this.style.display='none'">
+  <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
+  <div class="w3-modal-content w3-animate-zoom">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+  </div>
+</div>
+<div id="app7" class="w3-modal" onclick="this.style.display='none'">
+  <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
+  <div class="w3-modal-content w3-animate-zoom">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+  </div>
+</div>
+<div id="app8" class="w3-modal" onclick="this.style.display='none'">
+  <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
+  <div class="w3-modal-content w3-animate-zoom">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+  </div>
+</div>
+<div id="app9" class="w3-modal" onclick="this.style.display='none'">
+  <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
+  <div class="w3-modal-content w3-animate-zoom">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+    <img src="http://placehold.it/350x200" class="w3-col l6 m6">
+  </div>
+</div>
 
 <!-- Google Maps Section -->
 <article id="map">
