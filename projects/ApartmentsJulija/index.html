@@ -39,7 +39,7 @@
 <!-- Header -->
 <header class="w3-container w3-white">
 
-  <!-- Booking and Prices Form -->
+  <!-- Booking, Confirmation and Prices Form -->
   <div id="booking" class="w3-margin w3-animate-left w3-padding-64 w3-col l5 m7 s11">
     <div class="w3-container w3-card-24 w3-red">
       <h2><i class="fa fa-bed w3-margin-right"></i>House Julija</h2>
@@ -65,7 +65,9 @@
         <input id="numKids" class="w3-input w3-border" type="number" value="0" min="0" max="4">
         </div>
       </div>
-      <button class="w3-button w3-dark-grey" onclick="POST()"><i class="fa fa-search w3-margin-right"></i> Search availability</button>
+      <button class="w3-button w3-dark-grey" onclick="validate()"><i class="fa fa-search w3-margin-right"></i> Search availability</button>
+    </div>
+    <div class="w3-container w3-padding-32">
     </div>
     <!-- Confirm Reservation -->
     <div id="confirmPanel" class="w3-hide w3-animate-top">
@@ -73,30 +75,20 @@
         <h2><i class="fa fa-dollar w3-margin-right"></i>Confirm Reservation</h2>
       </div>
       <div class="w3-container w3-card-24 w3-white w3-padding-16">
-        <table class="w3-table">
-          <tr>
-            <td><i class="fa fa-calendar-o"></i> Check In</td>
-            <td id="checkInConfirm"></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-calendar-o"></i> Number of Days</td>
-            <td id="numDaysConfirm"></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-male"></i> Adults</td>
-            <td id="numAdultsConfirm"></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-child"></i> Kinder</td>
-            <td id="numKidsConfirm"></td>
-          </tr>
-        </table>
+        <h4>Reservation for <b id="numAdultsConfirm"></b> adults and <b id="numKidsConfirm"></b> kids.
+          From <b id="checkInConfirm"></b> for a total of <b id="numDaysConfirm"></b> days.</h4>
+        <h4>Our estimated price is <b id="priceConfirm">460€</b>.</h4>
+        <button class="w3-button w3-green" onclick="validate(1)"><i class="fa fa-check w3-margin-right"></i> Confirm</button>
       </div>
     </div>
     <div class="w3-container w3-padding-32">
     </div>
+  </div>
+
+  <!-- Prices container -->
+  <div id="prices" class="w3-display-topright w3-animate-opacity w3-margin w3-padding-64 w3-col l5 m4 w3-hide-small">
     <!-- Prices -->
-    <div class="w3-container w3-card-24 w3-green">
+    <div class="w3-container w3-card-24 w3-blue">
       <h2><i class="fa fa-dollar w3-margin-right"></i>Prices</h2>
     </div>
     <div class="w3-container w3-card-24 w3-white w3-padding-16">
@@ -124,21 +116,6 @@
           <td>{{posteseasonprice}}</td>
         </tr>
       </table>
-    </div>
-  </div>
-
-  <!-- Weather container -->
-  <div id="weather" class="w3-display-topright w3-animate-opacity w3-margin w3-padding-64 w3-col l4 m4 w3-hide-small">
-    <div class="w3-container w3-card-24 w3-blue">
-      <h2><i class="fa fa-cloud w3-margin-right"></i>Weather</h2>
-    </div>
-    <div class="w3-container w3-card-24 w3-white w3-padding-16">
-      <div class="w3-half">
-        <h6>Today:</h6>
-      </div>
-      <div class="w3-half">
-        <h6>Tomorrow:</h6>
-      </div>
     </div>
   </div>
 

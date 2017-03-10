@@ -13,7 +13,7 @@ function myMap(){
   marker.setMap(map);
 }
 
-function POST(){
+function validate(status){
 
   //pull data from input fields
   var checkIn = new Date($("#checkIn").val());
@@ -36,7 +36,7 @@ function POST(){
   }
   else if (numDays<6 || numDays>28) {
     $("#numDays").addClass("w3-red");
-    alert("Minimum 6 days reservations!");
+    alert("Minimum 6 Days Reservations!");
   }
   //validate people
   else if (numAdults>6 || numAdults<2) {
@@ -51,28 +51,20 @@ function POST(){
   }
   //extra constraints
   else if (checkIn.getDay()!=6) {
-    alert ("Check Ins Only On Saturday!")
+    alert ("Check In Only On Saturday!")
   }
   else {
     //alert(JSON.stringify(data));
     $("#confirmPanel").removeClass("w3-hide");
-    $("#checkInConfirm").text(checkIn.getDate()+". - "+checkIn.getMonth());
+    $("#checkInConfirm").text(checkIn.getDate()+". "+(checkIn.getMonth()+1)+". "+checkIn.getFullYear());
     $("#numDaysConfirm").text(numDays);
     $("#numAdultsConfirm").text(numAdults);
     $("#numKidsConfirm").text(numKids);
   }
 
-  //AJAX call to checka availability
-  $.ajax({
-      type: 'POST',
-      dataType: 'json',
-      url: "http://localhost:8000/api/insert",
-      data: data,
-      success: function(data,status) {
-        data.status = status;
-        alert(JSON.stringify(data));
-      }
-  });
+  if (status==1) {
+    alert("POSTAM");
+  }
 
 }
 
@@ -161,7 +153,6 @@ app.controller('galleryCtrl', function($scope) {
     $scope.app93="https://lh3.googleusercontent.com/a5I-7eaKGPwjDAgQmNv3dArnQSyYnRqHfXeBtdTIjRQIYZj8hZ_glFs4adLOD4Z6huXY6UyYw4IntZolcT21E8t2FhL3vHeFcWzLvpkDeoOLHVNW-wG7Kw7afyZ1FnKy6EmZ1En1WCkTgKziCHMKauah1pjer1RP_qdtmOZInF7TcC1F_9DvelVlp-qXWgDSUW-ZWKKbHRx1Q4NV1ITgBGAPghtANjGCGHrN8PgyvFz3Z95qK5T5o4m1RYhjAy81CAX07y7qBo5JnGDDH5MsltCPPAZXkdiVtzD07KFODpctIgi0z7dF4AKCnUbz3tgam-BCLfMqBFr3Da2k7kCPY4qSAWb-4P4VfPdSJvKm2Wxws7y4RRWDL3LloOIhIVxEOShRQBPoLMVz-7Qbia-Mwyqn2uNDKCSmO2Xyjuj7G7v_RkYyi7cZlQMwGsfIi3k5AEhIJPTKhmEuXjzKnclvhhQShA_uvUrtM1P9MI9-PWfDqCBWVgbXbpA3pFxex4I1CnZFbRSILmTxqCnqZBrKjMnS_vdT2b-i1cAtGdC_2dPvnWGXUWuACya3xq37zBsvIBMxd57g1GFkMGH9hSV8rpAMhGdcPUgtgrnX3NXGxwwr6A=w1135-h638-no";
     $scope.app94="https://lh3.googleusercontent.com/lrUuBY6z4vxIjIaVFHOcAwfe4aoe-q5Gm16f3gYqudxIL3gSZINmAHGbQl__HT42P89xcM4NhB_qgXcN61nlboilyKKq7Ah5fVo_kvrB16BcpKXF2omcVg967AXesXYOzhtaeSof8UyRff525ZfzAFyBZW5jgW7DHpOvw4EKAL0E_XMp9rkdntH8DOmnH95Vpbrcvead1adqwzFkio0g5CXBMW0eDEsafwm9rP1zJK-PawGqEdM5E6KygyJKNq0CvDTPp6QF7VTe2VSVUSfKWzbEs8UKTFtS5gxadGd0CBvOObSMVV67b4Zp9nUYjQJ06Vk0w6mtD00eb8GUZ9IhSI_nMwuXSrGrxVkBjqDy31b3-_LV2O2a2wJbXZ4ey3CkJvipCcjSgwc9uFUJjgczP7QmVibAKyYgbnRNUpWIwZ6Wg1zsTd032B39vmjGeZ-gRf1dpRf_kpdsiqe2DgZlcJLBcadH8qhzd-8iaTNP5RjUEVWB2nIAsmAIgaR6jRTSZpaDQAD2a-porQZA3sAgKwJyVp6LbTNGMFPYHfW4z0KOUxppQwZSOx4dgYm7uPiiDT1d794u14Iw17anRyJTAqbd4Oq9982N7X8Fe7jzRkjLeA=w1135-h638-no";
 });
-
 
 $(document).ready(function(){
 
