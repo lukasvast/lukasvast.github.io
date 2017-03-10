@@ -13,6 +13,69 @@ function myMap(){
   marker.setMap(map);
 }
 
+function POST(){
+
+  //pull data from input fields
+  var checkIn = new Date($("#checkIn").val());
+  var numDays = parseInt($("#numDays").val());
+  var numAdults = parseInt($("#numAdults").val());
+  var numKids = parseInt($("#numKids").val());
+  var people = numAdults+numKids;
+
+  var data = {"checkIn": checkIn, "numDays": numDays, "numAdults": numAdults, "numKids": numKids, "people": people};
+
+  //reset style
+  $("#numAdults").removeClass("w3-red");
+  $("#numKids").removeClass("w3-red");
+  $("#checkIn").removeClass("w3-red");
+  $("#numDays").removeClass("w3-red");
+
+  //validate dates
+  if (!checkIn.getDate()) {
+    $("#checkIn").addClass("w3-red");
+  }
+  else if (numDays<6 || numDays>28) {
+    $("#numDays").addClass("w3-red");
+    alert("Minimum 6 days reservations!");
+  }
+  //validate people
+  else if (numAdults>6 || numAdults<2) {
+    $("#numAdults").addClass("w3-red");
+  }
+  else if (numKids>4 || numKids < 0) {
+    $("#numKids").addClass("w3-red");
+  }
+  else if (people>6) {
+    $("#numKids").addClass("w3-red");
+    $("#numAdults").addClass("w3-red");
+  }
+  //extra constraints
+  else if (checkIn.getDay()!=6) {
+    alert ("Check Ins Only On Saturday!")
+  }
+  else {
+    //alert(JSON.stringify(data));
+    $("#confirmPanel").removeClass("w3-hide");
+    $("#checkInConfirm").text(checkIn.getDate()+". - "+checkIn.getMonth());
+    $("#numDaysConfirm").text(numDays);
+    $("#numAdultsConfirm").text(numAdults);
+    $("#numKidsConfirm").text(numKids);
+  }
+
+  //AJAX call to checka availability
+  $.ajax({
+      type: 'POST',
+      dataType: 'json',
+      url: "http://localhost:8000/api/insert",
+      data: data,
+      success: function(data,status) {
+        data.status = status;
+        alert(JSON.stringify(data));
+      }
+  });
+
+}
+
 var app = angular.module('content', []);
 app.controller('localizationCtrl', function($scope) {
     $scope.apartments = "Apartments";
@@ -31,7 +94,6 @@ app.controller('localizationCtrl', function($scope) {
     $scope.posteseason = "Postseason: 01.09.-01.10."
     $scope.posteseasonprice = "From: 30 To: 35"
 });
-
 app.controller('galleryCtrl', function($scope) {
     $scope.kety1 = "https://lh3.googleusercontent.com/Bgzp2WgpoZ47XumPmXSTYpoBqePA-0ayggPeW7KcYDou08Jf2Nv5JjlCtWKWpRpRBXQVRa2RRQKoPOQl3cNqB1ZBZyvGHH5niX8x_KpMfXinhpGWs9Xw-V5tX8BmSXeX1VPI9L2VVq3Lqgg8giE3qdvNydJcyoDB8sfPcMsqkb6k1r5P3RrsfZxfOVOMy5jGkQDea247C3TOh3mV0n9P075Q7_pk4AQu0tPnJmEU6-5WnS8odsNB7W5XlsfKcGWRqx8ZIV7m0y5bwdibYNR5UoUloHE1IF8uFWnGZeAO52O2B_pXiBCE1Qp8bFVw89VBj-ZqyoBeNAs7NmcuTe2VM3rrOtTTvo2O1E0bGxhVoafLzX05fJlSZ4NJIWctwxsoEODO4o4fuhH7N2lJ3IBrCFuzMaQBZpxF6NM4ZYiK5guX7vqlT4Is1knW2o3YfpVsP4yjCC_Er2slww7cS_8S_GEuVLsueTr1NKgRwYAx0xMZF5kSoOFptJoQzWy3qUpJj2VbDTfmyo6bxZC30JoJqfN3Z1UFSm76jhVaER_HUirN860P5dHipdpmg-tj9ylhuz5t565L1SOx_0euykH275-kZdyuJOEqJe5UcJZp7mbCtA=w1135-h638-no";
     $scope.kety2 = "https://lh3.googleusercontent.com/UM6MktG1B67JMivdmPbdOjl16PEYh9-R_uScIkUoASFIBttqwyhVEVQnISeXsrd9062cB9kvdt7CKyFXTFbuwHtxwMmaI6v-z4ai8bVNoQOJZ0K3wyf_DrouNGpILWNd9kuNqw4m1HjBeClgvi_P-L-QPwGQuRW1t0XOOA9g63S98TBbjU-rYuIVb02uWs651icOV2Xj6NERJF2IIgMPES2yeGtvm_3vZa_J3k2p_9Sr9ROxZQ_MeKastcwrNS_xT8nSY7CpHAjrVX4wseJXGOqd9RH3cgxGUXdfsxC2RDJfaByjJaGdzpRN2n-81n0bu_3Hf8JHZ4JOchwgmFL0DRO8LSINpAL8F5W_pmKijDYvxYVjhx9IDplk5iH6M8yiwCNfdtGZMAy5VkIqvvtkIicmxIvvMnayuCNqp21VnrLpN4YE7WVYKbMN6tEDs43wLiZnQNauxU5rGY_-ZrhG9XSKGBOWO69viq0YiJ5JjaFcxL7hlkg-3pPKSHLQVlcmfVJMK7LWVT7VxnEzaGQ8-kdpEbwZsR6GDy7UU5FFYTXlNsEeEfWe3JYYs6NfBrn4d8J8X-D0-l9759Po-ehFJpwxdRMebL43Sso_yWdeZ7SRlw=w1135-h638-no";
@@ -54,7 +116,7 @@ app.controller('galleryCtrl', function($scope) {
     $scope.sarah_kay5="https://lh3.googleusercontent.com/GU7XP3IXra4jCfvElZNY0y-57RV7X40mYSdaK6Vv7uqpFg2i3ao33wVfxnUZANY8oyAB6LOO6IJsUjUfzXw3csvVPeuaN0A70wyGyPubMXzULHoV4VHx_oIKSeIyMTjogdSjV7FPU5LG8H9YikeoHVJfLqA7fZo0ZV0kO6uN0r7lBIXVnz93xZq9nW-yey1V2tB_vc2DIhj7c5JIgsxpFa2z1k9EQ-M7YWs9_gUCuIQgpsOi6buRsrlVlBwsYxYR6p-Sh7MfWCnFjlZihKqmYOGf8xUF_uij32BMRErIjfIib9hHSygjGMUOXah1DLb4zaWU92Fpy5FgXPfs7aQf2s3NV6cGP_oSNHkCDx413srqnDF-Xk6cd_SeI9UtPr_J8ROxZCkBfjdKZytwkFWlJXOqFDQWVl9eb7fpA38Yjh32qzjml9wR4WvZAeC8AOWdWq5L5YxPHDMkEAzIifrAw4WdWbAp_grYD9as9NBWqHkl05yesHvUpkuSfBqGWQ-Yv1Wshx_d0jYX1S_q63arVlP_E0NNPyVXNnHmmDf_vHHeImY5Ef4kdXCCAaRARVXB3W6ArbVV17U5jkUOD9fIfwsCv7qBbQI6MG6CqoQ-9fjWEQ=w1135-h638-no";
     $scope.sarah_kay6="https://lh3.googleusercontent.com/yV7b0YCIUOTN0S_BFi-y6BBopsHBkfhv-hw71OF17ml69Pp7ZBVKLf7dhATygjnri-cQdF0hczO8TA8U57QJ91FGPQcpwo4QrL200krzGBBHnVCh8C0q7EtLZ89hpLi_eV1XzxOatJBSjhPIlBolvwaGB959F9y-iu1jgaFZVUuAnAv9brVf3qX6nVik8oQVlHUIY9OOHJuUTKbNRnqEusFZ5clpasL07MYEbKSWn6Ty5-xiK96-VTJjqUWYJXiqSjrA_y6s-sNoao5jllS9VBsWzUuG5Rtug3BsznWCaft9FinsrYGiiWKnWI6UbR_hhXUpV0Wo7uAsOT-dg04nqSgPjmjka7NdV8exth4t_dke39LJ0oHjG9dXI2BPCmZoPyIqwn8t0rsDpqqAVkiryev9LlKzkY112UfSR2HLJ_uxed24JpjCs_koxf7wX9YZROxDKiDkhvUrgaL-V5NUPRzhNYmxOuSbkjaqS3iVKVm1N5pN-EZpT1jR9T4zwmolZkOaH79or6Nz_B7Wmh7rl7ZVHeiAEtWJ6Az00vTtql9hPKPEEnV9CbSlXTxkEscF3up7DvV-6dxOtuRqdGwjSI_VF5yanZZMggIH96fVOMVOnQ=w1126-h638-no";
 
-    $scope.app11="https://lh3.googleusercontent.com/J6mVLKTR5ARAizfoPHWY1ugO_ioLEFdPztdwHLlTaYhaUSpNaeZiLEzB0YfUMsKe606y71ajH4odt5CZp4mOE6mgXk4KBfCdnZcr8R6qqMErtnR5ggWMFd9wFZFeJ9ASeY1EMYACzWwAx4D4nMovcbhTuVupTzeDXbJF_C4UEtwrgSVvlF8HEU6S-rCSXl9H81fqSFgbsJb3KvWWOqArqQj5VEOSJqeNiShrmU7qqWKNRqoXKrd8i4iPL1jMK-hTMynnm6a-LnKsRuOdJkjJw5t7OSCMsR3961aDlcFfAapuZ5zFoJQrVh_hyEYeF5jZQS4R_7UcoHTmlpkJzqHhO56JyxeXKUjSE9ajSGxDf9YZaLUqwzLEXy6qKN4rHJmN8l0UqQewrfJE7m-bADuKdFfrCnUVhPGtlREdXJXjG1wQh2srbR0uOOi9FRx0XRxQb6v2QBojblTzmw3pYy97bHnz57KBqNMV9tu3vfCFFT2MQKXr3XkrYELXw3MEKwTD3HN6JhhVHtBJz2baSHuzh4MNv9VemJXD0GruxkTwXVNG5AnCKeHz-o3nUMcJSE0k8BcTtWPiXYB38IAKcaWjC62pN9WvbzwhdiTXMSTUJMt0Fw=w1135-h638-nohttps://lh3.googleusercontent.com/J6mVLKTR5ARAizfoPHWY1ugO_ioLEFdPztdwHLlTaYhaUSpNaeZiLEzB0YfUMsKe606y71ajH4odt5CZp4mOE6mgXk4KBfCdnZcr8R6qqMErtnR5ggWMFd9wFZFeJ9ASeY1EMYACzWwAx4D4nMovcbhTuVupTzeDXbJF_C4UEtwrgSVvlF8HEU6S-rCSXl9H81fqSFgbsJb3KvWWOqArqQj5VEOSJqeNiShrmU7qqWKNRqoXKrd8i4iPL1jMK-hTMynnm6a-LnKsRuOdJkjJw5t7OSCMsR3961aDlcFfAapuZ5zFoJQrVh_hyEYeF5jZQS4R_7UcoHTmlpkJzqHhO56JyxeXKUjSE9ajSGxDf9YZaLUqwzLEXy6qKN4rHJmN8l0UqQewrfJE7m-bADuKdFfrCnUVhPGtlREdXJXjG1wQh2srbR0uOOi9FRx0XRxQb6v2QBojblTzmw3pYy97bHnz57KBqNMV9tu3vfCFFT2MQKXr3XkrYELXw3MEKwTD3HN6JhhVHtBJz2baSHuzh4MNv9VemJXD0GruxkTwXVNG5AnCKeHz-o3nUMcJSE0k8BcTtWPiXYB38IAKcaWjC62pN9WvbzwhdiTXMSTUJMt0Fw=w1135-h638-no";
+    $scope.app11="https://lh3.googleusercontent.com/J6mVLKTR5ARAizfoPHWY1ugO_ioLEFdPztdwHLlTaYhaUSpNaeZiLEzB0YfUMsKe606y71ajH4odt5CZp4mOE6mgXk4KBfCdnZcr8R6qqMErtnR5ggWMFd9wFZFeJ9ASeY1EMYACzWwAx4D4nMovcbhTuVupTzeDXbJF_C4UEtwrgSVvlF8HEU6S-rCSXl9H81fqSFgbsJb3KvWWOqArqQj5VEOSJqeNiShrmU7qqWKNRqoXKrd8i4iPL1jMK-hTMynnm6a-LnKsRuOdJkjJw5t7OSCMsR3961aDlcFfAapuZ5zFoJQrVh_hyEYeF5jZQS4R_7UcoHTmlpkJzqHhO56JyxeXKUjSE9ajSGxDf9YZaLUqwzLEXy6qKN4rHJmN8l0UqQewrfJE7m-bADuKdFfrCnUVhPGtlREdXJXjG1wQh2srbR0uOOi9FRx0XRxQb6v2QBojblTzmw3pYy97bHnz57KBqNMV9tu3vfCFFT2MQKXr3XkrYELXw3MEKwTD3HN6JhhVHtBJz2baSHuzh4MNv9VemJXD0GruxkTwXVNG5AnCKeHz-o3nUMcJSE0k8BcTtWPiXYB38IAKcaWjC62pN9WvbzwhdiTXMSTUJMt0Fw=w1135-h638-no";
     $scope.app12="https://lh3.googleusercontent.com/oMQObPOwm1ic3cYyfjP1UAjft2l4tMI527DPflVbQckW4eXLhezmPreEAoqxEZEMKPDhaShdunmf2KuY_dPWkQHhfMGIKs2lhYZ3RLGRyzy9c37yvgzvAWGkEbiO6qNcv_cWmeSrq-d35DXiV0Sg8bapDParabYIufx9YahC-o7ocY99ipHF24K1sI1RkjRelPMYE_6kSHy4GjUqqeQmKQCgGkyu-tf44_YlZZrZz0llnRkVlkc5C5xzFWBVBdPIpAu4nWRv7waYwnGKhrnMm4AWxJp4kwQ5BYWzRn0XiczNXmNtfCTXJLIHzZ2vEpfrHotSdq6I_fw4i0hHbcRQ1nywwWY2n_czQEalLQn6g3kQfk97ZIrB0aRpLo9M0E3rOvzAnL_lkqyAYvgmjgK3WpYELJmQub9Vq9nSIkoR0I4bd6yMtQGUkgnU-U9UFMUac43PCITuep8uV0ZcidkGTFGZ48dvyejLxAjNntIgS9wjaDaiq2CnfcwG1qdTWERi3Ri_6A1hbJtm6ZvWEQtlwVyIrPTe04kiCfeizA-ZZ4PuzcrSlIehufP34X6mSvxvEoq8dKhDHdjeTORof2j8g8u56V7QHKuClMo5NPs80OD7ww=w1135-h638-no";
     $scope.app13="https://lh3.googleusercontent.com/a1rGUfyTuQF_cIglL10oDRvekpwd7QaTLkmNyNgIRyL-12TFLA9weKIR3xzL3wQQM_iSc1dKXv5FEQnC38255LCGFfZpcRXamzS-SFlZzDkCHntepIC63f9hkKWoiQTcZw_3aX1fmPpoF8trvTXU2aaaguaSY4sO6OpJw6SawYBjp0SRTSfM7NFbXkb1v7MS5YVi0gFjB-f00T7ukIFUCKi2fvqd0dL4PR7niiiFs2erCXBG4c3cc0BE79IqUJHGO0On1cm_qjmaxTGB9hHtO-OGmjJbTWl4KM42A80orATL3PfJIW9yLn684YWJ7ViUp7PNSUf_0BA8-p5AgFKIaDozFyUpz03FIgxq6JLQRGYJ0-97l45xPNr1X4WiF8LaKkUPWJWS9LquxKPkZy1dXkxogdQUKkiiL9pz2m4VmHNs44ujsV9FslJIeo-3G-jIl3NBpafxAkp7c29hWR5Fhe9jS_DP7T_WGchOWvtyTdLntzAqlJINefCXPoeI9cDEkAFKMhNK8pN0pTJF_40J6Ziq0_jbk40T1A8ACyAChwQbn-d8tUmqkBA8VRS8L3RMmP67KbNghlTELS5Gahla2LLnPVun8CWN_Jx-Tq4E_c-Paw=w1135-h638-no";
     $scope.app14="https://lh3.googleusercontent.com/rgq9IW2lj7QlWx1Izx2ShHkMcnPZq-niCxttg33WDnMp-FVSWAKsS2AJw6RZqWTn1LuGBuSoM4LgDrIBko7jnmVeRNU4PLVFHnM-aVN1bkAw2yWENeNTRsWmH1L86QORH_yBvpoO0un34cpb8MKc2yWBK69Jxd_EZgHAn9zNyZ5bGw01_4YMHljB1xLjGSG2ezG1afoinDARKw89wtMkzhn-DV1Au0GY1z-wi0FpAtgiZu1HKnd7ZHw6pYBk1O7laFEy7LcE1ZL__Xgx61AEySAb5t936L6yMWe0KJHg-PWiZMDDlDGVyfNBx5DxptN4z7b-8VriXmXICW1q2iG2bJEM5Q1KZ_45HJL0705yp62tCwdYX80bWaALHZpZ6Cvmq3CteMRSlGByDbXMVZ-9CEVE07cQU5QAOHLXTC6BluBwwpeNfJXsIPHNNX1_j-Acu8YyiGwTa34bcqAMrd4Yv0VfuLsR2Z9yVCfb--89NKIMezAEeapAitV0px6MdA2xt03_kfRTXufJ18e8hODRIKLH74XHgg6SYyxQs3SFmThbpO5a63TBypBDW03Vp4NfQzPyS8rGLtSp-BtAuKPlgBSv4Vui7F0D9aZ4jdmkPvCq6g=w1135-h638-no";
@@ -106,13 +168,11 @@ $(document).ready(function(){
   $("#show_contact").click(function(){
       $("#contact").removeClass("w3-hide");
       $("#about").addClass("w3-hide");
-      $("#about_mobile").addClass("w3-hide");
       $("#apartments").addClass("w3-hide");
   });
 
   $("#show_about").click(function(){
       $("#about").removeClass("w3-hide");
-      $("#about_mobile").removeClass("w3-hide");
       $("#contact").addClass("w3-hide");
       $("#apartments").addClass("w3-hide");
   });
@@ -121,25 +181,12 @@ $(document).ready(function(){
       $("#apartments").removeClass("w3-hide");
       $("#contact").addClass("w3-hide");
       $("#about").addClass("w3-hide");
-      $("#about_mobile").addClass("w3-hide");
   });
 
-  $("#first_floor_gallery").click(function(){
-      $("#first_floor").removeClass("w3-hide");
-      $("#second_floor").addClass("w3-hide");
-      $("#third_floor").addClass("w3-hide");
-  });
-
-  $("#second_floor_gallery").click(function(){
-      $("#second_floor").removeClass("w3-hide");
-      $("#first_floor").addClass("w3-hide");
-      $("#third_floor").addClass("w3-hide");
-  });
-
-  $("#third_floor_gallery").click(function(){
-      $("#third_floor").removeClass("w3-hide");
-      $("#first_floor").addClass("w3-hide");
-      $("#second_floor").addClass("w3-hide");
+  $("#show_all").click(function(){
+      $("#apartments").removeClass("w3-hide");
+      $("#contact").removeClass("w3-hide");
+      $("#about").removeClass("w3-hide");
   });
 
 });

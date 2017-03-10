@@ -20,62 +20,86 @@
 
 <!-- Navigation Bar for Large and Medium Screens -->
 <div class="w3-bar w3-top w3-white w3-large w3-hide-small w3-animate-opacity">
-  <a href="#home" class="w3-bar-item w3-button w3-red w3-mobile">Julija</a>
-  <a id="show_about" href="#page_content" class="w3-bar-item w3-button w3-mobile">{{about}}</a>
-  <a id="show_apartments" href="#page_content" class="w3-bar-item w3-button w3-mobile">{{apartments}}</a>
-  <a id="show_contact" href="#page_content" class="w3-bar-item w3-button w3-mobile">{{contact}}</a>
+  <a id="show_all" href="#home" class="w3-bar-item w3-button w3-red w3-mobile">Julija</a>
+  <a id="show_about" href="#about" class="w3-bar-item w3-button w3-mobile">{{about}}</a>
+  <a id="show_apartments" href="#apartments" class="w3-bar-item w3-button w3-mobile">{{apartments}}</a>
+  <a id="show_contact" href="#contact" class="w3-bar-item w3-button w3-mobile">{{contact}}</a>
   <a href="#map" class="w3-bar-item w3-button w3-mobile">{{map}}</a>
 </div>
 
 <!-- Navigation Bar for Small Screen -->
 <div class="w3-bar w3-white w3-top w3-hide-medium w3-hide-large">
   <a href="#home" class="w3-bar-item w3-button w3-red"><i class="material-icons">&#xe88a;</i></a>
-  <a href="#page_content" class="w3-bar-item w3-button"><i class="material-icons">&#xe619;</i></a>
-  <a href="#apartments_small" class="w3-bar-item w3-button"><i class="material-icons">&#xe413;</i></a>
-  <a href="https://www.facebook.com/appJulija" class="w3-bar-item w3-button"><i class="material-icons">&#xe0c9;</i></i></a>
+  <a href="#about" class="w3-bar-item w3-button"><i class="material-icons">&#xe619;</i></a>
+  <a href="#apartments" class="w3-bar-item w3-button"><i class="material-icons">&#xe413;</i></a>
+  <a href="#contact" class="w3-bar-item w3-button"><i class="material-icons">&#xe0c9;</i></i></a>
   <a href="#map" class="w3-bar-item w3-button"><i class="material-icons">&#xe55e;</i></a>
 </div>
 
 <!-- Header -->
-<header class="w3-display-container w3-white">
-  <img class="w3-image" src="./img/crikvenica_beach_bg.jpg" alt="Crikvenica Beach">
+<header class="w3-container w3-white">
 
   <!-- Booking and Prices Form -->
-  <div id="booking" class="w3-display-topleft w3-margin w3-animate-opacity w3-padding-128 w3-col l5 m7 s11">
+  <div id="booking" class="w3-margin w3-animate-left w3-padding-64 w3-col l5 m7 s11">
     <div class="w3-container w3-card-24 w3-red">
       <h2><i class="fa fa-bed w3-margin-right"></i>House Julija</h2>
     </div>
-    <div class="w3-container w3-white w3-card-24 w3-padding-16">
-      <form action="/action_page.php" target="_blank">
-        <div class="w3-row-padding" style="margin:0 -16px;">
-          <div class="w3-half w3-margin-bottom">
-            <label><i class="fa fa-calendar-o"></i> Check In</label>
-            <input class="w3-input w3-border" type="text" placeholder="DD MM YYYY" name="CheckIn" required>
-          </div>
-          <div class="w3-half">
-            <label><i class="fa fa-calendar-o"></i> Check Out</label>
-            <input class="w3-input w3-border" type="text" placeholder="DD MM YYYY" name="CheckOut" required>
-          </div>
+    <div class="w3-container w3-card-24 w3-white w3-padding-16">
+      <div class="w3-row-padding" style="margin:0 -16px;">
+        <div class="w3-half w3-margin-bottom">
+          <label><i class="fa fa-calendar-o"></i> Check In</label>
+          <input id="checkIn" class="w3-input w3-border" type="date" min="2017-05-01" max="2017-10-01">
         </div>
-        <div class="w3-row-padding" style="margin:8px -16px;">
-          <div class="w3-half w3-margin-bottom">
-            <label><i class="fa fa-male"></i> Adults</label>
-            <input class="w3-input w3-border" type="number" value="1" name="Adults" min="1" max="6">
-          </div>
-          <div class="w3-half">
-            <label><i class="fa fa-child"></i> Kids</label>
-          <input class="w3-input w3-border" type="number" value="0" name="Kids" min="0" max="6">
-          </div>
+        <div class="w3-half">
+          <label><i class="fa fa-calendar-o"></i> Number of Days</label>
+          <input id="numDays" class="w3-input w3-border" type="number" value="6" min="6" max="28">
         </div>
-        <button class="w3-button w3-dark-grey" type="submit"><i class="fa fa-search w3-margin-right"></i> Search availability</button>
-      </form>
+      </div>
+      <div class="w3-row-padding" style="margin:8px -16px;">
+        <div class="w3-half w3-margin-bottom">
+          <label><i class="fa fa-male"></i> Adults</label>
+          <input id="numAdults" class="w3-input w3-border" type="number" value="2" min="2" max="6">
+        </div>
+        <div class="w3-half">
+          <label><i class="fa fa-child"></i> Kids</label>
+        <input id="numKids" class="w3-input w3-border" type="number" value="0" min="0" max="4">
+        </div>
+      </div>
+      <button class="w3-button w3-dark-grey" onclick="POST()"><i class="fa fa-search w3-margin-right"></i> Search availability</button>
+    </div>
+    <!-- Confirm Reservation -->
+    <div id="confirmPanel" class="w3-hide w3-animate-top">
+      <div class="w3-container w3-black w3-card-24">
+        <h2><i class="fa fa-dollar w3-margin-right"></i>Confirm Reservation</h2>
+      </div>
+      <div class="w3-container w3-card-24 w3-white w3-padding-16">
+        <table class="w3-table">
+          <tr>
+            <td><i class="fa fa-calendar-o"></i> Check In</td>
+            <td id="checkInConfirm"></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-calendar-o"></i> Number of Days</td>
+            <td id="numDaysConfirm"></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-male"></i> Adults</td>
+            <td id="numAdultsConfirm"></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-child"></i> Kinder</td>
+            <td id="numKidsConfirm"></td>
+          </tr>
+        </table>
+      </div>
     </div>
     <div class="w3-container w3-padding-32">
     </div>
+    <!-- Prices -->
     <div class="w3-container w3-card-24 w3-green">
       <h2><i class="fa fa-dollar w3-margin-right"></i>Prices</h2>
     </div>
-    <div class="w3-container w3-card-24 w3-white">
+    <div class="w3-container w3-card-24 w3-white w3-padding-16">
       <table class="w3-table">
         <th>Date</th>
         <th>Price/Night €</th>
@@ -103,8 +127,8 @@
     </div>
   </div>
 
-  <!-- Weather Container -->
-  <div id="weather" class="w3-display-topright w3-animate-opacity w3-margin w3-padding-128 w3-col l4 m4 w3-hide-small">
+  <!-- Weather container -->
+  <div id="weather" class="w3-display-topright w3-animate-opacity w3-margin w3-padding-64 w3-col l4 m4 w3-hide-small">
     <div class="w3-container w3-card-24 w3-blue">
       <h2><i class="fa fa-cloud w3-margin-right"></i>Weather</h2>
     </div>
@@ -120,533 +144,313 @@
 
 </header>
 
-<!-- Large and Medium Screen Activity -->
-<section id="page_content" class="w3-display-container w3-white">
-
-  <!-- Contact Container For Large and Medium Screens -->
-  <div id="contact" class="w3-hide w3-hide-small">
-    <div class="w3-display-topleft w3-padding-128 w3-margin w3-col l4 m5">
-      <div class="w3-animate-left">
-        <h3>Contact us!</h3>
-        <p>Feel free to ask us about anything regarding your stay at House Julija.</p>
-        <div class="w3-large w3-margin-bottom">
-          <i class="fa fa-map-marker w3-margin-right"></i> Crikvenica, CRO<br>
-          <i class="fa fa-phone w3-margin-right"></i> +385-51-785481<br>
-          <i class="fa fa-envelope w3-margin-right"> </i> ksvast@gmail.com<br>
-        </div>
-      </div>
-    </div>
-    <div class="w3-container w3-padding-128 w3-display-right w3-col l7 m7">
-      <form action="/action_page.php" class="w3-animate-right">
-        <p>
-        <input class="w3-input" type="text" name="first" required>
-        <label class="w3-label w3-validate">Full Name</label></p>
-        <p>
-        <input class="w3-input" type="email" name="email" required>
-        <label class="w3-label w3-validate">Your Email</label></p>
-        <p>
-        <input class="w3-input" type="text" name="message" required>
-        <label class="w3-label w3-validate">Your Message</label></p>
-        <p>
-        <button class="w3-btn w3-dark-grey" type="submit"><i class="fa fa-send w3-margin-right"></i> Send</button>
-        </p>
-      </form>
-    </div>
-    <div class="w3-container w3-padding-128 w3-display-left w3-col l3">
-    </div>
-  </div>
-
-  <!-- Apartments Container For Large and Medium Screens-->
-  <div id="apartments" class="w3-animate-top w3-hide">
-      <div class="w3-row-padding w3-padding-128">
-
-        <div class="w3-col l3 m4 s6">
-          <div class="w3-card-2">
-            <img src="https://lh3.googleusercontent.com/AZiP_QgcUDzmhSH43kIodk5QR8sGYckWqmN-k2pnR84sgXEa1rlsmSP_tyMy7QPcIehczpsCQka6aljJ7A3q2U98xHcuY0PD1VxHKTBBAY73s_N7ukY13S5rfCcKWvSa308ZXrdnbBx-V1YEgpQ2BwM3TkuRW-rCLdu6je9e4QZ7o8IjB0aAg3SBAqesA2grTAqqcIZlWKtY34J43nvT_N3WjtqpZDd_-9PJ3jNia3L0s79yeLHAOVjbaVzrscc4h0DoSw50N_ZWOY6cmW9FOy4fAPViRwk0xVcXSCJcjOtVMLDEaYKqhvlnyTg1IDexeOjBv1mZ3uVEpTW5V_TLUmAsdbh6AkG_9VXPnXCR01BcSNBJdDVYDZulN7oDZfKrRwzUn9Atzt-mXcEk_7vOdw0c0ZYZfQgrRgAYyaw6l7ghXBSF5Q8kteNauW2UhPD0T_s3IegEeRP9rW8LQpXl0DFSdBwRg0XsvcQf9RJgRTG6COUcjsaei5D5bOuVImAzi4UIwbsL2kQQbRHbpKLa5wm0k9VYH6Gcvi3aU5ZhomWo8QsgWwLrbG6MunBQhjED938f5oCNT7RtfvnFAJzGs38GrMPk8KOma3jjZpLvvTpdhw=w1135-h638-no" style="width:100%" onclick="document.getElementById('kety').style.display='block'; document.getElementById('apartments').style.display='none';" class="w3-hover-opacity">
-            <div class="w3-container">
-              <h5>Kety</h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="w3-col l3 m4 s6">
-          <div class="w3-card-2">
-            <img src="https://lh3.googleusercontent.com/_t8HXOmhNsf_WoUBL7bb5TDNx1-kxELgX46xkoL3K-a2SK66XQisrQoJJLPnj2YW6MhCSt46d6YSdEELHRI4qFxCTY_uAfud3BTdsWGP1R4bvyTOf93IFJPknKMGxbq0LuyTkhr3OxHnNUCe0rXz1hUEJmFr4Z8B44YIzptjze6WEggvd6J52c21qnbTOPmxR6y9FNsKtYYGaAZ_PyWnGxbPrVMH8yWdwqZr1TJLNWgbKLQCs-CfIt9d83dfMscIQjANaVcInWBPMqSQNtowI_9b4eUkpaCs8ll-AaKEoWJiGpLAvYnmE3FWQYJSKILHZs_OMy0By-QbQt7vWP0wh3foYTpPCLZO0o6_yLDhWY5cC90BHzJn7Q4VG7Q2X1_cY6Ns8zOtkL8lCRsZ36bRhBpI2T6eZ_t9new42z7nRvAWmmOp_yII1jXuMhv0ozp7qd0FDoJJ30U5qG-R3am6j1nrXcPK1laHacU7dXwnpQTMRQ88tAZphUSYxYWuEcc_I5bYoRrsmnVqvR7Qzv5f0d8CslgSPtk3sVyr_627G4JXCmdNXns4NoTjuY5KYTWmfOgEmZuL24U_W3VXED9vmA63hvt13E7PM8iqsJDgZ5Xw8A=w1135-h638-no" style="width:100%" onclick="document.getElementById('sarah_kay').style.display='block'; document.getElementById('apartments').style.display='none';" class="w3-hover-opacity">
-            <div class="w3-container">
-              <h5>Sarah Kay</h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="w3-col l3 m4 s6">
-          <div class="w3-card-2">
-            <img src="https://lh3.googleusercontent.com/S9R83KUQ_E_cUGsmzS5GgvsTq6FVVCIYMlFqq7IywBBPey6ow3yK6x3WdxgOnYT-nT50eMKP_t2vB2vXbniTEe8yme7fizcRkvQKAIDTbbooOskDkm9Xe0jsLrTmvdtxJJa9Tyg2rI3pl-wpcLf1QBTdXUEhNHVJkUXaRe4uRQvTw8Dh2HBMvnbN2HuM_gmX74Tgb7Cogv5S5n5rR0A2UxP-YYkM7o969dor9sLOVgozMgULu5T-yXbVSlOaX7FwFsgFkpf-ptmPEtCs8cA0_D08nGDS180AsGccVTCow5vK3cpkf7F6XmRq1Yaqwyd361p24Xx4-xtM7LgYjPWW0XznheJwQj32n8IVdQ1CEuXS4CvWKqYlhIjuZYU4u6yhJXBjPMtSprl9KJO8furLnIUMsKkHtHI8kVfp76-qU5U_QKZjID027hw5pjjJvERG1bwzdn0nZSIM4nxP90gCYHqDO1zFNnpdfX7GGmEOLY-Jny2f3FeLntHqUVY7OE6s16VTFoezQnXYLDcZ3YmrfU_4LhAIHRMgq6hHEg_rkGg_iLxXi9JOLnXGQc5OV_27a-r0k0DLoUMyfZ_iJUccaHgH-kdAIHu7_zgGUsqkmtRptg=w1135-h638-no" style="width:100%" onclick="document.getElementById('ruski_raj').style.display='block'; document.getElementById('apartments').style.display='none';" class="w3-hover-opacity">
-            <div class="w3-container">
-              <h5>Ruski Raj</h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="w3-col l3 m4 s6">
-          <div class="w3-card-2">
-            <img src="https://lh3.googleusercontent.com/LYaSCtqY5d-FGRht3gdsdHpYCuM6FaACoYqkv6gAUozEJNqokRqk5TAj9IKOhklVsQMPKwh43cEm1bkWRupTle9sb661ih5MJltKp6FExaw6WJ6FHE8UgbpttKejy7h9xj-09ZyknrVJOVzu-oVx8YPGwGSdpXuUN3KB8sBInpyL2cMY4xVU_95l-JmrH6ZqlF9y9cSC9J2mRzmH9awCXZ0K1U9WVpr-jnnbp1yZdNo7ReOF77uK_esRTWgICtdZabG43J046OFhNTMAn9WRV8DY2wHPpewcpAJ5AFmvOyf6wOPtigwJXX67z4tAfOUrdKAUxc_qh7aYRbTeLkUjpwku3m36RiqmFe-5H3id2WleI8EXX7mwNREgj14siZYGzAaAWYFleephFEkE_YTQazYmzsfe_R6c85t96K8uE_DAa6wfRGYf9q1TRTuX4vCeOZmnCfAchSCzMYq7_0U_aPV3YRDgUrKL7LVRfM5-T9H0X94ddNqfRz3I0IiWpor4RB6CbmAKnb1oxk7tCjZAXQes-1evdXWei5lpkm747T1_LY0mBp0j6OD4qhSyohraDyRYPgYDbCKs1W6XbfD5yqUnnS2dlGdLKedFxyhwBlmu8Q=w1135-h638-no" style="width:100%" onclick="document.getElementById('app1').style.display='block'; document.getElementById('apartments').style.display='none';" class="w3-hover-opacity">
-            <div class="w3-container">
-              <h5>App 1</h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="w3-col l3 m4 s6">
-          <div class="w3-card-2">
-            <img src="https://lh3.googleusercontent.com/QdobAJZTlXUsSnCdqdKewmY8s0Upq9-tP3wqmk-ysMxY5xXkfPmYtLqM9k0b-ubvqjDtKgXD881LtvUUiCfYCNDoUAd8C-UNIQyYwHxn26g7CYiahB7lBGBoab7sUKFB4ilFzeLmt665Pms-ukg5NyZiwJGi-HN4vTIsClDdzuEQD4mztjfigE0JSWvxvj3B46w8iysf_V11EEru7KFwMTK833yodWenFShKKaV-lyP6xR70KO-0HxLKYiNdmJg_3bKqu0OHw_COWdoY4_KaYLHet9Q2sQ8dQYrDgkWuuKmiOt2Us1yd83-4fPpm6bXSft3ynnqE0HqsWr6Fptqq8glOgfTlfolLfhzC3yc7axTIxJV3MiJ_QPGUjT3NFxoFfSU5SEfN2Ig0L4xMjVO5d6opYX7TsroKtN1vQJQryat6MBLqX-iqrHJGNRc_J6IF4FVXEb81DZs7B9R_UjH_jmmw_DWJMzeEGyJ5kMmqVnNgMw1BisCy9xpRfWfjh_avKU8E7NZ7tGh1u8EHv46F9WYOG4D5Yw5WG4IrsxySs_S33eO9i_4WXEzB2pewhm6Y-bxwNNjqDK2Nr-R2yvk8C4qrU7yb5IfQRo_zSO953iEhxA=w1135-h638-no" style="width:100%" onclick="document.getElementById('app2').style.display='block'; document.getElementById('apartments').style.display='none';" class="w3-hover-opacity">
-            <div class="w3-container">
-              <h5>App 2</h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="w3-col l3 m4 s6">
-          <div class="w3-card-2">
-            <img src="https://lh3.googleusercontent.com/rg7716I6WOurnX7KP5mUmHukdFgfY8SdB9uwDCqw24Bw_c-Z7V_2wn4vw7K3a2RLGzBlivYdcGOnYDF01OJVdm6HWaGq_yBXJRb37M2bhMbP_VEvE1Y4DXrzLfGc-XyMwAZTQ2tAs4nIexbHJQcqbUZPP5NpXC9zDtgjGE43lpTwpE15l_1EaXzUfM0IgFdA7x5PpAftlwXMfMc4RgR21K6J4HiyRz74QWubY4s11QtMftUv08SmggMh-CRucRGw72V5PZcbe0dqkdj3ert0f3HdiZNJhI0RVjslX4kfndt-G_pWBFZlMH9lifE6rv_M24VaRq88Ksh22b8J54Mxdep2zgbBAIfHxtvLLcwEZC2tAYuQSIeuHWkOWThPAEpqvXUzP0t2EMfz1qfPCBhVeFD8q8Zr_sZ-GDUDFqUG3riUE8cAvxPZICr3EwN-0GVQD7gk1sq_xCD2ZRYyds3z_B9bTGjyCV-JD4iceqawPPHPMv1LTSASg0tDk7qtmk1qQ1bhz_ggDKI79YvNpvTBkLdPUE-AyHc6CHMAH0lQcfgbtpyv5cFO-KTIsUqbY8lR8VhV7URYYUnPnXdPqUkhAflMDPZ0_Q-7KT6-c5gFtoNOwQ=w1135-h638-no" style="width:100%" onclick="document.getElementById('app3').style.display='block'; document.getElementById('apartments').style.display='none';" class="w3-hover-opacity">
-            <div class="w3-container">
-              <h5>App 3</h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="w3-col l3 m4 s12">
-          <div class="w3-card-2">
-            <img src="https://lh3.googleusercontent.com/8leUyV45W_hBMYqGlS2rXp5uiY90xV4U8856Icw16vYTEUNYqV1q-gszKdA6uu5kfkARgkz1YO2XLSa2LYGHhFl5u075HvsHgdgSpuTWiF8J22_zqVemtyVA564CowCOXJpstAp48oQCE38Tzs-K-9ENnwR7g0NLjRHpBsH_2RAmlYR7SByYMwLNKTRu9cqLg37M_1w3DBSnWNvNaw_PRsjl-6zr4Qm8DiyGWldaZy8W8K9tkp-Q9B_Dx-K0OcYnWCm48E0h2jAo2dSkh1dbtit5z3bJSVySHEGoh5hYrO3f27fHIKI-PUe6ViU2A7tjtK04LdLiu1LT4v9gwlrOpkpI0Ti4oHAuxsXRamQ1ngirkCjRb6dHXfvjuo3VoMYzdxuSTZMYgCmcHcNy_yWNw7_Q5DgeAgx466TIg5-OvHsBrVnrH-Slal2OiG7oDfmxAo6cAJmsRDQS6H4e5ExbFcp85l-ORUf0y10PpKKFU-Yk1BtkbjPYw3SehVYEy-gbSJLQi3WAa1RdRd6ekga1CT-H9hX42UXQuHsuy-tIeW3Ed2Av9o4__1xlbrJyLVPECKjjUBiaz21-2Y--SDR8ifUV0E5SHWLzHLypBhGrz28FDA=w1135-h638-no" style="width:100%" onclick="document.getElementById('app4').style.display='block'; document.getElementById('apartments').style.display='none';" class="w3-hover-opacity">
-            <div class="w3-container">
-              <h5>App 4</h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="w3-col l3 m4 s6">
-          <div class="w3-card-2">
-            <img src="https://lh3.googleusercontent.com/oMQObPOwm1ic3cYyfjP1UAjft2l4tMI527DPflVbQckW4eXLhezmPreEAoqxEZEMKPDhaShdunmf2KuY_dPWkQHhfMGIKs2lhYZ3RLGRyzy9c37yvgzvAWGkEbiO6qNcv_cWmeSrq-d35DXiV0Sg8bapDParabYIufx9YahC-o7ocY99ipHF24K1sI1RkjRelPMYE_6kSHy4GjUqqeQmKQCgGkyu-tf44_YlZZrZz0llnRkVlkc5C5xzFWBVBdPIpAu4nWRv7waYwnGKhrnMm4AWxJp4kwQ5BYWzRn0XiczNXmNtfCTXJLIHzZ2vEpfrHotSdq6I_fw4i0hHbcRQ1nywwWY2n_czQEalLQn6g3kQfk97ZIrB0aRpLo9M0E3rOvzAnL_lkqyAYvgmjgK3WpYELJmQub9Vq9nSIkoR0I4bd6yMtQGUkgnU-U9UFMUac43PCITuep8uV0ZcidkGTFGZ48dvyejLxAjNntIgS9wjaDaiq2CnfcwG1qdTWERi3Ri_6A1hbJtm6ZvWEQtlwVyIrPTe04kiCfeizA-ZZ4PuzcrSlIehufP34X6mSvxvEoq8dKhDHdjeTORof2j8g8u56V7QHKuClMo5NPs80OD7ww=w1135-h638-no" style="width:100%" onclick="document.getElementById('app5').style.display='block'; document.getElementById('apartments').style.display='none';" class="w3-hover-opacity">
-            <div class="w3-container">
-              <h5>App 5</h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="w3-col l3 m4 s6">
-          <div class="w3-card-2">
-            <img src="https://lh3.googleusercontent.com/PSyXoRj4ZSz7W0plgeL_ewv_0F6XIMFeMlzRVq-xsrlk41SAmGCeedXytz49IXm-X-UE-sdoye6Y9ugNym0LSWqiPzVjFRxzT2uoiM0iqAT1uB3em9n8SDIAHH7GX5bGKD99F8vrIIy6PiJV_osILt-IOQ8roTVJT-O21jtcoV3beSdtbcF60Su4rooHAG-ef5uivGnHd9Nas2uCXy_62AH0aw8upMzirCDsRAAf9KEccVJ2kbHxZIPEvEDh7t6Aj9HYmJA9jM51LaQidUfgVxRE7Fqrt5x-bHXaLs9oJ2W8r2n3EnzQvDZE3FTrTqUATx4FatUd5o6l0y2TEryN3O9g1NWKJXzLbnqKgp2APa2TvhBm0D9t33QpVp6kGGmSYf9hlqDAX4UOW9giVhMZw4MgsWk9BOK_46xZeJJCgK8OnZ8nKdTAP3-tG2WCa94PYyCB0TUZ62GvTVk9J45GzdOaHr1dH2kdL2t6U1ZrlJnC3jF0Cg0Nt3hMNarHjquIrFwACqulKoM2Aib8JkosQVZRfk6QG4yxlupir8-zBQPs7uOcI0NMH21eLSfOh1a89SixGnRhzu1nJhmci1HdFsZU2zhGMXTWVkMmSbs-ceIRbg=w1135-h638-no" style="width:100%" onclick="document.getElementById('app6').style.display='block'; document.getElementById('apartments').style.display='none';" class="w3-hover-opacity">
-            <div class="w3-container">
-              <h5>App 6</h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="w3-col l3 m4 s6">
-          <div class="w3-card-2">
-            <img src="https://lh3.googleusercontent.com/feLAyBR6AsoMd4XXM8LzWUdRhu_A1nYVJIyOmJM57QeJv_ohRyH63c2t5F3ygMg7sm3qRhkjTBpmbCSrQLMw1WbfB_61TaxZbzFNRnHPPJ2-9EcZMyNb_1B5UkDIsK9y546FUNJZ4HoN48WdHx3VgNlr1gHp9L3lwLuYTdRrYgnEvGCQn0rQfAqp-nYB-R4Al5EX8G3E5BMn6RFKbJC_89FqYpwj15MhV4lBtBrcsOk9hPOdi1VdQLzKpRZqfTeBGal6RRh_tl_qlNLrjKO1wehm5cpqXaHhkzcogBATTEzCrmQf2zg7NaBu_Jhl5NVSi6GzDlQusUniVa7r88CD4G9Hi7ttTBNcofhiDhwXAmr_s93VFB8rPTz2gI9BQ3G76MzLtS4bQzwuW4Ejc5LwLneFL5APOECQP2-mSlaxDANFqz3PHO2d9IQB9Gs6B6KSEfSCNbyJoKJaMLvLsEf9gkgk8gGLeq-shJ9utaZze1WXNhsC9wfyIhuP1ws2SYlZAqu87BOZHsUjjiIINv9vRuICZ0utQOoF7ZCVvuzAhrzxKBf4zxsowV0Y_PqBZC6Kjfp8vIWRm15NKkTvcNPVNQiwEgLNwTjvEgWVDfQ0jqcLfA=w1135-h638-no" style="width:100%" onclick="document.getElementById('app7').style.display='block'; document.getElementById('apartments').style.display='none';" class="w3-hover-opacity">
-            <div class="w3-container">
-              <h5>App 7</h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="w3-col l3 m4 s6">
-          <div class="w3-card-2">
-            <img src="https://lh3.googleusercontent.com/Q4k5oq4hZq5AXOWKTUIPq8VaiX_ODmuWqRuHvJYBLd79t8TQ4JyajVGikA0ayoKSb9MlMPytPgkvhUUken8aAxuSCvLV9kajbCJudYScYSWPmwhfLDQi6YYRgsDuDfPl89lj8xl1rCd5xvaqo7tCrwxB5g7pLdhhh3xK_D7wQRC6FSWtEc1qyLci8nvKPri_LyBB2CkMkU1hKQmaWrUaOo3C7aBmol5f9W2mAmTkXc6MHv_WUZwTKOrwseu-UePKnH_fRN3kn1LGTI_-bjBc41Xtt5QpfU-OK8lWQ34DGWO5JXdS0qM3FG_eM5umoHm4OxQMxTPC9_XIXppekvnXDLLQzXYgdZP6igtcRszQEjYkmYcWU7d6Gb6vV3S2_wfu7lJ0w4GiRa1wNSkv71rm3Ffpvn_PWlNa5lpU02AtscuLDUcCuuWvnkNwvejpWXJQtf-xmoSIwyon2BfLo6cJVQbxphNBTVGxqR3Kquu28eHFfgFsNkE3Cu4LXFjS0dbOEtx1dG5sWOFSNhNmUqowRK5PoWTPN7vr10VpCq65LxByqd2clxIqecQ6Czlk1YwakeSNM7uSmcvScR0a2PIZY9IJVRiMtF8pV3n-tOQx95CbPA=w1135-h638-no" style="width:100%" onclick="document.getElementById('app8').style.display='block'; document.getElementById('apartments').style.display='none';" class="w3-hover-opacity">
-            <div class="w3-container">
-              <h5>App 8</h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="w3-col l3 m4 s12">
-          <div class="w3-card-2">
-            <img src="https://lh3.googleusercontent.com/lrUuBY6z4vxIjIaVFHOcAwfe4aoe-q5Gm16f3gYqudxIL3gSZINmAHGbQl__HT42P89xcM4NhB_qgXcN61nlboilyKKq7Ah5fVo_kvrB16BcpKXF2omcVg967AXesXYOzhtaeSof8UyRff525ZfzAFyBZW5jgW7DHpOvw4EKAL0E_XMp9rkdntH8DOmnH95Vpbrcvead1adqwzFkio0g5CXBMW0eDEsafwm9rP1zJK-PawGqEdM5E6KygyJKNq0CvDTPp6QF7VTe2VSVUSfKWzbEs8UKTFtS5gxadGd0CBvOObSMVV67b4Zp9nUYjQJ06Vk0w6mtD00eb8GUZ9IhSI_nMwuXSrGrxVkBjqDy31b3-_LV2O2a2wJbXZ4ey3CkJvipCcjSgwc9uFUJjgczP7QmVibAKyYgbnRNUpWIwZ6Wg1zsTd032B39vmjGeZ-gRf1dpRf_kpdsiqe2DgZlcJLBcadH8qhzd-8iaTNP5RjUEVWB2nIAsmAIgaR6jRTSZpaDQAD2a-porQZA3sAgKwJyVp6LbTNGMFPYHfW4z0KOUxppQwZSOx4dgYm7uPiiDT1d794u14Iw17anRyJTAqbd4Oq9982N7X8Fe7jzRkjLeA=w1135-h638-no" style="width:100%" onclick="document.getElementById('app9').style.display='block'; document.getElementById('apartments').style.display='none';" class="w3-hover-opacity">
-            <div class="w3-container">
-              <h5>App 9</h5>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-  <!-- About Paragraph Container For Large Screen -->
-  <div id="about" class="w3-hide-small w3-hide-medium">
-    <div class="w3-display-middle w3-padding w3-margin w3-col l3">
-      <div class="w3-animate-top">
-        <h3>Our apartments have everything you need.</h3>
-        <p>Our sea facing apartments are air conditioned. All apartments have fully equiped kitchen.</p>
-        <table class="w3-table">
-          <tr>
-            <td><i class="material-icons">&#xe333;</i></td>
-            <td>TV</td>
-            <td><i class="material-icons">&#xe63e;</i></td>
-            <td>WLAN</td>
-            <td><i class="material-icons">&#xeb3b;</i></td>
-            <td>AC</td>
-          </tr>
-        </table>
-      </div>
-    </div>
-
-    <div class="w3-display-topright w3-padding-48 w3-margin w3-col l6">
-      <img src="./img/map_croatia.png" style="width:100%" class="w3-animate-right">
-    </div>
-
-    <div class="w3-display-topleft w3-padding-48 w3-margin w3-col l5">
-      <div class="w3-animate-left">
-        <h3>Vacation apartments located at the coast of North Adriatic Sea.</h3>
-        <p>Beach, restaurants and shopping center are all within a short walking distance.</p>
-        <table class="w3-table w3-col">
-          <tr>
-            <td><i class="material-icons">&#xeb3e;</i></td>
-            <td>60 m</td>
-            <td><i class="material-icons">&#xe56c;</i></td>
-            <td>70 m</td>
-            <td><i class="material-icons">&#xe8cc;</i></td>
-            <td>70 m</td>
-          </tr>
-        </table>
-      </div>
-    </div>
-
-    <div class="w3-display-left w3-padding-48 w3-margin w3-col l4">
-      <div class="w3-animate-left">
-        <h3>Parking and outside activities.</h3>
-        <p>We have reserved parking spots for our guests and place for outside grill experience.</p>
-        <table class="w3-table">
-          <tr>
-            <td><i class="material-icons">&#xe54f;</i></td>
-            <td>FREE PARKING</td>
-            <td><i class="material-icons">&#xe561;</i></td>
-            <td>OUTSIDE GRILL</td>
-          </tr>
-        </table>
-      </div>
+<!-- About Container -->
+<div id="about" class="w3-container w3-padding-64 w3-white">
+  <div class="w3-container w3-col l5 m5 s12">
+    <div class="w3-animate-left">
+      <h3>Vacation apartments located at the coast of North Adriatic Sea.</h3>
+      <p>Our sea facing apartments are air conditioned. All apartments have fully equiped kitchen.
+        Beach, restaurants and shopping center are all within a short walking distance.
+        We have reserved parking spots for our guests and place for outside grill experience.</p>
+      <table class="w3-table">
+        <tr>
+          <td><i class="material-icons">&#xe333;</i></td>
+          <td>TV</td>
+          <td><i class="material-icons">&#xe63e;</i></td>
+          <td>WLAN</td>
+          <td><i class="material-icons">&#xeb3b;</i></td>
+          <td>AC</td>
+        </tr>
+        <tr>
+          <td><i class="material-icons">&#xeb3e;</i></td>
+          <td>60 m</td>
+          <td><i class="material-icons">&#xe56c;</i></td>
+          <td>70 m</td>
+          <td><i class="material-icons">&#xe8cc;</i></td>
+          <td>70 m</td>
+        </tr>
+        <tr>
+          <td><i class="material-icons">&#xe54f;</i></td>
+          <td>FREE PARKING</td>
+          <td><i class="material-icons">&#xe561;</i></td>
+          <td>OUTSIDE GRILL</td>
+        </tr>
+      </table>
     </div>
   </div>
+  <div class="w3-container w3-col l7 m7 s12">
+    <img src="./img/map_croatia.png" style="width:100%" class="w3-animate-bottom">
+  </div>
+</div>
 
-  <!-- About Paragraph Container For Small and Medium Screens -->
-  <div id="about_mobile" class="w3-hide-large">
-    <div class="w3-display-topleft w3-padding-64 w3-margin w3-col m8 s10">
-      <div class="w3-animate-top">
-        <h3>Our apartments have everything you need.</h3>
-        <p>Our sea facing apartments are air conditioned. All apartments have fully equiped kitchen.</p>
-        <table class="w3-table">
-          <tr>
-            <td><i class="material-icons">&#xe333;</i></td>
-            <td>TV</td>
-            <td><i class="material-icons">&#xe63e;</i></td>
-            <td>WLAN</td>
-            <td><i class="material-icons">&#xeb3b;</i></td>
-            <td>AC</td>
-          </tr>
-          <tr class="w3-hide-medium">
-            <td><i class="material-icons">&#xe54f;</i></td>
-            <td>FREE PARKING</td>
-            <td><i class="material-icons">&#xe561;</i></td>
-            <td>OUTSIDE GRILL</td>
-          </tr>
-          <tr class="w3-hide-medium">
-            <td><i class="material-icons">&#xeb3e;</i></td>
-            <td>60 m</td>
-          </tr>
-          <tr class="w3-hide-medium">
-            <td><i class="material-icons">&#xe56c;</i></td>
-            <td>70 m</td>
-          </tr>
-          <tr class="w3-hide-medium">
-            <td><i class="material-icons">&#xe8cc;</i></td>
-            <td>70 m</td>
-          </tr>
-        </table>
+<!-- Apartments Container-->
+<div id="apartments" ng-controller="galleryCtrl" class="w3-container w3-padding-64 w3-white">
+  <div class="w3-row-padding w3-animate-right">
+
+    <div class="w3-col l3 m4 s6">
+      <div class="w3-card-2">
+        <img src="{{kety1}}" style="width:100%" onclick="$('#kety').show();" class="w3-hover-opacity">
+        <div class="w3-container">
+          <h5>Kety</h5>
+        </div>
       </div>
     </div>
 
-    <div class="w3-display-left w3-padding-48 w3-margin w3-col m5 w3-hide-small">
-      <div class="w3-animate-left">
-        <h3>Parking and outside activities.</h3>
-        <p>We have reserved parking spots for our guests and place for outside grill experience.</p>
-        <table class="w3-table">
-          <tr>
-            <td><i class="material-icons">&#xe54f;</i></td>
-            <td>FREE PARKING</td>
-            <td><i class="material-icons">&#xe561;</i></td>
-            <td>OUTSIDE GRILL</td>
-          </tr>
-        </table>
+    <div class="w3-col l3 m4 s6">
+      <div class="w3-card-2">
+        <img src="{{sarah_kay1}}" style="width:100%" onclick="$('#sarah_kay').show();" class="w3-hover-opacity">
+        <div class="w3-container">
+          <h5>Sarah Kay</h5>
+        </div>
       </div>
     </div>
 
-    <div class="w3-display-bottomleft w3-margin w3-col m7">
-      <div class="w3-animate-left">
-        <h3>Vacation apartments located at the coast of North Adriatic Sea.</h3>
-        <p>Beach, restaurants and shopping center are all within a short walking distance.</p>
-        <p class="w3-hide-medium">We have reserved parking spots for our guests and place for outside grill experience.</p>
-        <table class="w3-table w3-col w3-hide-small">
-          <tr>
-            <td><i class="material-icons">&#xeb3e;</i></td>
-            <td>60 m</td>
-            <td><i class="material-icons">&#xe56c;</i></td>
-            <td>70 m</td>
-            <td><i class="material-icons">&#xe8cc;</i></td>
-            <td>70 m</td>
-          </tr>
-        </table>
+    <div class="w3-col l3 m4 s6">
+      <div class="w3-card-2">
+        <img src="{{ruski_raj1}}" style="width:100%" onclick="$('#ruski_raj').show();" class="w3-hover-opacity">
+        <div class="w3-container">
+          <h5>Ruski Raj</h5>
+        </div>
       </div>
     </div>
 
-    <div class="w3-display-right w3-padding-48 w3-margin w3-col m6 s6">
-      <img src="./img/map_croatia.png" style="width:100%" class="w3-animate-right">
+    <div class="w3-col l3 m4 s6">
+      <div class="w3-card-2">
+        <img src="{{app11}}" style="width:100%" onclick="$('#app1').show();" class="w3-hover-opacity">
+        <div class="w3-container">
+          <h5>App 1</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-col l3 m4 s6">
+      <div class="w3-card-2">
+        <img src="{{app21}}" style="width:100%" onclick="$('#app2').show();" class="w3-hover-opacity">
+        <div class="w3-container">
+          <h5>App 2</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-col l3 m4 s6">
+      <div class="w3-card-2">
+        <img src="{{app31}}" style="width:100%" onclick="$('#app3').show();" class="w3-hover-opacity">
+        <div class="w3-container">
+          <h5>App 3</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-col l3 m4 s12">
+      <div class="w3-card-2">
+        <img src="{{app41}}" style="width:100%" onclick="$('#app4').show();" class="w3-hover-opacity">
+        <div class="w3-container">
+          <h5>App 4</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-col l3 m4 s6">
+      <div class="w3-card-2">
+        <img src="{{app51}}" style="width:100%" onclick="$('#app5').show();" class="w3-hover-opacity">
+        <div class="w3-container">
+          <h5>App 5</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-col l3 m4 s6">
+      <div class="w3-card-2">
+        <img src="{{app61}}" style="width:100%" onclick="$('#app6').show();" class="w3-hover-opacity">
+        <div class="w3-container">
+          <h5>App 6</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-col l3 m4 s6">
+      <div class="w3-card-2">
+        <img src="{{app71}}" style="width:100%" onclick="$('#app7').show();" class="w3-hover-opacity">
+        <div class="w3-container">
+          <h5>App 7</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-col l3 m4 s6">
+      <div class="w3-card-2">
+        <img src="{{app81}}" style="width:100%" onclick="$('#app8').show();" class="w3-hover-opacity">
+        <div class="w3-container">
+          <h5>App 8</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-col l3 m4 s12">
+      <div class="w3-card-2">
+        <img src="{{app91}}" style="width:100%" onclick="$('#app9').show();" class="w3-hover-opacity">
+        <div class="w3-container">
+          <h5>App 9</h5>
+        </div>
+      </div>
     </div>
 
   </div>
+</div>
 
-  <!-- Modal Controller -->
-  <div ng-controller="galleryCtrl">
-    <!-- Modal First Floor -->
-    <div id="kety" class="w3-modal" onclick="this.style.display='none';document.getElementById('apartments').style.display='block';">
-      <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
-      <div class="w3-modal-content w3-animate-zoom">
-        <img src="{{kety1}}" class="w3-col l6 m6">
-        <img src="{{kety2}}" class="w3-col l6 m6">
-        <img src="{{kety3}}" class="w3-col l6 m6">
-        <img src="{{kety4}}" class="w3-col l6 m6">
-        <img src="{{kety5}}" class="w3-col l6 m6">
-        <img src="{{kety6}}" class="w3-col l6 m6">
+<!-- Contact Container -->
+<div id="contact" class="w3-container w3-padding-64 w3-white">
+  <div class="w3-container w3-col l5 m5">
+    <div class="w3-animate-left">
+      <h3>Contact us!</h3>
+      <p>Feel free to ask us about anything regarding your stay at House Julija.</p>
+      <div class="w3-large w3-margin-bottom">
+        <i class="fa fa-map-marker w3-margin-right"></i> Crikvenica, CRO<br>
+        <i class="fa fa-phone w3-margin-right"></i> +385-51-785481<br>
+        <i class="fa fa-envelope w3-margin-right"> </i> ksvast@gmail.com<br>
       </div>
     </div>
-    <div id="sarah_kay" class="w3-modal" onclick="this.style.display='none';document.getElementById('apartments').style.display='block';">
-      <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
-      <div class="w3-modal-content w3-animate-zoom">
-        <img src="{{sarah_kay1}}" class="w3-col l6 m6">
-        <img src="{{sarah_kay2}}" class="w3-col l6 m6">
-        <img src="{{sarah_kay3}}" class="w3-col l6 m6">
-        <img src="{{sarah_kay4}}" class="w3-col l6 m6">
-        <img src="{{sarah_kay5}}" class="w3-col l6 m6">
-        <img src="{{sarah_kay6}}" class="w3-col l6 m6">
-      </div>
-    </div>
-    <div id="ruski_raj" class="w3-modal" onclick="this.style.display='none';document.getElementById('apartments').style.display='block';">
-      <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
-      <div class="w3-modal-content w3-animate-zoom">
-        <img src="{{ruski_raj1}}" class="w3-col l6 m6">
-        <img src="{{ruski_raj2}}" class="w3-col l6 m6">
-        <img src="{{ruski_raj3}}" class="w3-col l6 m6">
-        <img src="{{ruski_raj4}}" class="w3-col l6 m6">
-        <img src="{{ruski_raj5}}" class="w3-col l6 m6">
-        <img src="{{ruski_raj6}}" class="w3-col l6 m6">
-      </div>
-    </div>
+  </div>
+  <div class="w3-container w3-col l7 m7">
+    <form action="/action_page.php" class="w3-animate-right">
+      <p>
+      <input class="w3-input" type="text" name="first" required>
+      <label class="w3-label w3-validate">Full Name</label></p>
+      <p>
+      <input class="w3-input" type="email" name="email" required>
+      <label class="w3-label w3-validate">Your Email</label></p>
+      <p>
+      <input class="w3-input" type="text" name="message" required>
+      <label class="w3-label w3-validate">Your Message</label></p>
+      <p>
+      <button class="w3-btn w3-dark-grey" type="submit"><i class="fa fa-send w3-margin-right"></i> Send</button>
+      </p>
+    </form>
+  </div>
+</div>
 
-    <!-- Modal Second Floor -->
-    <div id="app1" class="w3-modal" onclick="this.style.display='none';document.getElementById('apartments').style.display='block';">
-      <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
-      <div class="w3-modal-content w3-animate-zoom">
-        <img src="{{app11}}" class="w3-col l6 m6">
-        <img src="{{app12}}" class="w3-col l6 m6">
-        <img src="{{app13}}" class="w3-col l6 m6">
-        <img src="{{app14}}" class="w3-col l6 m6">
-      </div>
+<!-- Modal Controller -->
+<div ng-controller="galleryCtrl">
+  <!-- Modal First Floor -->
+  <div id="kety" class="w3-modal w3-white" onclick="$('#kety').hide();">
+    <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
+    <div class="w3-modal-content w3-animate-zoom">
+      <img src="{{kety1}}" class="w3-col l6 m6">
+      <img src="{{kety2}}" class="w3-col l6 m6">
+      <img src="{{kety3}}" class="w3-col l6 m6">
+      <img src="{{kety4}}" class="w3-col l6 m6">
+      <img src="{{kety5}}" class="w3-col l6 m6">
+      <img src="{{kety6}}" class="w3-col l6 m6">
     </div>
-    <div id="app2" class="w3-modal" onclick="this.style.display='none';document.getElementById('apartments').style.display='block';">
-      <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
-      <div class="w3-modal-content w3-animate-zoom">
-        <img src="{{app21}}" class="w3-col l6 m6">
-        <img src="{{app22}}" class="w3-col l6 m6">
-        <img src="{{app23}}" class="w3-col l6 m6">
-        <img src="{{app24}}" class="w3-col l6 m6">
-      </div>
+  </div>
+  <div id="sarah_kay" class="w3-modal w3-white" onclick="$('#sarah_kay').hide();">
+    <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
+    <div class="w3-modal-content w3-animate-zoom">
+      <img src="{{sarah_kay1}}" class="w3-col l6 m6">
+      <img src="{{sarah_kay2}}" class="w3-col l6 m6">
+      <img src="{{sarah_kay3}}" class="w3-col l6 m6">
+      <img src="{{sarah_kay4}}" class="w3-col l6 m6">
+      <img src="{{sarah_kay5}}" class="w3-col l6 m6">
+      <img src="{{sarah_kay6}}" class="w3-col l6 m6">
     </div>
-    <div id="app3" class="w3-modal" onclick="this.style.display='none';document.getElementById('apartments').style.display='block';">
-      <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
-      <div class="w3-modal-content w3-animate-zoom">
-        <img src="{{app31}}" class="w3-col l6 m6">
-        <img src="{{app32}}" class="w3-col l6 m6">
-        <img src="{{app33}}" class="w3-col l6 m6">
-        <img src="{{app34}}" class="w3-col l6 m6">
-      </div>
-    </div>
-    <div id="app4" class="w3-modal" onclick="this.style.display='none';document.getElementById('apartments').style.display='block';">
-      <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
-      <div class="w3-modal-content w3-animate-zoom">
-        <img src="{{app41}}" class="w3-col l6 m6">
-        <img src="{{app42}}" class="w3-col l6 m6">
-        <img src="{{app43}}" class="w3-col l6 m6">
-        <img src="{{app44}}" class="w3-col l6 m6">
-      </div>
-    </div>
-    <div id="app5" class="w3-modal" onclick="this.style.display='none';document.getElementById('apartments').style.display='block';">
-      <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
-      <div class="w3-modal-content w3-animate-zoom">
-        <img src="{{app51}}" class="w3-col l6 m6">
-        <img src="{{app52}}" class="w3-col l6 m6">
-        <img src="{{app53}}" class="w3-col l6 m6">
-        <img src="{{app54}}" class="w3-col l6 m6">
-      </div>
-    </div>
-
-    <!-- Modal Third Floor -->
-    <div id="app6" class="w3-modal" onclick="this.style.display='none';document.getElementById('apartments').style.display='block';">
-      <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
-      <div class="w3-modal-content w3-animate-zoom">
-        <img src="{{app61}}" class="w3-col l6 m6">
-        <img src="{{app62}}" class="w3-col l6 m6">
-        <img src="{{app63}}" class="w3-col l6 m6">
-        <img src="{{app64}}" class="w3-col l6 m6">
-      </div>
-    </div>
-    <div id="app7" class="w3-modal" onclick="this.style.display='none';document.getElementById('apartments').style.display='block';">
-      <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
-      <div class="w3-modal-content w3-animate-zoom">
-        <img src="{{app71}}" class="w3-col l6 m6">
-        <img src="{{app72}}" class="w3-col l6 m6">
-        <img src="{{app73}}" class="w3-col l6 m6">
-        <img src="{{app74}}" class="w3-col l6 m6">
-      </div>
-    </div>
-    <div id="app8" class="w3-modal" onclick="this.style.display='none';document.getElementById('apartments').style.display='block';">
-      <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
-      <div class="w3-modal-content w3-animate-zoom">
-        <img src="{{app81}}" class="w3-col l6 m6">
-        <img src="{{app82}}" class="w3-col l6 m6">
-        <img src="{{app83}}" class="w3-col l6 m6">
-        <img src="{{app84}}" class="w3-col l6 m6">
-      </div>
-    </div>
-    <div id="app9" class="w3-modal" onclick="this.style.display='none';document.getElementById('apartments').style.display='block';">
-      <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
-      <div class="w3-modal-content w3-animate-zoom">
-      <img src="{{app91}}" class="w3-col l6 m6">
-      <img src="{{app92}}" class="w3-col l6 m6">
-      <img src="{{app93}}" class="w3-col l6 m6">
-      <img src="{{app94}}" class="w3-col l6 m6">
-    </div>
+  </div>
+  <div id="ruski_raj" class="w3-modal w3-white" onclick="$('#ruski_raj').hide();">
+    <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
+    <div class="w3-modal-content w3-animate-zoom">
+      <img src="{{ruski_raj1}}" class="w3-col l6 m6">
+      <img src="{{ruski_raj2}}" class="w3-col l6 m6">
+      <img src="{{ruski_raj3}}" class="w3-col l6 m6">
+      <img src="{{ruski_raj4}}" class="w3-col l6 m6">
+      <img src="{{ruski_raj5}}" class="w3-col l6 m6">
+      <img src="{{ruski_raj6}}" class="w3-col l6 m6">
     </div>
   </div>
 
-</section>
-
-<!-- Small Screen Activity -->
-<section class="w3-hide-large w3-display-container w3-hide-medium w3-white" style="height:2000px;">
-
-  <div id="apartments_small" class="w3-animate-top w3-hide-large w3-hide-medium">
-      <div class="w3-row-padding w3-padding-128">
-
-        <div class="w3-col l3 m4 s6">
-          <div class="w3-card-2">
-            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('kety').style.display='block'" class="w3-hover-opacity">
-            <div class="w3-container">
-              <h5>Kety</h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="w3-col l3 m4 s6">
-          <div class="w3-card-2">
-            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('sarah_kay').style.display='block'" class="w3-hover-opacity">
-            <div class="w3-container">
-              <h5>Sarah Kay</h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="w3-col l3 m4 s6">
-          <div class="w3-card-2">
-            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('ruski_raj').style.display='block'" class="w3-hover-opacity">
-            <div class="w3-container">
-              <h5>Ruski Raj</h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="w3-col l3 m4 s6">
-          <div class="w3-card-2">
-            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('app1').style.display='block'" class="w3-hover-opacity">
-            <div class="w3-container">
-              <h5>App 1</h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="w3-col l3 m4 s6">
-          <div class="w3-card-2">
-            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('app2').style.display='block'" class="w3-hover-opacity">
-            <div class="w3-container">
-              <h5>App 2</h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="w3-col l3 m4 s6">
-          <div class="w3-card-2">
-            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('app3').style.display='block'" class="w3-hover-opacity">
-            <div class="w3-container">
-              <h5>App 3</h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="w3-col l3 m4 s12">
-          <div class="w3-card-2">
-            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('app4').style.display='block'" class="w3-hover-opacity">
-            <div class="w3-container">
-              <h5>App 4</h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="w3-col l3 m4 s6">
-          <div class="w3-card-2">
-            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('app5').style.display='block'" class="w3-hover-opacity">
-            <div class="w3-container">
-              <h5>App 5</h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="w3-col l3 m4 s6">
-          <div class="w3-card-2">
-            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('app6').style.display='block'" class="w3-hover-opacity">
-            <div class="w3-container">
-              <h5>App 6</h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="w3-col l3 m4 s6">
-          <div class="w3-card-2">
-            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('app7').style.display='block'" class="w3-hover-opacity">
-            <div class="w3-container">
-              <h5>App 7</h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="w3-col l3 m4 s6">
-          <div class="w3-card-2">
-            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('app8').style.display='block'" class="w3-hover-opacity">
-            <div class="w3-container">
-              <h5>App 8</h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="w3-col l3 m4 s12">
-          <div class="w3-card-2">
-            <img src="http://placehold.it/350x150" style="width:100%" onclick="document.getElementById('app9').style.display='block'" class="w3-hover-opacity">
-            <div class="w3-container">
-              <h5>App 9</h5>
-            </div>
-          </div>
-        </div>
-
-      </div>
+  <!-- Modal Second Floor -->
+  <div id="app1" class="w3-modal w3-white" onclick="$('#app1').hide();">
+    <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
+    <div class="w3-modal-content w3-animate-zoom">
+      <img src="{{app11}}" class="w3-col l6 m6">
+      <img src="{{app12}}" class="w3-col l6 m6">
+      <img src="{{app13}}" class="w3-col l6 m6">
+      <img src="{{app14}}" class="w3-col l6 m6">
     </div>
+  </div>
+  <div id="app2" class="w3-modal w3-white" onclick="$('#app2').hide();">
+    <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
+    <div class="w3-modal-content w3-animate-zoom">
+      <img src="{{app21}}" class="w3-col l6 m6">
+      <img src="{{app22}}" class="w3-col l6 m6">
+      <img src="{{app23}}" class="w3-col l6 m6">
+      <img src="{{app24}}" class="w3-col l6 m6">
+    </div>
+  </div>
+  <div id="app3" class="w3-modal w3-white" onclick="$('#app3').hide();">
+    <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
+    <div class="w3-modal-content w3-animate-zoom">
+      <img src="{{app31}}" class="w3-col l6 m6">
+      <img src="{{app32}}" class="w3-col l6 m6">
+      <img src="{{app33}}" class="w3-col l6 m6">
+      <img src="{{app34}}" class="w3-col l6 m6">
+    </div>
+  </div>
+  <div id="app4" class="w3-modal w3-white" onclick="$('#app4').hide();">
+    <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
+    <div class="w3-modal-content w3-animate-zoom">
+      <img src="{{app41}}" class="w3-col l6 m6">
+      <img src="{{app42}}" class="w3-col l6 m6">
+      <img src="{{app43}}" class="w3-col l6 m6">
+      <img src="{{app44}}" class="w3-col l6 m6">
+    </div>
+  </div>
+  <div id="app5" class="w3-modal w3-white" onclick="$('#app5').hide();">
+    <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
+    <div class="w3-modal-content w3-animate-zoom">
+      <img src="{{app51}}" class="w3-col l6 m6">
+      <img src="{{app52}}" class="w3-col l6 m6">
+      <img src="{{app53}}" class="w3-col l6 m6">
+      <img src="{{app54}}" class="w3-col l6 m6">
+    </div>
+  </div>
 
-</section>
-
+  <!-- Modal Third Floor -->
+  <div id="app6" class="w3-modal w3-white" onclick="$('#app6').hide();">
+    <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
+    <div class="w3-modal-content w3-animate-zoom">
+      <img src="{{app61}}" class="w3-col l6 m6">
+      <img src="{{app62}}" class="w3-col l6 m6">
+      <img src="{{app63}}" class="w3-col l6 m6">
+      <img src="{{app64}}" class="w3-col l6 m6">
+    </div>
+  </div>
+  <div id="app7" class="w3-modal w3-white" onclick="$('#app7').hide();">
+    <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
+    <div class="w3-modal-content w3-animate-zoom">
+      <img src="{{app71}}" class="w3-col l6 m6">
+      <img src="{{app72}}" class="w3-col l6 m6">
+      <img src="{{app73}}" class="w3-col l6 m6">
+      <img src="{{app74}}" class="w3-col l6 m6">
+    </div>
+  </div>
+  <div id="app8" class="w3-modal w3-white" onclick="$('#app8').hide();">
+    <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
+    <div class="w3-modal-content w3-animate-zoom">
+      <img src="{{app81}}" class="w3-col l6 m6">
+      <img src="{{app82}}" class="w3-col l6 m6">
+      <img src="{{app83}}" class="w3-col l6 m6">
+      <img src="{{app84}}" class="w3-col l6 m6">
+    </div>
+  </div>
+  <div id="app9" class="w3-modal w3-white" onclick="$('#app9').hide();">
+    <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright">&times;</span>
+    <div class="w3-modal-content w3-animate-zoom">
+    <img src="{{app91}}" class="w3-col l6 m6">
+    <img src="{{app92}}" class="w3-col l6 m6">
+    <img src="{{app93}}" class="w3-col l6 m6">
+    <img src="{{app94}}" class="w3-col l6 m6">
+  </div>
+  </div>
+</div>
 
 <!-- Google Maps Section -->
 <article id="map">

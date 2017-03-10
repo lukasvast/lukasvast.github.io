@@ -5,9 +5,10 @@ a {
   font-family: "Gruppo", Arial, Helvetica, sans-serif;
   font-size: 120%;
 }
-section {
-  height: 1000px;
-}
 header {
-  height: 1000px;
+  background-image: url(../img/crikvenica_beach_bg.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
+::-webkit-inner-spin-button { display: none; }
+::-webkit-calendar-picker-indicator { background: none; }
