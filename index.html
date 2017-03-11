@@ -1,124 +1,256 @@
 <!DOCTYPE html>
 <html>
-<title>CV</title>
+<title>Luka Svast</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+.w3-sidenav a,.w3-sidenav h4 {font-weight:bold}
 </style>
-<body class="w3-light-grey">
+<body class="w3-white w3-content" style="max-width:1600px">
 
-<!-- Page Container -->
-<div class="w3-content w3-margin-top" style="max-width:1400px;">
+<!-- Sidenav/menu -->
+<nav class="w3-sidenav w3-collapse w3-dark-grey w3-animate-left" style="z-index:3;width:300px;" id="mySidenav"><br>
+  <div class="w3-container">
+    <a href="#" onclick="close_sidenav()" class="w3-hide-large w3-right w3-padding" title="close menu">
+      <i class="fa fa-remove"></i>
+    </a>
+    <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAfVAAAAJDg1MjBiMTkxLWFlYzItNGZjOS05YTYzLTFlMGNjNTFkYjIwZQ.jpg" style="width:60%;" class="w3-round"><br><br>
+  </div>
+  <a href="#portfolio" onclick="w3_close()" class="w3-padding w3-text-teal"><i class="fa fa-th-large fa-fw w3-margin-right"></i>PORTFOLIO</a>
+  <a href="#about" onclick="w3_close()" class="w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>ABOUT</a>
+  <a href="#education" onclick="w3_close()" class="w3-padding"><i class="fa fa-graduation-cap fa-fw w3-margin-right"></i>EDUCATION</a>
+  <a href="#contact" onclick="w3_close()" class="w3-padding"><i class="fa fa-envelope fa-fw w3-margin-right"></i>CONTACT</a>
+  <a href="#" onclick="w3_close()"><i class="fa fa-linkedin fa-fw w3-margin-right"></i>LINKEDIN</a>
+</nav>
 
-  <!-- The Grid -->
-  <div class="w3-row-padding">
+<!-- Overlay effect when opening sidenav on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="close_sidenav()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
-    <!-- Left Column -->
-    <div class="w3-third">
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px">
 
-      <div class="w3-white w3-text-grey w3-card-4">
-        <div class="w3-display-container">
-          <div class="w3-display-bottomleft w3-container w3-text-black">
-            <h2>Luka Svast</h2>
-          </div>
-        </div>
-        <div class="w3-container">
-          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Web Developer</p>
-          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Munich, DE</p>
-          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>lsvast@gmail.com</p>
-          <a href="http:\\www.linkedin.com/in/luka-svast" class="fa fa-linkedin w3-hover-text-indigo w3-large"></a>
-          <hr>
-
-          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
-          <p>PHP</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">90%</div>
-          </div>
-          <p>HTML, CSS, Javascript</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">80%</div>
-          </div>
-          <p>MySQL</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">80%</div>
-          </div>
-          <p>Python</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">80%</div>
-          </div>
-          <br>
-
-          <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
-          <p>Croatian</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-center w3-teal" style="height:24px;width:100%">NATIVE</div>
-          </div>
-          <p>English</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-center w3-teal" style="height:24px;width:90%">C1</div>
-          </div>
-          <p>German</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-center w3-teal" style="height:24px;width:50%">B1</div>
-          </div>
-          <br>
-        </div>
-      </div><br>
-
-    <!-- End Left Column -->
+  <!-- Header -->
+  <header class="w3-container" id="portfolio">
+    <a href="#"><img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAfVAAAAJDg1MjBiMTkxLWFlYzItNGZjOS05YTYzLTFlMGNjNTFkYjIwZQ.jpg" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+    <span class="w3-opennav w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="open_sidenav()"><i class="fa fa-bars"></i></span>
+    <h1><b>My Portfolio</b></h1>
+    <div class="w3-section w3-bottombar w3-padding-16">
+      <span class="w3-margin-right">Filter:</span>
+      <button class="w3-button w3-white" onclick="all_projects()">All</button>
+      <button class="w3-button w3-white" onclick="show_web_projects()"><i class="fa fa-code w3-margin-right"></i>Web Development</button>
+      <button class="w3-button w3-white" onclick="show_data_projects()"><i class="fa fa-database w3-margin-right"></i>Data Analysis</button>
+      <button class="w3-button w3-white" onclick="show_embedded_projects()"><i class="fa fa-microchip w3-margin-right"></i>Embedded Systems</button>
     </div>
+  </header>
 
-    <!-- Right Column -->
-    <div class="w3-twothird">
-
-      <div class="w3-container w3-card-2 w3-white">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>University of Rijeka, Faculty of Engineering</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2012 - 2016</h6>
-          <p>University Bachelor in Computer Science</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Dr. Antun Barac High School, Gymnasium</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2008 - 2012</h6>
-          <p>Matura Exam</p><br>
+  <!--Projects Grid-->
+  <div class="w3-row-padding" style="margin-bottom:32px">
+    <div id="web_development_projects">
+      <div class="w3-third w3-container w3-margin-bottom w3-animate-right">
+        <img src="http://placehold.it/350x150" style="width:100%" class="w3-hover-opacity">
+        <div class="w3-container w3-white">
+          <p><b>Restaurant Management</b></p>
+          <p>
+            Web application that allows restaurant owners to manage table reservations and food orders of their customers.
+          </p>
         </div>
       </div>
-
-      <div class="w3-container w3-card-2 w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Project Experience</h2>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Speech Signal Segments Classification using Mel-cepstral Coefficients</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar 2016 - Nov 2016</span></h6>
-          <p>Application program for speech signal segments classification using Mel-cepstral coefficients extraction developed alongside with bachelor's thesis. Resulting application uses speech audio signals and their transcripts from existing database to create a model for pattern recognition and speech segments classification.</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>RiRead</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar 2015 - Jun 2015</h6>
-          <p>Embedded application for ATmega32A microcontroller that uses magnetic card reader (SU90) to output content of magnetic cards on TFT LCD display.</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Restaurant Management </b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Oct 2014 - Feb 2015</h6>
-          <p>Web application that allows restaurant owners to manage table reservations and food orders of their customers.</p><br>
+    </div>
+    <div id="data_analysis_projects">
+      <div class="w3-twothird w3-container w3-margin-bottom w3-animate-right">
+        <img src="http://placehold.it/350x150" style="width:100%" class="w3-hover-opacity">
+        <div class="w3-container w3-white">
+          <p><b>Speech Signal Segments Classification using Mel-cepstral Coefficients</b></p>
+          <p class="w3-justify">
+            Application program for speech signal segments classification using Mel-cepstral coefficients extraction developed
+            alongside with bachelor's thesis. Resulting application uses speech audio signals and their transcripts from existing
+            database to create a model for pattern recognition and speech segments classification.
+          </p>
         </div>
       </div>
-
-    <!-- End Right Column -->
     </div>
-
-  <!-- End Grid -->
+    <div id="embedded_systems_projects">
+      <div class="w3-third w3-container w3-margin-bottom w3-animate-right">
+        <img src="http://placehold.it/350x150" style="width:100%" class="w3-hover-opacity">
+        <div class="w3-container w3-white">
+          <p><b>RiRad</b></p>
+          <p class="w3-justify">
+            Embedded application for
+            ATmega32A microcontroller that uses magnetic card reader (SU90) to output content of magnetic cards on TFT LCD display.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- End Page Container -->
+  <!-- About Me -->
+  <div id="about" class="w3-container w3-padding-large" style="margin-bottom:32px">
+    <h4><b>About Me</b></h4>
+    <p class="w3-justify">
+      I am a recent University Bachelor with an interrest for web development and data science. I was born in Croatia in 1993. where I
+      finished my High School and University studies. My mother tongue is Croatian but I am also fluent in English and I hava an advanced
+      knowledge of German. Currently I am living in Munich where I am attending German Language Course (current level B1).
+    </p>
+    <p class="w3-justify">
+    I am ideally looking to work with experienced developers and am eager to start expanding my knowledge through challenging projects from day one.
+    </p>
+    <hr>
+
+    <div class="w3-container w3-half">
+      <h4>Technical Skills</h4>
+      <!-- Progress bars / Skills -->
+      <p>PHP, Symfony</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-dark-grey w3-padding w3-center" style="width:80%">80%</div>
+      </div>
+      <p>Python, Django</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-dark-grey w3-padding w3-center" style="width:80%">80%</div>
+      </div>
+      <p>Javascript, Angular, HTML, CSS</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-dark-grey w3-padding w3-center" style="width:80%">80%</div>
+      </div>
+      <p>MySQL, Doctrine</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-dark-grey w3-padding w3-center" style="width:70%">70%</div>
+      </div>
+
+    </div>
+    <div class="w3-container w3-half">
+      <h4>Languages</h4>
+      <!-- Progress bars / Skills -->
+      <p>English</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-dark-grey w3-padding w3-center" style="width:100%">100%</div>
+      </div>
+      <p>Croatian</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-dark-grey w3-padding w3-center" style="width:100%">100%</div>
+      </div>
+      <p>German</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-dark-grey w3-padding w3-center" style="width:60%">60%</div>
+      </div>
+    </div>
+    <hr>
+  </div>
+
+  <!-- Education Section -->
+  <div id="education" class="w3-container w3-padding-large" style="margin-bottom:32px">
+    <h4><b>Education</b></h4>
+      <p class="w3-justify">
+        The nature of my degree course involved a great deal of independent research, requiring initiative and a wide range of skills.
+        Web Application Development course together with Database course was heavily based on practical projects which contributed to my passion for web development.
+        Courses like Algorithms and Data Structures, Operating Systems and Software Engineering provided me with an understanding of complex algorithms,
+        software development cycles and practices and knowledge of operating systems inner workings.
+      </p>
+      <p class="w3-justify">
+        Collaborative learning was a big part of my university curriculum.
+        Through group projects I was able to refine my own understanding and get new insight from other colleagues while solving problems.
+      </p>
+      <hr>
+      <!-- Uni and Matura -->
+      <h4><b class="w3-quarter">2012 - 2016</b><b class="w3-threequarter">University of Rijeka, Faculty of Engineering</b></h4>
+      </br></br>
+      <b class="w3-quarter">Degree:</b><i class="w3-threequarter">Bachelor's degree in Computer Science</i>
+      </br>
+      <b class="w3-quarter">Bachelors Thesis:</b><i class="w3-threequarter">Speech Signal Segments Classification using Mel-cepstral Coefficients</i>
+      </br>
+      <b class="w3-quarter">Grade:</b><i class="w3-threequarter">2.5</i>
+      <hr>
+      <h4><b class="w3-quarter">2008 - 2012</b><b class="w3-threequarter">Dr. Antun Barac Gymnasium</b></h4>
+      </br></br>
+      <b class="w3-quarter">Degree:</b><i class="w3-threequarter">High School/Secondary Diplomas and Certificates</i>
+      </br>
+      <b class="w3-quarter">Grade:</b><i class="w3-threequarter">2.0</i>
+      <hr>
+      <p>
+        <button class="w3-button w3-dark-grey w3-padding-large w3-margin-top w3-margin-bottom">
+          <i class="fa fa-download w3-margin-right"></i>Download Resume
+        </button>
+      </p>
+  </div>
+
+  <!-- Contact Section -->
+  <div class="w3-container w3-padding-large w3-dark-grey">
+    <h4 id="contact"><b>Contact Me</b></h4>
+    <div class="w3-row-padding w3-center w3-padding-24" style="margin:0 -16px">
+      <div class="w3-third w3-dark-grey">
+        <p><i class="fa fa-envelope w3-xxlarge w3-text-light-grey"></i></p>
+        <p>lsvast@gmail.com</p>
+      </div>
+      <div class="w3-third w3-teal">
+        <p><i class="fa fa-map-marker w3-xxlarge w3-text-light-grey"></i></p>
+        <p>Munich, GER</p>
+      </div>
+      <div class="w3-third w3-dark-grey">
+        <p><i class="fa fa-phone w3-xxlarge w3-text-light-grey"></i></p>
+        <p>+385 174-8414703</p>
+      </div>
+    </div>
+    <hr class="w3-opacity">
+    <form action="/action_page.php" target="_blank">
+      <div class="w3-group">
+        <label>Name</label>
+        <input class="w3-input w3-border" type="text" name="Name" required>
+      </div>
+      <div class="w3-group">
+        <label>Email</label>
+        <input class="w3-input w3-border" type="text" name="Email" required>
+      </div>
+      <div class="w3-group">
+        <label>Message</label>
+        <input class="w3-input w3-border" type="text" name="Message" required>
+      </div>
+      <button type="submit" class="w3-button w3-black w3-padding-large w3-margin-bottom"><i class="fa fa-paper-plane w3-margin-right"></i>Send Message</button>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-32 w3-dark-grey">
+  </footer>
+
+<!-- End page content -->
 </div>
+
+<script>
+// Script to open and close sidenav
+function open_sidenav() {
+    document.getElementById("mySidenav").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+function close_sidenav() {
+    document.getElementById("mySidenav").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+
+// Script to filter projects
+function show_web_projects() {
+    document.getElementById("web_development_projects").style.display = "block";
+    document.getElementById("data_analysis_projects").style.display = "none";
+    document.getElementById("embedded_systems_projects").style.display = "none";
+}
+function show_data_projects() {
+    document.getElementById("web_development_projects").style.display = "none";
+    document.getElementById("data_analysis_projects").style.display = "block";
+    document.getElementById("embedded_systems_projects").style.display = "none";
+}
+function show_embedded_projects() {
+    document.getElementById("web_development_projects").style.display = "none";
+    document.getElementById("data_analysis_projects").style.display = "none";
+    document.getElementById("embedded_systems_projects").style.display = "block";
+}
+function all_projects() {
+    document.getElementById("web_development_projects").style.display = "block";
+    document.getElementById("data_analysis_projects").style.display = "block";
+    document.getElementById("embedded_systems_projects").style.display = "block";
+}
+</script>
 
 </body>
 </html>
