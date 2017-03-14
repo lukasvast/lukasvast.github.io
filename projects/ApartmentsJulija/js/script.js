@@ -21,6 +21,7 @@ function validate(status){
   var numAdults = parseInt($("#numAdults").val());
   var numKids = parseInt($("#numKids").val());
   var people = numAdults+numKids;
+  var validated = false;
 
   var data = {"checkIn": checkIn, "numDays": numDays, "numAdults": numAdults, "numKids": numKids, "people": people};
 
@@ -60,12 +61,12 @@ function validate(status){
     $("#numDaysConfirm").text(numDays);
     $("#numAdultsConfirm").text(numAdults);
     $("#numKidsConfirm").text(numKids);
+    validated=true;
   }
 
-  if (status==1) {
+  if (status==1 && validated) {
     alert("POSTAM");
   }
-
 }
 
 var app = angular.module('content', []);

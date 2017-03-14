@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.w3-third img{margin-bottom: -6px; opacity: 0.8; cursor: pointer}
+.w3-third img:hover{opacity: 1}
+</style>
+
+<body class="w3-light-grey w3-content" style="max-width:1600px">
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-bar-block w3-white w3-animate-left w3-text-grey w3-collapse w3-top" style="z-index:3;width:300px;font-weight:bold" id="mySidebar"><br>
+  <h3 class="w3-padding-64 w3-center"><b>WORLD TOUR</b></h3>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-hide-large w3-center">CLOSE</a>
+  <input type="text" class="w3-input w3-center" style="margin-left:50px;width:200px;" id="place" placeholder="Where?">
+  <button onclick="searchPhotos()" class="w3-bar-item w3-button w3-center" style="margin-left:50px;width:200px;">SEARCH</button>
+  <h3 clas="w3-padding w3-center" id="place_id"></h3>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-white w3-xlarge w3-padding-16">
+  <span class="w3-left w3-padding">WORLD TOUR</span>
+  <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px">
+
+  <!-- Push down content on small screens -->
+  <div class="w3-hide-large" style="margin-top:83px"></div>
+
+  <!-- Photo grid -->
+  <div class="w3-row" id="photo_grid">
+    <div id="dump_place"></div>
+  </div>
+
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black w3-padding-0" onclick="this.style.display='none'">
+    <span class="w3-closebtn w3-text-white w3-opacity w3-hover-opacity-off w3-xxlarge w3-container w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-32 w3-grey">
+    <div class="w3-row-padding">
+      <div class="w3-third">
+        <h3>INFO</h3>
+        <p>Sea the world from the comfort of your bed.</p>
+      </div>
+      <div class="w3-twothird">
+      </div>
+    </div>
+  </footer>
+
+<!-- End page content -->
+</div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+// search for photos
+function searchPhotos() {
+  // get place
+  var place = $("#place").val();
+  var data = {"method": "flickr.places.find", "api_key": "f403afe061fa46c3216802357611a4bf", "query": place, "format": "json", "nojsoncallback": "1"};
+
+  //AJAX call to Flicker Get Place Id
+  $.ajax({
+      type: 'GET',
+      dataType: 'json',
+      url: "https://api.flickr.com/services/rest/",
+      data: data,
+      success: function(data,status) {
+        // get place id
+        place_id=data.places.place[0].place_id;
+        //$("#place_id").text(place_id);
+        getPhoto(place_id);
+      }
+  });
+}
+
+function getPhoto(place_id) {
+  //alert(place_id);
+  // set place_id
+  var data = {"method": "flickr.photos.search", "api_key": "f403afe061fa46c3216802357611a4bf", "place_id": place_id, "format": "json", "nojsoncallback": "1"};
+
+  //AJAX call to Flicker Search Photos
+  $.ajax({
+      type: 'GET',
+      dataType: 'json',
+      url: "https://api.flickr.com/services/rest/",
+      data: data,
+      success: function(data,status) {
+        // get photos id
+        for (var i = 0; i < data.photos.photo.length; i++) {
+          //$("#dump_place").append("<br>"+data.photos.photo[i].id+"</br>");
+          displayPhoto(data.photos.photo[i].id);
+        }
+      }
+  });
+}
+
+function displayPhoto(photo_id) {
+    //$("#dump_place").append("<br>"+photo_id+"</br>");
+    var data = {"method": "flickr.photos.getSizes", "api_key": "f403afe061fa46c3216802357611a4bf", "photo_id": photo_id, "format": "json", "nojsoncallback": "1"};
+
+    //AJAX call to Flicker Search Photos
+    $.ajax({
+        type: 'GET',
+        dataType: 'json',
+        url: "https://api.flickr.com/services/rest/",
+        data: data,
+        success: function(data,status) {
+          // get photos
+          img_src=data.sizes.size[4].source;
+          //$("#dump_place").append(data.sizes.size[6].source);
+          $("#photo_grid").append('<div class="w3-third"><img src="'+img_src+'" style="width:100%" onclick="onClick(this)" alt="Description."></div>')
+        }
+    });
+
+}
+</script>
+
+</body>
+</html>
