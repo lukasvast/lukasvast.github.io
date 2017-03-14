@@ -91,6 +91,8 @@ function onClick(element) {
 
 // search for photos
 function searchPhotos() {
+
+  $("#photo_grid").html("");
   // get place
   var place = $("#place").val();
   var data = {"method": "flickr.places.find", "api_key": "f403afe061fa46c3216802357611a4bf", "query": place, "format": "json", "nojsoncallback": "1"};
