@@ -16,13 +16,15 @@ function onClick(element) {
   captionText.innerHTML = element.alt;
 }
 
+var api_key="349a4881349e36583f3d5b02876c8791";
+
 // search for photos
 function searchPhotos() {
 
   $("#photo_grid").html("");
 
   var place = $("#place").val();
-  var data = {"method": "flickr.places.find", "api_key": "f403afe061fa46c3216802357611a4bf", "query": place, "format": "json", "nojsoncallback": "1"};
+  var data = {"method": "flickr.places.find", "api_key": api_key, "query": place, "format": "json", "nojsoncallback": "1"};
 
   //AJAX call to Flicker places find
   $.ajax({
@@ -39,7 +41,7 @@ function searchPhotos() {
 
 function getPhoto(place_id) {
 
-  var data = {"method": "flickr.photos.search", "api_key": "f403afe061fa46c3216802357611a4bf", "place_id": place_id, "per_page": "500", "format": "json", "nojsoncallback": "1"};
+  var data = {"method": "flickr.photos.search", "api_key": api_key, "place_id": place_id, "per_page": "500", "format": "json", "nojsoncallback": "1"};
 
   //AJAX call to Flicker photos search
   $.ajax({
@@ -57,7 +59,7 @@ function getPhoto(place_id) {
 
 function displayPhoto(photo_id) {
 
-    var data = {"method": "flickr.photos.getSizes", "api_key": "f403afe061fa46c3216802357611a4bf", "photo_id": photo_id, "format": "json", "nojsoncallback": "1"};
+    var data = {"method": "flickr.photos.getSizes", "api_key": api_key, "photo_id": photo_id, "format": "json", "nojsoncallback": "1"};
 
     //AJAX call to Flicker photos getSizes
     $.ajax({
