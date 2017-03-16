@@ -73,6 +73,7 @@ var app = angular.module('content', []);
 app.controller('localizationCtrl', function($scope) {
     $scope.apartments = "Apartments";
     $scope.about = "About";
+    $scope.events = "Events";
     $scope.contact = "Contact";
     $scope.map = "Map";
     $scope.book_now = "Book Now";
@@ -161,24 +162,35 @@ $(document).ready(function(){
       $("#contact").removeClass("w3-hide");
       $("#about").addClass("w3-hide");
       $("#apartments").addClass("w3-hide");
+      $("#events").addClass("w3-hide");
   });
 
   $("#show_about").click(function(){
       $("#about").removeClass("w3-hide");
       $("#contact").addClass("w3-hide");
       $("#apartments").addClass("w3-hide");
+      $("#events").addClass("w3-hide");
+  });
+
+  $("#show_events").click(function(){
+      $("#events").removeClass("w3-hide");
+      $("#contact").addClass("w3-hide");
+      $("#apartments").addClass("w3-hide");
+      $("#about").addClass("w3-hide");
   });
 
   $("#show_apartments").click(function(){
       $("#apartments").removeClass("w3-hide");
       $("#contact").addClass("w3-hide");
       $("#about").addClass("w3-hide");
+      $("#events").addClass("w3-hide");
   });
 
   $("#show_all").click(function(){
       $("#apartments").removeClass("w3-hide");
       $("#contact").removeClass("w3-hide");
       $("#about").removeClass("w3-hide");
+      $("#events").removeClass("w3-hide");
   });
 
 });
