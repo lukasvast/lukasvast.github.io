@@ -65,8 +65,24 @@ function validate(status){
   }
 
   if (status==1 && validated) {
-    alert("POSTAM");
+    postDataToApi(data);
   }
+}
+
+function postDataToApi(data) {
+
+  alert(JSON.stringify(data));
+  
+  //AJAX call MyApi
+  $.ajax({
+      type: 'POST',
+      dataType: 'json',
+      url: "https://localhost:8000/api",
+      data: data,
+      success: function(data,status) {
+
+      }
+  });
 }
 
 var app = angular.module('content', []);
