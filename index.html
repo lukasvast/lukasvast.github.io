@@ -24,7 +24,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   <a href="#about" onclick="w3_close()" class="w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>ABOUT</a>
   <a href="#education" onclick="w3_close()" class="w3-padding"><i class="fa fa-graduation-cap fa-fw w3-margin-right"></i>EDUCATION</a>
   <a href="#contact" onclick="w3_close()" class="w3-padding"><i class="fa fa-envelope fa-fw w3-margin-right"></i>CONTACT</a>
-  <a href="#" onclick="w3_close()"><i class="fa fa-linkedin fa-fw w3-margin-right"></i>LINKEDIN</a>
+  <a href="#contact" onclick="w3_close()"><i class="fa fa-linkedin fa-fw w3-margin-right"></i>LINKEDIN</a>
 </nav>
 
 <!-- Overlay effect when opening sidenav on small screens -->
@@ -74,10 +74,34 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
           </p>
         </div>
       </div>
+      <div class="w3-third w3-container w3-margin-bottom w3-animate-right">
+        <a href="https://github.com/lukasvast/rest-api-tython"><img src="./img/Tython.png" style="width:100%" class="w3-hover-opacity"></a>
+        <div class="w3-container w3-white">
+          <p><b>RESTful API template</b></p>
+          <p>
+            This is a template for creating RESTful WEB API services.
+          </p>
+          <p>
+            It combines FOSRestBundle with Symfony Guard Security Component to authenticate users via apikey.
+          </p>
+        </div>
+      </div>
+      <div class="w3-third w3-container w3-margin-bottom w3-animate-right">
+        <a href="https://lukasvast.github.io/projects/SearchMovies/"><img src="./img/SearchMovies.png" style="width:100%" class="w3-hover-opacity"></a>
+        <div class="w3-container w3-white">
+          <p><b>Search Movies</b></p>
+          <p>
+            Search for movie titles.
+          </p>
+          <p>
+            Aplication (Angular2) consumes RESTful API OMDB. Development still in process..
+          </p>
+        </div>
+      </div>
     </div>
     <div id="data_analysis_projects">
       <div class="w3-twothird w3-container w3-margin-bottom w3-animate-right">
-        <a href="https://bitbucket.org/lsvast/speech-signal-segments-classification-using-mfcc"><img src="./img/SpeechClassification.png" style="width:100%" class="w3-hover-opacity"></a>
+        <a href="https://github.com/lukasvast/speech-signal-segments-classification-using-mfcc"><img src="./img/SpeechClassification.png" style="width:100%" class="w3-hover-opacity"></a>
         <div class="w3-container w3-white">
           <p><b>Speech Signal Segments Classification using Mel-cepstral Coefficients</b></p>
           <p class="w3-justify">
@@ -90,9 +114,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     </div>
     <div id="embedded_systems_projects">
       <div class="w3-twothird w3-container w3-margin-bottom w3-animate-right">
-        <a href="https://bitbucket.org/lsvast/embedded-riread-system"><img src="./img/RiRead.png" style="width:100%" class="w3-hover-opacity"></a>
+        <a href="https://github.com/lukasvast/embedded-riread-system"><img src="./img/RiRead.png" style="width:100%" class="w3-hover-opacity"></a>
         <div class="w3-container w3-white">
-          <p><b>RiRad</b></p>
+          <p><b>RiRead</b></p>
           <p class="w3-justify">
             Embedded application for
             ATmega32A microcontroller that uses magnetic card reader (SU90) to output content of magnetic cards on TFT LCD display.
@@ -209,7 +233,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
       </div>
     </div>
     <hr class="w3-opacity">
-    <form action="/action_page.php" target="_blank">
+    <div class="w3-center w3-dark-grey w3-padding-32">
+      <a href="https://www.linkedin.com/in/luka-svast"><img src="./img/linkedin.png" style="width:25%" class="w3-hover-opacity"></a>
+    </div>
+    <form action="/action_page.php" target="_blank" class="w3-hide">
       <div class="w3-group">
         <label>Name</label>
         <input class="w3-input w3-border" type="text" name="Name" required>
