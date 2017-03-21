@@ -56,23 +56,35 @@ function validate(status){
   }
   else {
     //alert(JSON.stringify(data));
+    var estimatedPrice=0;
+    var month=checkIn.getMonth()+1;
+    if (month>4 && month<6) {
+      estimatedPrice=35;
+    }
+    else if (month>5 && month<9) {
+      estimatedPrice=45;
+    }
+    else if (month>8 && month<11 ) {
+      estimatedPrice=30;
+    }
     $("#confirmPanel").removeClass("w3-hide");
     $("#checkInConfirm").text(checkIn.getDate()+". "+(checkIn.getMonth()+1)+". "+checkIn.getFullYear());
     $("#numDaysConfirm").text(numDays);
     $("#numAdultsConfirm").text(numAdults);
     $("#numKidsConfirm").text(numKids);
+    $("#priceConfirm").text((estimatedPrice*numDays)+"€");
     validated=true;
   }
 
   if (status==1 && validated) {
-    postDataToApi(data);
+    postDataToApi("Backend not yet implemented! Data for backend: "+JSON.stringify(data));
   }
 }
 
 function postDataToApi(data) {
 
   alert(JSON.stringify(data));
-  
+
   //AJAX call MyApi
   $.ajax({
       type: 'POST',
