@@ -29,10 +29,10 @@ function myMap(){
   }
 }
 
+// Clears Discovery Data
 function clearData() {
   $("#places").html("");
   $("#photo_grid").html("");
-  marker.setMap(null);
 }
 
 // Script to open and close sidebar
