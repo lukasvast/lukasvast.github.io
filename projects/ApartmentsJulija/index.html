@@ -297,7 +297,7 @@
 
 <!-- Contact Container -->
 <div id="contact" class="w3-container w3-padding-64 w3-white">
-  <div class="w3-container w3-col l5 m5">
+  <div class="w3-container w3-col l7 m7">
     <div class="w3-animate-left">
       <h3>Contact us!</h3>
       <p>Feel free to ask us about anything regarding your stay at House Julija.</p>
@@ -308,22 +308,20 @@
       </div>
     </div>
   </div>
-  <div class="w3-container w3-col l7 m7">
-    <form action="/action_page.php" class="w3-animate-right">
-      <p>
-      <input class="w3-input" type="text" name="first" required>
-      <label class="w3-label w3-validate">Full Name</label></p>
-      <p>
-      <input class="w3-input" type="email" name="email" required>
-      <label class="w3-label w3-validate">Your Email</label></p>
-      <p>
-      <input class="w3-input" type="text" name="message" required>
-      <label class="w3-label w3-validate">Your Message</label></p>
-      <p>
-      <button class="w3-btn w3-dark-grey" type="submit"><i class="fa fa-send w3-margin-right"></i> Send</button>
-      </p>
-    </form>
+  <div class="w3-container w3-padding-64 w3-col l5 m5">
+    <img onclick="$('#contact_modal').show()" src="./img/facebook-messenger.png" class="w3-hover-opacity w3-half w3-animate-right">
   </div>
+
+  <!-- Modal Contact via FB -->
+  <div id="contact_modal" class="w3-modal">
+    <div class="w3-modal-content w3-card-4" style="width:500px; height:300px;">
+      <section class="w3-center">
+        <span onclick="$('#contact_modal').hide()" class="w3-closebtn w3-padding w3-red w3-hover-grey w3-display-topright">&times;</span>
+        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FappJulija%2F&tabs=messages&width=500&height=300&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="500" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+      </section>
+    </div>
+  </div>
+
 </div>
 
 <!-- Modal Controller -->
