@@ -1,4 +1,5 @@
 canvas = document.getElementById("canvas");
+var rocket_img = document.getElementById("rocket");
 
 //set the canvas size here because if we set it with css the canvas coordinates don't get updated
 canvas.width = 750;
@@ -126,7 +127,7 @@ class SmokeTrail {
 
 class Rocket {
   constructor(asteroid1,asteroid2,asteroid3) {
-    this.color = "white";
+    //this.color = "white";
     this.width = 60;
     this.height = 20;
     this.smokeTrail = new SmokeTrail(this);
@@ -145,8 +146,9 @@ class Rocket {
     this.collision(asteroid2);
     this.collision(asteroid3);
 
-    context.fillStyle = this.color;
-    context.fillRect(position.x, position.y, this.width, this.height);
+    //context.fillStyle = this.color;
+    context.drawImage(rocket_img,position.x,position.y,this.width,this.height);
+    //context.fillRect(position.x, position.y, this.width, this.height);
   }
 
   collision(asteroid) {
