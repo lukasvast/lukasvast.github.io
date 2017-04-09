@@ -1,5 +1,10 @@
 canvas = document.getElementById("canvas");
 var rocket_img = document.getElementById("rocket");
+var asteroid_normal_img = document.getElementById("asteroid_normal");
+var asteroid_scatered_img = document.getElementById("asteroid_scatered");
+var startgame = document.getElementById("startgame");
+
+var game_over = false;
 
 //set the canvas size here because if we set it with css the canvas coordinates don't get updated
 canvas.width = 750;
@@ -10,6 +15,20 @@ context = canvas.getContext("2d");
 function clearCanvas() {
   context.fillStyle = "rgb(32, 32, 32)";
   context.fillRect(0, 0, canvas.width, canvas.height);
+}
+
+//this function creates main menu
+function mainMenu() {
+
+  //play game button
+  context.fillStyle = "rgb(0, 0, 32)";
+  context.drawImage(startgame,canvas.width/2-100, canvas.height/2-50, 200, 100);
+  canvas.addEventListener('mousedown',function(e) {
+    if (e.pageX>canvas.width/2-100 && e.pageX<canvas.width/2+100 && e.pageY>canvas.height/2-50 && e.pageY<canvas.height/2+50) {
+      game_over=false;
+    }
+  },false);
+
 }
 
 //this class wraps an x and y component
@@ -45,10 +64,6 @@ function random(min, max) {
 //the particles size is proportinal to how far it has progressed in its life
 class Smoke {
 
-    //NOTE(Sam): the constructor takes in a starting x, and y position
-      // -- x corresponds to the center of the smoke particle
-      // -- y corresponds to the top of the smoke particle
-      // -- each smoke particle is given a pseudo-random: velocity, and initial size
   constructor(x, y) {
     var colors = ["red","yellow","red"];
     var index = Math.round(random(0,2));
@@ -70,8 +85,6 @@ class Smoke {
 
   }
 
-    //NOTE(Sam): this function updates the smoke particles: (position, velocity, size, age)
-      // - and draws it to the canvas
   animate() {
     var position = this.position;
     var velocity = this.velocity;
@@ -92,17 +105,13 @@ class Smoke {
 //group of smoke particles
 class SmokeTrail {
 
-    //NOTE(Sam): the contructor takes in a rocket that smokeTrail uses to align new smoke particles to
   constructor(rocket) {
     this.rocket = rocket;
     this.smokes = [];
 
-      //NOTE(Sam): the number of smoke particles added to the smokes array each time animate() gets called
-    this.smokesPerAnimation = 20;
+    this.smokesPerAnimation = 15;
   }
 
-    //NOTE(Sam): this adds new smoke particles to the smokes array
-      // - and removes particles that have reached their lifetime or have gone outside of the canvas
   animate() {
     var smokes = this.smokes;
     var rocket = this.rocket;
@@ -117,7 +126,7 @@ class SmokeTrail {
           || smoke.age >= smoke.lifetime) {
 
         smokes.splice(x, 1);
-        x--; //NOTE(Sam): we decriment x once so we don't skip the next smoke particle
+        x--;
       }
 
       smoke.animate();
@@ -125,9 +134,10 @@ class SmokeTrail {
   }
 }
 
+
 class Rocket {
+
   constructor(asteroid1,asteroid2,asteroid3) {
-    //this.color = "white";
     this.width = 60;
     this.height = 20;
     this.smokeTrail = new SmokeTrail(this);
@@ -136,6 +146,7 @@ class Rocket {
 
   spawn() {
     this.position = new Vector((canvas.width/3),(canvas.height - this.height)/2);
+    //this.projectile = new Projectile(this.position.x+this.width,this.position.y+this.height/2);
   }
 
   animate() {
@@ -146,16 +157,14 @@ class Rocket {
     this.collision(asteroid2);
     this.collision(asteroid3);
 
-    //context.fillStyle = this.color;
     context.drawImage(rocket_img,position.x,position.y,this.width,this.height);
-    //context.fillRect(position.x, position.y, this.width, this.height);
   }
 
   collision(asteroid) {
-    if(this.position.x+this.width>Math.round(asteroid.position.x)&&this.position.x+this.width<Math.round(asteroid.position.x+asteroid.width)){
-      if(this.position.y>Math.round(asteroid.position.y) && this.position.y<Math.round(asteroid.position.y+asteroid.height)){
-        asteroid.spawn();
-        this.spawn();
+    if(this.position.x+this.width>Math.round(asteroid.position.x) && this.position.x+this.width<Math.round(asteroid.position.x+asteroid.width)){
+      if(this.position.y+this.height/2>Math.round(asteroid.position.y) && this.position.y+this.height/2<Math.round(asteroid.position.y+asteroid.height)){
+        asteroid.explode();
+        this.explode();
       }
     }
   }
@@ -168,11 +177,17 @@ class Rocket {
     this.position.y+=10;
   }
 
+  explode() {
+    gameOver();
+  }
+
 }
 
 class Asteroid {
   constructor() {
-    this.color = "grey";
+    var asteroid_image = [asteroid_normal_img,asteroid_scatered_img];
+    var index = Math.round(random(0,1));
+    this.image = asteroid_image[index];
     this.width = random(30,60);
     this.height = random(30,60);
     this.speed = new Vector(-random(3,7),random(0,0.5));
@@ -191,8 +206,7 @@ class Asteroid {
       this.spawn();
     }
 
-    context.fillStyle = this.color;
-    context.fillRect(position.x, position.y, this.width, this.height);
+    context.drawImage(this.image,position.x,position.y,this.width,this.height);
   }
 
   explode() {
@@ -200,19 +214,60 @@ class Asteroid {
   }
 }
 
+class Projectile {
+  constructor(rocket,asteroid1,asteroid2,asteroid3) {
+    this.color="red";
+    this.speed=10;
+    this.width=10;
+    this.height=2;
+    this.position=new Vector(rocket.position.x+rocket.width,rocket.position.y+rocket.height/2);
+  }
 
-asteroid1 = new Asteroid();
-asteroid2 = new Asteroid();
-asteroid3 = new Asteroid();
-rocket = new Rocket(asteroid1,asteroid2,asteroid3);
+  animate() {
+    this.collision(asteroid1);
+    this.collision(asteroid2);
+    this.collision(asteroid3);
 
+    context.fillStyle = this.color;
+    context.fillRect(this.position.x+=this.speed, this.position.y, this.width, this.height);
+  }
+
+  collision(asteroid) {
+    if(this.position.x+this.width>Math.round(asteroid.position.x) && this.position.x+this.width<Math.round(asteroid.position.x+asteroid.width)){
+      if(this.position.y+this.height/2>Math.round(asteroid.position.y) && this.position.y+this.height/2<Math.round(asteroid.position.y+asteroid.height)){
+        asteroid.explode();
+      }
+    }
+  }
+
+}
+
+
+var asteroid1 = new Asteroid();
+var asteroid2 = new Asteroid();
+var asteroid3 = new Asteroid();
+var rocket = new Rocket(asteroid1,asteroid2,asteroid3);
+var projectiles = [];
 
 function loop() {
-  clearCanvas();
-  rocket.animate();
-  asteroid1.animate();
-  asteroid2.animate();
-  asteroid3.animate();
+  if(!game_over) {
+    clearCanvas();
+    rocket.animate();
+    asteroid1.animate();
+    asteroid2.animate();
+    asteroid3.animate();
+    projectiles.forEach(function(projectile) {
+      projectile.animate();
+    });
+  }
+  else {
+    clearCanvas();
+    mainMenu();
+  }
+}
+
+function gameOver() {
+  game_over = true;
 }
 
 window.addEventListener('keydown',this.check,false);
@@ -225,7 +280,13 @@ function check(e) {
   {
     rocket.moveDown();
   }
+  else if (e.keyCode==32)
+  {
+    projectiles.push(new Projectile(rocket,asteroid1,asteroid2,asteroid3));
+  }
 }
 
-  //NOTE(Sam): this tell the browser to call loop every 16.6ms (60 fps)
-setInterval(loop, 1000/30);
+//this tell the browser to call loop every 16.6ms (60 fps)
+if(game_over==false) {
+  setInterval(loop, 1000/30);
+}
