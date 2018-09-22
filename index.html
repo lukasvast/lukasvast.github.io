@@ -19,7 +19,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <a href="#" onclick="close_sidenav()" class="w3-hide-large w3-right w3-padding" title="close menu">
       <i class="fa fa-remove"></i>
     </a>
-    <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAfVAAAAJDg1MjBiMTkxLWFlYzItNGZjOS05YTYzLTFlMGNjNTFkYjIwZQ.jpg" style="width:60%;" class="w3-round"><br><br>
+    <img src="./img/profile.jpeg" style="width:60%;" class="w3-round"><br><br>
   </div>
   <a href="#portfolio" onclick="w3_close()" class="w3-padding w3-text-teal"><i class="fa fa-th-large fa-fw w3-margin-right"></i>PORTFOLIO</a>
   <a href="#about" onclick="w3_close()" class="w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>ABOUT</a>
@@ -36,7 +36,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" id="portfolio">
-    <a href="#"><img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAfVAAAAJDg1MjBiMTkxLWFlYzItNGZjOS05YTYzLTFlMGNjNTFkYjIwZQ.jpg" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+    <a href="#"><img src="./img/profile.jpeg" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
     <span class="w3-opennav w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="open_sidenav()"><i class="fa fa-bars"></i></span>
     <h1><b>My Portfolio</b></h1>
     <div class="w3-section w3-bottombar w3-padding-16">
@@ -93,7 +93,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
         <div class="w3-container w3-white">
           <p><b>Rocket Game</b></p>
           <p>
-            Navigate through asteroid field with your rocket. Shoot the asteroids with your missiles .
+            Navigate through asteroid field with your rocket. Shoot the asteroids with your missiles.
           </p>
           <p>
             Web game implemented in HTML5 Canvas. Use up and down arrows to move and space to shoot.
@@ -158,25 +158,28 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <p class="w3-justify">
       I am a recent University Bachelor with an interrest for web development and data science. I was born in Croatia in 1993. where I
       finished my High School and University studies. My mother tongue is Croatian but I am also fluent in English and I hava an advanced
-      knowledge of German. Currently I am living in Munich where I am working as a Software Engineer in a FinTech startup company Tradico GmbH.
+      knowledge of German. Currently I am living in Munich where I am working as a DevOps Engineer in a gaming company Chimera Entertainment GmbH.
     </p>
     <p class="w3-justify">
     I am ideally looking to work with experienced developers and am eager to start expanding my knowledge through challenging projects from day one.
     </p>
-    <hr>
 
     <div class="w3-container w3-half">
       <h4>Technical Skills</h4>
       <!-- Progress bars / Skills -->
-      <p>Python, Django</p>
+      <p>AWS, Docker</p>
       <div class="w3-grey">
         <div class="w3-container w3-dark-grey w3-padding w3-center" style="width:80%">80%</div>
       </div>
-      <p>PHP, Symfony</p>
+      <p>Linux, macOS</p>
       <div class="w3-grey">
-        <div class="w3-container w3-dark-grey w3-padding w3-center" style="width:70%">70%</div>
+        <div class="w3-container w3-dark-grey w3-padding w3-center" style="width:80%">80%</div>
       </div>
-      <p>Javascript, Angular, HTML, CSS</p>
+      <p>Jenkins, GitLab, GitHub, SonarQube</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-dark-grey w3-padding w3-center" style="width:80%">80%</div>
+      </div>
+      <p>TICK Stack, ELK Stack, Graylog, Grafana</p>
       <div class="w3-grey">
         <div class="w3-container w3-dark-grey w3-padding w3-center" style="width:70%">70%</div>
       </div>
@@ -184,16 +187,25 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
       <div class="w3-grey">
         <div class="w3-container w3-dark-grey w3-padding w3-center" style="width:70%">70%</div>
       </div>
-
     </div>
+
+    <div class="w3-container w3-half">
+      <h4>Programming Languages</h4>
+      <!-- Progress bars / Skills -->
+      <p>Python, Bash, Groovy, Terraform</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-dark-grey w3-padding w3-center" style="width:80%">80%</div>
+      </div>
+      <p>Javascript, HTML, CSS</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-dark-grey w3-padding w3-center" style="width:70%">70%</div>
+      </div>
+    </div>
+
     <div class="w3-container w3-half">
       <h4>Languages</h4>
       <!-- Progress bars / Skills -->
       <p>English</p>
-      <div class="w3-grey">
-        <div class="w3-container w3-dark-grey w3-padding w3-center" style="width:100%">100%</div>
-      </div>
-      <p>Croatian</p>
       <div class="w3-grey">
         <div class="w3-container w3-dark-grey w3-padding w3-center" style="width:100%">100%</div>
       </div>
@@ -205,9 +217,34 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <hr>
   </div>
 
+  <!-- Experience Section -->
+  <div id="experience" class="w3-container w3-padding-large" style="margin-bottom:32px">
+    <h4><b>Work Experience</b></h4>
+      <hr>
+      <!-- Work Experience -->
+      <h4><b class="w3-quarter">November 2017 - </b><b class="w3-threequarter">Chimera Entertainment GmbH (Game Industry)</b></h4>
+      </br></br>
+      <b class="w3-quarter">Position:</b><i class="w3-threequarter">DevOps Engineer</i>
+      </br>
+      <b class="w3-quarter">Description:</b><i class="w3-threequarter">Plan, implement, secure, monitor and support server infrastructure on AWS, linux system administration and configuration management.</i>
+      </br></br>
+      <h4><b class="w3-quarter">April 2017 - November 2017</b><b class="w3-threequarter">Tradico GmbH (Financial Technology)</b></h4>
+      </br></br>
+      <b class="w3-quarter">Position:</b><i class="w3-threequarter">Software Engineer</i>
+      </br>
+      <b class="w3-quarter">Description:</b><i class="w3-threequarter">Backend Development with Python/Django, PostgreSQL, RESTful API, Amazon Web Service (AWS), Data Analysis.</i>
+      </br></br>
+      <h4><b class="w3-quarter">July 2014 - August 2014</b><b class="w3-threequarter">Internship at HEP (Electrical Power Industry)</b></h4>
+      </br></br>
+      <b class="w3-quarter">Position:</b><i class="w3-threequarter">Database Developer</i>
+      </br>
+      <b class="w3-quarter">Description:</b><i class="w3-threequarter">Data Migration, Database Development.</i>
+  </div>
+
   <!-- Education Section -->
   <div id="education" class="w3-container w3-padding-large" style="margin-bottom:32px">
     <h4><b>Education</b></h4>
+    <hr>
       <p class="w3-justify">
         The nature of my degree course involved a great deal of independent research, requiring initiative and a wide range of skills.
         Web Application Development course together with Database course was heavily based on practical projects which contributed to my passion for web development.
@@ -227,30 +264,14 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
       <b class="w3-quarter">Bachelors Thesis:</b><i class="w3-threequarter">Speech Signal Segments Classification using Mel-cepstral Coefficients</i>
       </br>
       <b class="w3-quarter">Grade Average:</b><i class="w3-threequarter">2.5</i>
+      </br>
       <hr>
       <h4><b class="w3-quarter">2008 - 2012</b><b class="w3-threequarter">Dr. Antun Barac Gymnasium</b></h4>
       </br></br>
       <b class="w3-quarter">Degree:</b><i class="w3-threequarter">High School/Secondary Diplomas and Certificates</i>
       </br>
       <b class="w3-quarter">Grade Average:</b><i class="w3-threequarter">2.0</i>
-  </div>
-
-  <!-- Experience Section -->
-  <div id="experience" class="w3-container w3-padding-large" style="margin-bottom:32px">
-    <h4><b>Work Experience</b></h4>
-      <hr>
-      <!-- Work Experience -->
-      <h4><b class="w3-quarter">April 2017 - </b><b class="w3-threequarter">Tradico GmbH (Financial Technology)</b></h4>
-      </br></br>
-      <b class="w3-quarter">Position:</b><i class="w3-threequarter">Software Engineer</i>
       </br>
-      <b class="w3-quarter">Description:</b><i class="w3-threequarter">Backend Development with Python/Django, PostgreSQL, RESTful API, Amazon Web Service (AWS), Data Analysis.</i>
-      </br></br>
-      <h4><b class="w3-quarter">July 2014 - August 2014</b><b class="w3-threequarter">Internship at HEP (Electrical Power Industry)</b></h4>
-      </br></br>
-      <b class="w3-quarter">Position:</b><i class="w3-threequarter">Database Developer</i>
-      </br>
-      <b class="w3-quarter">Description:</b><i class="w3-threequarter">Data Migration, Database Development.</i>
       <hr>
       <p>
         <button class="w3-button w3-dark-grey w3-padding-large w3-margin-top w3-margin-bottom">
