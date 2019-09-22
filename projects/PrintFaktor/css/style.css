@@ -1487,6 +1487,12 @@ input[type="text"] {
 
 /*# PrintFaktor Specific */
 
+@media screen and (max-width: 768px) {
+  .fh5co-nav-toggle {
+    display: none;
+  }
+}
+
 .logo{
   height: 64px;
 }
