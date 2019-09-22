@@ -345,7 +345,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 #fh5co-header .display-tc .btn.btn-learn,
 .fh5co-cover .display-tc .btn.btn-learn {
-  background: #fee856;
+  background: #FFF500;
   border: none;
   color: #000 !important;
 }
@@ -391,7 +391,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 #fh5co-features {
-  background: #FEE856;
+  background: #FFF500;
 }
 #fh5co-features .services-padding {
   padding: 7em 0;
@@ -504,11 +504,11 @@ h1, h2, h3, h4, h5, h6, figure {
   font-weight: bold;
 }
 .user-frame small {
-  color: #2A528A;
+  color: #0093DD;
 }
 
 #fh5co-slider {
-  background: #2A528A;
+  background: #0093DD;
 }
 #fh5co-slider .heading h2, #fh5co-slider .heading p {
   color: #fff;
@@ -577,7 +577,7 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-hero .flexslider .slider-text-bg .desc {
   margin-top: 9em;
   padding: 2em;
-  background: #FEE856;
+  background: #FFF500;
   -webkit-box-shadow: 0px 21px 24px 0px rgba(0, 0, 0, 0.13);
   -moz-box-shadow: 0px 21px 24px 0px rgba(0, 0, 0, 0.13);
   box-shadow: 0px 21px 24px 0px rgba(0, 0, 0, 0.13);
@@ -1485,18 +1485,23 @@ input[type="text"] {
 
 /*# sourceMappingURL=style.css.map */
 
-/*# Additions */
+/*# PrintFaktor Specific */
 
 .logo{
   height: 64px;
 }
 
 .pf-blue{
-  color: #28a1dd;
+  color: #0093DD;
 }
 
-.pf-black{
-  color: #444444;
+.pf-yellow{
+  color: #FFF500;
+}
+
+.pf-welcome{
+  width: 100%; 
+  height: auto;
 }
 
 .clients{
