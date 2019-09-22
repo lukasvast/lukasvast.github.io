@@ -1517,36 +1517,11 @@ input[type="text"] {
 
 .client-logo{
   padding: 10px;
-  animation: .4s hovercicc 1 alternate;
-  -moz-animation: .4s hovercicc 1 alternate;
-  -webkit-animation: .4s hovercicc 1 alternate;
-}
-
-.client-logo:hover{
-  padding: 10;
-  animation: .4s hovercic 1 forwards;
-  -moz-animation: .4s hovercic 1 forwards;
-  -webkit-animation: .4s hovercic 1 forwards;
 }
 
 .client-logo img{
-  height: 100%;
-  width: 100%;
-  height: 100px;
-  width: 150px;
-  border: none;
-  filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  -webkit-filter: grayscale(100%);
-}
-
-.client-logo img:hover{
   border-style: none;
   background-color: #ffffff;
-  cursor: pointer;
-  filter: grayscale(0%);
-  -moz-filter: grayscale(0%);
-  -webkit-filter: grayscale(0%);
 
   clip-path: polygon(0% 5%, 97% 0%, 95% 100%, 5% 90%);
   -moz-clip-path: polygon(0% 5%, 97% 0%, 95% 100%, 5% 90%);
