@@ -1551,13 +1551,13 @@ img.video{
   width: auto;
   height: 50%;
   position: relative; 
+  padding: 10%;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .modal-full {
-  min-width: 80%;
-  padding: 10px;
+  min-width: 90%;
   margin: auto;
 }
 
