@@ -1542,8 +1542,11 @@ img.video{
 }
 
 .responsive {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 50%;
+  position: relative; 
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .modal-full {
