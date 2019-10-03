@@ -1490,6 +1490,12 @@ input[type="text"] {
   }
 }
 
+@media screen and (max-width: 768px) {
+  .indicators {
+    display: none;
+  }
+}
+
 .logo{
   height: 64px;
 }
@@ -1557,4 +1563,10 @@ img.video{
 
 .modal-full .modal-content {
   min-height: 100vh;
+}
+
+.carousel-control, .carousel-control.left, .carousel-control.right  {
+  background-color:none;
+  background-image:none;
+  color: #333;
 }
