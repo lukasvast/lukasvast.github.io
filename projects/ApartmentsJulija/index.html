@@ -18,38 +18,18 @@
 
 <body class="w3-light-grey" id="home" ng-app="content" ng-controller="localizationCtrl">
 
-<!-- Navigation Bar for Large and Medium Screens -->
-<div class="w3-bar w3-top w3-white w3-large w3-hide-small w3-animate-opacity">
-  <a id="show_all" href="#home" class="w3-bar-item w3-button w3-red w3-mobile">Julija</a>
-  <a id="show_about" href="#about" class="w3-bar-item w3-button w3-mobile">{{about}}</a>
-  <a id="show_apartments" href="#apartments" class="w3-bar-item w3-button w3-mobile">{{apartments}}</a>
-  <a id="show_events" href="#events" class="w3-bar-item w3-button w3-mobile">{{events}}</a>
-  <a id="show_contact" href="#contact" class="w3-bar-item w3-button w3-mobile">{{contact}}</a>
-  <a href="#map" class="w3-bar-item w3-button w3-mobile">{{map}}</a>
-</div>
-
-<!-- Navigation Bar for Small Screen -->
-<div class="w3-bar w3-white w3-top w3-hide-medium w3-hide-large">
-  <a href="#home" class="w3-bar-item w3-button w3-red"><i class="material-icons">&#xe88a;</i></a>
-  <a href="#about" class="w3-bar-item w3-button"><i class="material-icons">&#xe619;</i></a>
-  <a href="#apartments" class="w3-bar-item w3-button"><i class="material-icons">&#xe413;</i></a>
-  <a href="#contact" class="w3-bar-item w3-button"><i class="material-icons">&#xe0c9;</i></i></a>
-  <a href="#map" class="w3-bar-item w3-button"><i class="material-icons">&#xe55e;</i></a>
-</div>
-
-<!-- Header -->
-<header class="w3-container w3-white">
-</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
-</header>
-
 <!-- About Container -->
 <div id="about" class="w3-container w3-padding-64 w3-white">
   <div class="w3-container w3-col l5 m12 s12">
     <div class="w3-animate-left">
+      <img src="./img/Julija/logo.png">
+    </div>
+  </div>
+  <div class="w3-container w3-col l7 m12 s12">
+    <div class="w3-animate-left">
+      <h1>Apartments Julija</h1>
       <h3>Vacation apartments located at the coast of North Adriatic Sea.</h3>
-      <p>Our sea facing apartments are air conditioned. All apartments have fully equiped kitchen.
-        Beach, restaurants and shopping center are all within a short walking distance.
-        We have reserved parking spots for our guests and place for outside grill experience.</p>
+      <p>Vacation apartments located at the coast of North Adriatic Sea. We have 8 apartments available that can accommodate from 2 to 4 people in each apartment. All of our guests have free wireless internet access, international satellite TV access and access to outside grill area. Our apartments are all air conditioned. We are very close to the beach and restaurants which are within a 5 minutes walking distance. Also city center of Crikvenica is within a 1 kilometer walking distance from the house.</p>
       <table class="w3-table">
         <tr>
           <td><i class="material-icons">&#xe333;</i></td>
@@ -75,6 +55,85 @@
         </tr>
       </table>
     </div>
+  </div>
+</div>
+
+<!-- Apartments Container-->
+<div id="apartments" ng-controller="galleryCtrl" class="w3-container w3-padding-64 w3-white">
+  <div class="w3-row-padding w3-animate-right">
+
+    <div class="w3-col l3 m4 s6">
+      <div class="w3-card-2">
+        <div class="w3-display-container overlay-container">
+          <img src="{{app11}}" style="width:100%" onclick="$('#app1').show();" class="w3-hover-opacity">
+          <div class="overlay" onclick="$('#app1').show();"><p>App 1</p><p>Capacity: 2+1</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-col l3 m4 s6">
+      <div class="w3-card-2">
+        <div class="w3-display-container overlay-container">
+          <img src="{{app21}}" style="width:100%" onclick="$('#app2').show();" class="w3-hover-opacity">
+          <div class="overlay" onclick="$('#app2').show();"><p>App 2</p><p>Capacity: 2+1</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-col l3 m4 s6">
+      <div class="w3-card-2">
+        <div class="w3-display-container overlay-container">
+          <img src="{{app31}}" style="width:100%" onclick="$('#app3').show();" class="w3-hover-opacity">
+          <div class="overlay" onclick="$('#app3').show();"><p>App 3</p><p>Capacity: 2</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-col l3 m4 s12">
+      <div class="w3-card-2">
+        <div class="w3-display-container overlay-container">
+          <img src="{{app41}}" style="width:100%" onclick="$('#app4').show();" class="w3-hover-opacity">
+          <div class="overlay" onclick="$('#app4').show();"><p>App 4</p><p>Capacity: 2+1</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-col l3 m4 s6">
+      <div class="w3-card-2">
+        <div class="w3-display-container overlay-container">
+          <img src="{{app51}}" style="width:100%" onclick="$('#app5').show();" class="w3-hover-opacity">
+          <div class="overlay" onclick="$('#app5').show();"><p>App 5</p><p>Capacity: 2+2</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-col l3 m4 s6">
+      <div class="w3-card-2">
+        <div class="w3-display-container overlay-container">
+          <img src="{{app61}}" style="width:100%" onclick="$('#app6').show();" class="w3-hover-opacity">
+          <div class="overlay" onclick="$('#app6').show();"><p>App 6</p><p>Capacity: 2+1</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-col l3 m4 s6">
+      <div class="w3-card-2">
+        <div class="w3-display-container overlay-container">
+          <img src="{{app71}}" style="width:100%" onclick="$('#app7').show();" class="w3-hover-opacity">
+          <div class="overlay" onclick="$('#app7').show();"><p>App 7</p><p>Capacity: 2+2</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-col l3 m4 s6">
+      <div class="w3-card-2">
+        <div class="w3-display-container overlay-container">
+          <img src="{{app81}}" style="width:100%" onclick="$('#app8').show();" class="w3-hover-opacity">
+          <div class="overlay" onclick="$('#app8').show();"><p>App 8</p><p>Capacity: 2+2</p></div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -127,148 +186,6 @@
 
 <!-- Modal Controller -->
 <div ng-controller="galleryCtrl">
-  <!-- Modal First Floor -->
-  <div id="kety" class="w3-modal w3-white">
-    <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright" onclick="$('#kety').hide();">&times;</span>
-    <div class="w3-modal-content w3-animate-zoom">
-      <img class="kety_slide" src="{{kety1}}" style="width:100%;display:none">
-      <img class="kety_slide" src="{{kety2}}" style="width:100%">
-      <img class="kety_slide" src="{{kety3}}" style="width:100%;display:none">
-      <img class="kety_slide" src="{{kety4}}" style="width:100%;display:none">
-      <img class="kety_slide" src="{{kety5}}" style="width:100%;display:none">
-      <img class="kety_slide" src="{{kety6}}" style="width:100%;display:none">
-      <img class="kety_slide" src="{{kety7}}" style="width:100%;display:none">
-      <img class="kety_slide" src="{{kety8}}" style="width:100%;display:none">
-
-      <div class="w3-row-padding w3-section">
-        <div class="w3-col s2">
-          <img class="kety_demo w3-opacity w3-hover-opacity-off" src="{{kety1}}" style="width:100%;cursor:pointer" onclick="currentDiv(1,'kety_slide', 'kety_demo')">
-        </div>
-        <div class="w3-col s2">
-          <img class="kety_demo w3-opacity w3-hover-opacity-off" src="{{kety2}}" style="width:100%;cursor:pointer" onclick="currentDiv(2,'kety_slide', 'kety_demo')">
-        </div>
-        <div class="w3-col s2">
-          <img class="kety_demo w3-opacity w3-hover-opacity-off" src="{{kety3}}" style="width:100%;cursor:pointer" onclick="currentDiv(3,'kety_slide', 'kety_demo')">
-        </div>
-        <div class="w3-col s2">
-          <img class="kety_demo w3-opacity w3-hover-opacity-off" src="{{kety4}}" style="width:100%;cursor:pointer" onclick="currentDiv(4,'kety_slide', 'kety_demo')">
-        </div>
-        <div class="w3-col s2">
-          <img class="kety_demo w3-opacity w3-hover-opacity-off" src="{{kety5}}" style="width:100%;cursor:pointer" onclick="currentDiv(5,'kety_slide', 'kety_demo')">
-        </div>
-        <div class="w3-col s2">
-          <img class="kety_demo w3-opacity w3-hover-opacity-off" src="{{kety6}}" style="width:100%;cursor:pointer" onclick="currentDiv(6,'kety_slide', 'kety_demo')">
-        </div>
-        <div class="w3-col s2">
-          <img class="kety_demo w3-opacity w3-hover-opacity-off" src="{{kety7}}" style="width:100%;cursor:pointer" onclick="currentDiv(7,'kety_slide', 'kety_demo')">
-        </div>
-        <div class="w3-col s2">
-          <img class="kety_demo w3-opacity w3-hover-opacity-off" src="{{kety8}}" style="width:100%;cursor:pointer" onclick="currentDiv(8,'kety_slide', 'kety_demo')">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div id="sarah_kay" class="w3-modal w3-white" >
-    <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright" onclick="$('#sarah_kay').hide();">&times;</span>
-    <div class="w3-modal-content w3-animate-zoom">
-      <img class="sarah_kay_slide" src="{{sarah_kay1}}" style="width:100%;display:none">
-      <img class="sarah_kay_slide" src="{{sarah_kay2}}" style="width:100%">
-      <img class="sarah_kay_slide" src="{{sarah_kay3}}" style="width:100%;display:none">
-      <img class="sarah_kay_slide" src="{{sarah_kay4}}" style="width:100%;display:none">
-      <img class="sarah_kay_slide" src="{{sarah_kay5}}" style="width:100%;display:none">
-      <img class="sarah_kay_slide" src="{{sarah_kay6}}" style="width:100%;display:none">
-      <img class="sarah_kay_slide" src="{{sarah_kay7}}" style="width:100%;display:none">
-      <img class="sarah_kay_slide" src="{{sarah_kay8}}" style="width:100%;display:none">
-      <img class="sarah_kay_slide" src="{{sarah_kay9}}" style="width:100%;display:none">
-      <img class="sarah_kay_slide" src="{{sarah_kay10}}" style="width:100%;display:none">
-      <img class="sarah_kay_slide" src="{{sarah_kay11}}" style="width:100%;display:none">
-
-      <div class="w3-row-padding w3-section">
-        <div class="w3-col s2">
-          <img class="sarah_kay_demo w3-opacity w3-hover-opacity-off" src="{{sarah_kay1}}" style="width:100%;cursor:pointer" onclick="currentDiv(1,'sarah_kay_slide', 'sarah_kay_demo')">
-        </div>
-        <div class="w3-col s2">
-          <img class="sarah_kay_demo w3-opacity w3-hover-opacity-off" src="{{sarah_kay2}}" style="width:100%;cursor:pointer" onclick="currentDiv(2,'sarah_kay_slide', 'sarah_kay_demo')">
-        </div>
-        <div class="w3-col s2">
-          <img class="sarah_kay_demo w3-opacity w3-hover-opacity-off" src="{{sarah_kay3}}" style="width:100%;cursor:pointer" onclick="currentDiv(3,'sarah_kay_slide', 'sarah_kay_demo')">
-        </div>
-        <div class="w3-col s2">
-          <img class="sarah_kay_demo w3-opacity w3-hover-opacity-off" src="{{sarah_kay4}}" style="width:100%;cursor:pointer" onclick="currentDiv(4,'sarah_kay_slide', 'sarah_kay_demo')">
-        </div>
-        <div class="w3-col s2">
-          <img class="sarah_kay_demo w3-opacity w3-hover-opacity-off" src="{{sarah_kay5}}" style="width:100%;cursor:pointer" onclick="currentDiv(5,'sarah_kay_slide', 'sarah_kay_demo')">
-        </div>
-        <div class="w3-col s2">
-          <img class="sarah_kay_demo w3-opacity w3-hover-opacity-off" src="{{sarah_kay6}}" style="width:100%;cursor:pointer" onclick="currentDiv(6,'sarah_kay_slide', 'sarah_kay_demo')">
-        </div>
-        <div class="w3-col s2">
-          <img class="sarah_kay_demo w3-opacity w3-hover-opacity-off" src="{{sarah_kay7}}" style="width:100%;cursor:pointer" onclick="currentDiv(7,'sarah_kay_slide', 'sarah_kay_demo')">
-        </div>
-        <div class="w3-col s2">
-          <img class="sarah_kay_demo w3-opacity w3-hover-opacity-off" src="{{sarah_kay8}}" style="width:100%;cursor:pointer" onclick="currentDiv(8,'sarah_kay_slide', 'sarah_kay_demo')">
-        </div>
-        <div class="w3-col s2">
-          <img class="sarah_kay_demo w3-opacity w3-hover-opacity-off" src="{{sarah_kay9}}" style="width:100%;cursor:pointer" onclick="currentDiv(9,'sarah_kay_slide', 'sarah_kay_demo')">
-        </div>
-        <div class="w3-col s2">
-          <img class="sarah_kay_demo w3-opacity w3-hover-opacity-off" src="{{sarah_kay10}}" style="width:100%;cursor:pointer" onclick="currentDiv(10,'sarah_kay_slide', 'sarah_kay_demo')">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div id="ruski_raj" class="w3-modal w3-white" >
-    <span class="w3-closebtn w3-red w3-hover-grey w3-container w3-padding w3-display-topright" onclick="$('#ruski_raj').hide();">&times;</span>
-    <div class="w3-modal-content w3-animate-zoom">
-      <img class="ruski_raj_slide" src="{{ruski_raj1}}" style="width:100%;display:none">
-      <img class="ruski_raj_slide" src="{{ruski_raj2}}" style="width:100%">
-      <img class="ruski_raj_slide" src="{{ruski_raj3}}" style="width:100%;display:none">
-      <img class="ruski_raj_slide" src="{{ruski_raj4}}" style="width:100%;display:none">
-      <img class="ruski_raj_slide" src="{{ruski_raj5}}" style="width:100%;display:none">
-      <img class="ruski_raj_slide" src="{{ruski_raj6}}" style="width:100%;display:none">
-      <img class="ruski_raj_slide" src="{{ruski_raj7}}" style="width:100%;display:none">
-      <img class="ruski_raj_slide" src="{{ruski_raj8}}" style="width:100%;display:none">
-      <img class="ruski_raj_slide" src="{{ruski_raj9}}" style="width:100%;display:none">
-      <img class="ruski_raj_slide" src="{{ruski_raj10}}" style="width:100%;display:none">
-      <img class="ruski_raj_slide" src="{{ruski_raj11}}" style="width:100%;display:none">
-
-      <div class="w3-row-padding w3-section">
-        <div class="w3-col s2">
-          <img class="ruski_raj_demo w3-opacity w3-hover-opacity-off" src="{{ruski_raj1}}" style="width:100%;cursor:pointer" onclick="currentDiv(1,'ruski_raj_slide', 'ruski_raj_demo')">
-        </div>
-        <div class="w3-col s2">
-          <img class="ruski_raj_demo w3-opacity w3-hover-opacity-off" src="{{ruski_raj2}}" style="width:100%;cursor:pointer" onclick="currentDiv(2,'ruski_raj_slide', 'ruski_raj_demo')">
-        </div>
-        <div class="w3-col s2">
-          <img class="ruski_raj_demo w3-opacity w3-hover-opacity-off" src="{{ruski_raj3}}" style="width:100%;cursor:pointer" onclick="currentDiv(3,'ruski_raj_slide', 'ruski_raj_demo')">
-        </div>
-        <div class="w3-col s2">
-          <img class="ruski_raj_demo w3-opacity w3-hover-opacity-off" src="{{ruski_raj4}}" style="width:100%;cursor:pointer" onclick="currentDiv(4,'ruski_raj_slide', 'ruski_raj_demo')">
-        </div>
-        <div class="w3-col s2">
-          <img class="ruski_raj_demo w3-opacity w3-hover-opacity-off" src="{{ruski_raj5}}" style="width:100%;cursor:pointer" onclick="currentDiv(5,'ruski_raj_slide', 'ruski_raj_demo')">
-        </div>
-        <div class="w3-col s2">
-          <img class="ruski_raj_demo w3-opacity w3-hover-opacity-off" src="{{ruski_raj6}}" style="width:100%;cursor:pointer" onclick="currentDiv(6,'ruski_raj_slide', 'ruski_raj_demo')">
-        </div>
-        <div class="w3-col s2">
-          <img class="ruski_raj_demo w3-opacity w3-hover-opacity-off" src="{{ruski_raj7}}" style="width:100%;cursor:pointer" onclick="currentDiv(7,'ruski_raj_slide', 'ruski_raj_demo')">
-        </div>
-        <div class="w3-col s2">
-          <img class="ruski_raj_demo w3-opacity w3-hover-opacity-off" src="{{ruski_raj8}}" style="width:100%;cursor:pointer" onclick="currentDiv(8,'ruski_raj_slide', 'ruski_raj_demo')">
-        </div>
-        <div class="w3-col s2">
-          <img class="ruski_raj_demo w3-opacity w3-hover-opacity-off" src="{{ruski_raj9}}" style="width:100%;cursor:pointer" onclick="currentDiv(9,'ruski_raj_slide', 'ruski_raj_demo')">
-        </div>
-        <div class="w3-col s2">
-          <img class="ruski_raj_demo w3-opacity w3-hover-opacity-off" src="{{ruski_raj10}}" style="width:100%;cursor:pointer" onclick="currentDiv(10,'ruski_raj_slide', 'ruski_raj_demo')">
-        </div>
-        <div class="w3-col s2">
-          <img class="ruski_raj_demo w3-opacity w3-hover-opacity-off" src="{{ruski_raj11}}" style="width:100%;cursor:pointer" onclick="currentDiv(11,'ruski_raj_slide', 'ruski_raj_demo')">
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Modal Second Floor -->
   <div id="app1" class="w3-modal w3-white">
@@ -585,8 +502,6 @@
       <img class="app8_slide" src="{{app86}}" style="width:100%;display:none">
       <img class="app8_slide" src="{{app87}}" style="width:100%;display:none">
       <img class="app8_slide" src="{{app88}}" style="width:100%;display:none">
-      <img class="app8_slide" src="{{app88}}" style="width:100%;display:none">
-      <img class="app8_slide" src="{{app89}}" style="width:100%;display:none">
 
       <div class="w3-row-padding w3-section">
         <div class="w3-col s2">
@@ -610,12 +525,6 @@
         <div class="w3-col s2">
           <img class="app8_demo w3-opacity w3-hover-opacity-off" src="{{app87}}" style="width:100%;cursor:pointer" onclick="currentDiv(7,'app8_slide', 'app8_demo')">
         </div>
-        <div class="w3-col s2">
-          <img class="app8_demo w3-opacity w3-hover-opacity-off" src="{{app88}}" style="width:100%;cursor:pointer" onclick="currentDiv(8,'app8_slide', 'app8_demo')">
-        </div>
-        <div class="w3-col s2">
-          <img class="app8_demo w3-opacity w3-hover-opacity-off" src="{{app89}}" style="width:100%;cursor:pointer" onclick="currentDiv(9,'app8_slide', 'app8_demo')">
-        </div>
       </div>
     </div>
   </div>
@@ -626,20 +535,6 @@
 <article id="map">
   <div id="googleMap" style="width:100%;height:600px;"></div>
 </article>
-
-<!-- Footer -->
-<footer>
-  <div class="w3-container w3-padding-16 w3-black w3-center">
-    <div class="w3-xlarge w3-padding-8">
-      <i class="fa fa-facebook-official w3-hover-text-indigo"></i>
-      <i class="fa fa-instagram w3-hover-text-purple"></i>
-      <i class="fa fa-snapchat w3-hover-text-yellow"></i>
-      <i class="fa fa-pinterest-p w3-hover-text-red"></i>
-      <i class="fa fa-twitter w3-hover-text-light-blue"></i>
-      <i class="fa fa-linkedin w3-hover-text-indigo"></i>
-    </div>
-  </div>
-</footer>
 
 <!-- Add Google Maps -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDut3IyxXJwxXpbnKxjFVZ66rAW_HSY1gs&callback=myMap"></script>

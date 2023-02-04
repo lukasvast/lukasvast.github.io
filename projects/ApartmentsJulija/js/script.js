@@ -107,37 +107,6 @@ app.controller('localizationCtrl', function($scope) {
     $scope.book_now = "Book Now"
 });
 app.controller('galleryCtrl', function($scope) {
-    $scope.kety1 = "img/kety/1.jpg";
-    $scope.kety2 = "img/kety/2.jpg";
-    $scope.kety3 = "img/kety/3.jpg";
-    $scope.kety4 = "img/kety/4.jpg";
-    $scope.kety5 = "img/kety/5.jpg";
-    $scope.kety6 = "img/kety/6.jpg";
-    $scope.kety7 = "img/kety/7.jpg";
-    $scope.kety8 = "img/kety/8.jpg";
-
-    $scope.ruski_raj1="img/ruski_raj/1.jpg";
-    $scope.ruski_raj2="img/ruski_raj/2.jpg";
-    $scope.ruski_raj3="img/ruski_raj/3.jpg";
-    $scope.ruski_raj4="img/ruski_raj/4.jpg";
-    $scope.ruski_raj5="img/ruski_raj/5.jpg";
-    $scope.ruski_raj6="img/ruski_raj/6.jpg";
-    $scope.ruski_raj7="img/ruski_raj/7.jpg";
-    $scope.ruski_raj8="img/ruski_raj/8.jpg";
-    $scope.ruski_raj9="img/ruski_raj/9.jpg";
-    $scope.ruski_raj10="img/ruski_raj/10.jpg";
-    $scope.ruski_raj11="img/ruski_raj/11.jpg";
-
-    $scope.sarah_kay1="img/sarah_kay/1.jpg";
-    $scope.sarah_kay2="img/sarah_kay/2.jpg";
-    $scope.sarah_kay3="img/sarah_kay/3.jpg";
-    $scope.sarah_kay4="img/sarah_kay/4.jpg";
-    $scope.sarah_kay5="img/sarah_kay/5.jpg";
-    $scope.sarah_kay6="img/sarah_kay/6.jpg";
-    $scope.sarah_kay7="img/sarah_kay/7.jpg";
-    $scope.sarah_kay8="img/sarah_kay/8.jpg";
-    $scope.sarah_kay9="img/sarah_kay/9.jpg";
-    $scope.sarah_kay10="img/sarah_kay/10.jpg";
 
     $scope.app11="img/A1/1.jpg";
     $scope.app12="img/A1/2.jpg";
@@ -213,48 +182,47 @@ app.controller('galleryCtrl', function($scope) {
     $scope.app85="img/A8/5.jpg";
     $scope.app86="img/A8/6.jpg";
     $scope.app87="img/A8/7.jpg";
-    $scope.app88="img/A8/8.jpg";
 
 });
 
-$(document).ready(function(){
+// $(document).ready(function(){
 
-  $("#show_contact").click(function(){
-      $("#contact").removeClass("w3-hide");
-      $("#about").addClass("w3-hide");
-      $("#apartments").addClass("w3-hide");
-      $("#events").addClass("w3-hide");
-  });
+//   $("#show_contact").click(function(){
+//       $("#contact").removeClass("w3-hide");
+//       $("#about").addClass("w3-hide");
+//       $("#apartments").addClass("w3-hide");
+//       $("#events").addClass("w3-hide");
+//   });
 
-  $("#show_about").click(function(){
-      $("#about").removeClass("w3-hide");
-      $("#contact").addClass("w3-hide");
-      $("#apartments").addClass("w3-hide");
-      $("#events").addClass("w3-hide");
-  });
+//   $("#show_about").click(function(){
+//       $("#about").removeClass("w3-hide");
+//       $("#contact").addClass("w3-hide");
+//       $("#apartments").addClass("w3-hide");
+//       $("#events").addClass("w3-hide");
+//   });
 
-  $("#show_events").click(function(){
-      $("#events").removeClass("w3-hide");
-      $("#contact").addClass("w3-hide");
-      $("#apartments").addClass("w3-hide");
-      $("#about").addClass("w3-hide");
-  });
+//   $("#show_events").click(function(){
+//       $("#events").removeClass("w3-hide");
+//       $("#contact").addClass("w3-hide");
+//       $("#apartments").addClass("w3-hide");
+//       $("#about").addClass("w3-hide");
+//   });
 
-  $("#show_apartments").click(function(){
-      $("#apartments").removeClass("w3-hide");
-      $("#contact").addClass("w3-hide");
-      $("#about").addClass("w3-hide");
-      $("#events").addClass("w3-hide");
-  });
+//   $("#show_apartments").click(function(){
+//       $("#apartments").removeClass("w3-hide");
+//       $("#contact").addClass("w3-hide");
+//       $("#about").addClass("w3-hide");
+//       $("#events").addClass("w3-hide");
+//   });
 
-  $("#show_all").click(function(){
-      $("#apartments").removeClass("w3-hide");
-      $("#contact").removeClass("w3-hide");
-      $("#about").removeClass("w3-hide");
-      $("#events").removeClass("w3-hide");
-  });
+//   $("#show_all").click(function(){
+//       $("#apartments").removeClass("w3-hide");
+//       $("#contact").removeClass("w3-hide");
+//       $("#about").removeClass("w3-hide");
+//       $("#events").removeClass("w3-hide");
+//   });
 
-});
+// });
 
 function currentDiv(n,a,b) {
   showDivs(slideIndex = n,a,b);
