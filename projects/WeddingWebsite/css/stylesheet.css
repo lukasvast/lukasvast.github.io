@@ -1,0 +1,86 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: quicksand;
+  background-color: #fcfbf7;
+}
+
+.bg-image {
+  background-image: url("../img/names.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 100vh;
+}
+
+.intro-section {
+  font-size: 32px;
+  text-align: center;
+}
+
+h1, p {
+  color: #53535a;
+}
+
+@font-face {
+  font-family: quicksand;
+  src: url(../fonts/quicksand.ttf);
+}
+
+.bar { 
+  color: #dda036;
+  padding: 1%;
+}
+
+.btn-custom {
+  background-color: #dda036;
+}
+
+.hr-lines:before{
+  content:" ";
+  display: block;
+  height: 6px;
+  width: 30%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  background: #dda036;
+}
+
+.hr-lines:after{
+  content:" ";
+  height: 6px;
+  width: 30%;
+  background: #dda036;
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 0;
+}
+
+.hr-lines{
+  position: relative;
+  max-width: 80%;
+  margin: 5% auto;
+  text-align: center;
+  font-size: 150%;
+}
+
+@media screen and (max-width: 900px) {
+  .hr-lines:before {
+    width: 13vw;
+  }
+  .hr-lines:after {
+    width: 13vw;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .hr-lines:before {
+    display: none;
+  }
+  .hr-lines:after {
+    display: none;
+  }
+}

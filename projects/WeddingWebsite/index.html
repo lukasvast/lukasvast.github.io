@@ -1,121 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>Manuela & Luka</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>  <link href="./stylesheet.css" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="img/favicon.png">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/labs.css">
+  <link rel="stylesheet" href="css/masonry.css">
+  <link rel="stylesheet" href="css/stylesheet.css">
 </head>
+
 <body>
+  <div class="bg-image"></div>
 
-<div class="bg-image">
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container">
-        <a class="navbar-brand"></a>
-        <div class="justify-content-end">
-          <ul class="navbar-nav">
-            <li class="nav-item dropdown">
-              <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-list" style="font-size: 60px; color: #dda036;"></i>
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="#section1">Detalji</a></li>
-                <li><a class="dropdown-item" href="#section3">RSVP</a></li>
-                <li><a class="dropdown-item disabled" href="#section4">Galerija</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-    </div>
-  </nav>
-</div>
+  <div class="container-fluid intro-section">
+    <h2 class="hr-lines">16<span class="bar">|</span>09<span class="bar">|</span>2023</h2>
+  </div>
 
-<div id="section1" class="container-fluid section1">
-  <h2 class="hr-lines">16<span class="bar">|</span>09<span class="bar">|</span>2023</h2>
-  <div class="row">
-    <div class="col-4 text-center big-screens">
-      <img src='img/location.svg' style="height: 8%; margin-bottom: 10px;"/><br><span class="timeline">Paladnjaki<br>Svetivinčenat, Istra<br></span><a class="btn btn-custom" href="https://goo.gl/maps/LGroDNf5Tn7zosTC7" target="_blank" rel="noopener noreferrer" role="button">Vidi na Karti</a>
-    </div>
-    <div class="col-4 text-center big-screens">
-      <img src='img/glasses.svg' style="height: 8%; margin-bottom: 10px;"/><br><span class="timeline">15:00<br>Okupljanje<br></span><a class="btn btn-custom" href="https://calendar.google.com/calendar/render?action=TEMPLATE&dates=20230916%2F20230917&details=&location=Paladnjaki%2015%2C%2052341%2C%20%C5%BDminj%2C%20Croatia&text=Manuela%20%26%20Luka%20-%20Vjencanje" target="_blank" rel="noopener noreferrer" role="button">Dodaj na Kalendar</a>
-    </div>
-    <div class="col-4 text-center big-screens">
-      <img src='img/wedding.svg' style="height: 8%; margin-bottom: 10px;"/><br><span class="timeline">16:30<br>Ceremonija</span>
-    </div>
+  <div class="intro">
+    <a href="https://manuela-luka.svast.eu/download/ML_WEDDING_GALLERY.zip" download="ML_WEDDING_GALLERY.zip" class="btn btn-custom">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download"
+        viewBox="0 0 16 16">
+        <path
+          d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5" />
+        <path
+          d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
+      </svg>
+      Download Full Gallery
+    </a>
   </div>
-  <br>
-  <div class="row vl small-screens">
-    <div class="col-12 text-left small-screens">
-      <span class="timeline">Paladnjaki, Istra </span><a class="btn btn-custom" href="https://goo.gl/maps/LGroDNf5Tn7zosTC7" target="_blank" rel="noopener noreferrer" role="button">Karta</a>
-    </div>
-  </div>
-  <div class="row vl small-screens">
-    <div class="col-12 text-left small-screens">
-      <br><span class="timeline">15:00 Okupljanje </span><a class="btn btn-custom" href="https://calendar.google.com/calendar/render?action=TEMPLATE&dates=20230916%2F20230917&details=&location=Paladnjaki%2015%2C%2052341%2C%20%C5%BDminj%2C%20Croatia&text=Manuela%20%26%20Luka%20-%20Vjencanje" target="_blank" rel="noopener noreferrer" role="button">Kalendar</a>
-    </div>
-  </div>
-  <div class="row vl small-screens">
-    <div class="col-12 text-left small-screens">
-      <br><span class="timeline">16:30 Ceremonija</span><br>
-    </div>
-  </div>
-</div>
 
-<div class="row">
-  <div class="column1">
-    <img src="img/paladnjaki_welcome.jpg">
-  </div>
-  <div class="column2">
-    <img src="img/stol.jpg">
-  </div>
-</div>
+  <div class="masonry" id="imageContainer"></div>
 
-<div class="row">
-  <div class="column3">
-    <img src="img/bazen.jpg">
-  </div>
-  <div class="column4">
-    <img src="img/maslina.jpg">
-    <div class="column4-msg">
-      <h4>"Because of you, I laugh a little harder, cry a little less and smile a lot more."</h4>
-    </div>
-  </div>
-</div>
+  <script>
+    const imagePaths = [];
+    const numberOfImages = 433;
 
+    for (let i = 1; i <= numberOfImages; i++) {
+      const imageName = `ML${i}.jpg`;
+      const imagePath = `https://manuela-luka.svast.eu/img/web/${imageName}`;
+      imagePaths.push(imagePath);
+    }
 
-<div id="section3" class="container-fluid section3">
-  <h2 class="text-center section3-rsvp">Veselimo se Vašem dolasku!<br><span class="section3-confirmation">Molimo Vas potvrdite do 01.07.2023.</span></h2>
-  <h2 class="text-center section3-phones">Manuela: +49 174 3454919</h2>
-  <h2 class="text-center section3-phones">Luka: +49 1522 4908699</h2>
-</div>
+    const imageContainer = document.getElementById("imageContainer");
 
-<div id="section4" class="container-fluid section4">
-  <h2 class="text-center section3-rsvp">Dodatne informacije<br><span class="section3-confirmation">Nakon vjenčanja galeriju fotografija možete pogledati ovdje.</span></h2>
-  <h2 class="text-center section4-galery">
-    <button type="button" class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#msg">
-      Galerija
-    </button>
-  </h2>
-  <div class="modal fade" id="msg" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-body">
-          Coming Soon...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+    imagePaths.forEach((imagePath) => {
+      const brick = document.createElement("div");
+      brick.className = "brick";
+
+      const img = document.createElement("img");
+      img.src = imagePath;
+      
+
+      img.addEventListener("click", () => {
+        const link = document.createElement("a");
+        const newPath = imagePath.replace('/web/', '/high/');
+        link.href = newPath;
+        link.target = "_blank";
+        // link.download = imagePath.split('/').pop();
+        link.click();
+      });
+
+      brick.appendChild(img);
+      imageContainer.appendChild(brick);
+    });
+  </script>
 
 </body>
+
 </html>
-
-
