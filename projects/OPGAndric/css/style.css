@@ -1,0 +1,31 @@
+/* Add the following styles to make the main.jpg image the size of the viewport */
+header {
+    position: relative;
+    height: 100vh;
+    /* 100% of the viewport height */
+    overflow: hidden;
+}
+
+header img {
+    width: 100%;
+    /* Make the image width 100% of its container (header) */
+    height: 100%;
+    /* Make the image height 100% of its container (header) */
+    object-fit: cover;
+    /* Scale the image while maintaining its aspect ratio */
+}
+
+.w3-display-middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.custom-experiences {
+    background-color: #c2dec1;
+}
+
+.custom-items {
+    margin-bottom: 5vh;
+}
