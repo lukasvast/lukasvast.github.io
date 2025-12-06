@@ -1,8 +1,8 @@
 /* ===== CSS Variables ===== */
 :root {
-    --primary-color: #2c5f8d;
-    --secondary-color: #89c4f4;
-    --accent-color: #ff6b6b;
+    --primary-color: #5DAFCE;
+    --secondary-color: #81C7DD;
+    --accent-color: #F7C815;
     --dark-color: #1a1a2e;
     --light-color: #f8f9fa;
     --text-color: #333;
@@ -124,7 +124,7 @@ a {
 .hero {
     height: 100vh;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-                url('../ApartmentsJulija/img/A1/1.JPG');
+                url('../img/A1/1.JPG');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -141,7 +141,7 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(44, 95, 141, 0.3), rgba(137, 196, 244, 0.3));
+    background: linear-gradient(135deg, rgba(93, 175, 206, 0.3), rgba(129, 199, 221, 0.3));
 }
 
 .hero-content {
