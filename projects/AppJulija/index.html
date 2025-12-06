@@ -3,21 +3,425 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Under Construction</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-        }
-        
-        h1 {
-            color: #333;
-        }
-    </style>
+    <meta name="description" content="Apartments Julija - Luxury vacation apartments on the North Adriatic Coast, Crikvenica">
+    <title>Apartments Julija | Vacation Rentals Crikvenica</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <h1>Under Construction</h1>
-    <h3>Reach Us At: app.julija@gmail.com</h3>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="../ApartmentsJulija/img/Julija/logo.png" alt="Apartments Julija">
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#apartments" class="nav-link">Apartments</a></li>
+                <li><a href="#amenities" class="nav-link">Amenities</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Apartments Julija</h1>
+            <p class="hero-subtitle">Your Perfect Adriatic Getaway</p>
+            <p class="hero-description">Luxury vacation apartments on the stunning North Adriatic Coast</p>
+            <a href="#apartments" class="btn btn-primary">Explore Our Apartments</a>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Welcome to Apartments Julija</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Experience the Adriatic Dream</h3>
+                    <p>Vacation apartments located at the coast of North Adriatic Sea. We have 8 apartments available that can accommodate from 2 to 4 people in each apartment.</p>
+                    <p>All of our guests have free wireless internet access, international satellite TV access, and access to an outside grill area. Our apartments are all air conditioned.</p>
+                    <p>We are very close to the beach and restaurants which are within a 5 minutes walking distance. The city center of Crikvenica is within a 1 kilometer walking distance from the house.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number">8</span>
+                            <span class="stat-label">Apartments</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">60m</span>
+                            <span class="stat-label">To Beach</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">70m</span>
+                            <span class="stat-label">To Restaurants</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="../ApartmentsJulija/img/A1/1.JPG" alt="Apartment Interior">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apartments Section -->
+    <section class="apartments" id="apartments">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Apartments</h2>
+                <div class="section-divider"></div>
+                <p class="section-description">Choose from our collection of beautifully furnished apartments</p>
+            </div>
+            <div class="apartments-grid">
+                <div class="apartment-card" data-apartment="1">
+                    <div class="apartment-image">
+                        <img src="../ApartmentsJulija/img/A1/1.JPG" alt="Apartment 1">
+                        <div class="apartment-overlay">
+                            <button class="btn btn-secondary view-gallery" data-apartment="1">View Gallery</button>
+                        </div>
+                    </div>
+                    <div class="apartment-info">
+                        <h3>Apartment 1</h3>
+                        <div class="capacity">
+                            <i class="fas fa-users"></i>
+                            <span>Capacity: 2+1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="apartment-card" data-apartment="2">
+                    <div class="apartment-image">
+                        <img src="../ApartmentsJulija/img/A2/1.JPG" alt="Apartment 2">
+                        <div class="apartment-overlay">
+                            <button class="btn btn-secondary view-gallery" data-apartment="2">View Gallery</button>
+                        </div>
+                    </div>
+                    <div class="apartment-info">
+                        <h3>Apartment 2</h3>
+                        <div class="capacity">
+                            <i class="fas fa-users"></i>
+                            <span>Capacity: 2+1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="apartment-card" data-apartment="3">
+                    <div class="apartment-image">
+                        <img src="../ApartmentsJulija/img/A3/1.jpg" alt="Apartment 3">
+                        <div class="apartment-overlay">
+                            <button class="btn btn-secondary view-gallery" data-apartment="3">View Gallery</button>
+                        </div>
+                    </div>
+                    <div class="apartment-info">
+                        <h3>Apartment 3</h3>
+                        <div class="capacity">
+                            <i class="fas fa-users"></i>
+                            <span>Capacity: 2</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="apartment-card" data-apartment="4">
+                    <div class="apartment-image">
+                        <img src="../ApartmentsJulija/img/A4/1.jpg" alt="Apartment 4">
+                        <div class="apartment-overlay">
+                            <button class="btn btn-secondary view-gallery" data-apartment="4">View Gallery</button>
+                        </div>
+                    </div>
+                    <div class="apartment-info">
+                        <h3>Apartment 4</h3>
+                        <div class="capacity">
+                            <i class="fas fa-users"></i>
+                            <span>Capacity: 2+1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="apartment-card" data-apartment="5">
+                    <div class="apartment-image">
+                        <img src="../ApartmentsJulija/img/A5/1.JPG" alt="Apartment 5">
+                        <div class="apartment-overlay">
+                            <button class="btn btn-secondary view-gallery" data-apartment="5">View Gallery</button>
+                        </div>
+                    </div>
+                    <div class="apartment-info">
+                        <h3>Apartment 5</h3>
+                        <div class="capacity">
+                            <i class="fas fa-users"></i>
+                            <span>Capacity: 2+2</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="apartment-card" data-apartment="6">
+                    <div class="apartment-image">
+                        <img src="../ApartmentsJulija/img/A6/1.JPG" alt="Apartment 6">
+                        <div class="apartment-overlay">
+                            <button class="btn btn-secondary view-gallery" data-apartment="6">View Gallery</button>
+                        </div>
+                    </div>
+                    <div class="apartment-info">
+                        <h3>Apartment 6</h3>
+                        <div class="capacity">
+                            <i class="fas fa-users"></i>
+                            <span>Capacity: 2+1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="apartment-card" data-apartment="7">
+                    <div class="apartment-image">
+                        <img src="../ApartmentsJulija/img/A7/1.jpg" alt="Apartment 7">
+                        <div class="apartment-overlay">
+                            <button class="btn btn-secondary view-gallery" data-apartment="7">View Gallery</button>
+                        </div>
+                    </div>
+                    <div class="apartment-info">
+                        <h3>Apartment 7</h3>
+                        <div class="capacity">
+                            <i class="fas fa-users"></i>
+                            <span>Capacity: 2+2</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="apartment-card" data-apartment="8">
+                    <div class="apartment-image">
+                        <img src="../ApartmentsJulija/img/A8/1.JPG" alt="Apartment 8">
+                        <div class="apartment-overlay">
+                            <button class="btn btn-secondary view-gallery" data-apartment="8">View Gallery</button>
+                        </div>
+                    </div>
+                    <div class="apartment-info">
+                        <h3>Apartment 8</h3>
+                        <div class="capacity">
+                            <i class="fas fa-users"></i>
+                            <span>Capacity: 2+2</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities Section -->
+    <section class="amenities" id="amenities">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Amenities</h2>
+                <div class="section-divider"></div>
+                <p class="section-description">Everything you need for a perfect vacation</p>
+            </div>
+            <div class="amenities-grid">
+                <div class="amenity-card">
+                    <div class="amenity-icon">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <h3>Satellite TV</h3>
+                    <p>International satellite TV access in all apartments</p>
+                </div>
+                <div class="amenity-card">
+                    <div class="amenity-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3>Free WiFi</h3>
+                    <p>High-speed wireless internet access</p>
+                </div>
+                <div class="amenity-card">
+                    <div class="amenity-icon">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <h3>Air Conditioning</h3>
+                    <p>All apartments are fully air conditioned</p>
+                </div>
+                <div class="amenity-card">
+                    <div class="amenity-icon">
+                        <i class="fas fa-umbrella-beach"></i>
+                    </div>
+                    <h3>Beach Nearby</h3>
+                    <p>Only 60m walking distance to the beach</p>
+                </div>
+                <div class="amenity-card">
+                    <div class="amenity-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Restaurants</h3>
+                    <p>Restaurants within 70m walking distance</p>
+                </div>
+                <div class="amenity-card">
+                    <div class="amenity-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>Outdoor Grill</h3>
+                    <p>Access to outside grill area for guests</p>
+                </div>
+                <div class="amenity-card">
+                    <div class="amenity-icon">
+                        <i class="fas fa-parking"></i>
+                    </div>
+                    <h3>Free Parking</h3>
+                    <p>Complimentary parking for all guests</p>
+                </div>
+                <div class="amenity-card">
+                    <div class="amenity-icon">
+                        <i class="fas fa-city"></i>
+                    </div>
+                    <h3>City Center</h3>
+                    <p>1km to Crikvenica city center</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Events Section -->
+    <section class="events">
+        <div class="container">
+            <div class="events-content">
+                <div class="events-image">
+                    <img src="../ApartmentsJulija/img/grobnik.png" alt="Grobnik Circuit">
+                </div>
+                <div class="events-text">
+                    <h2>For Adrenaline Seekers & Motorcycle Lovers</h2>
+                    <p>If you want to try out your skills on a professional circuit, we have an offer for you. Grobnik circuit is only 30 minutes away.</p>
+                    <p>For additional information on this particular offer, contact us:</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-user"></i>
+                            <span>Hrvoje Svast</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+49-175-2031680</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>hrvojesvast@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="section-divider"></div>
+                <p class="section-description">Feel free to ask us about anything regarding your stay at Apartments Julija</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Address</h3>
+                            <p>Brace dr. Sobol 16B<br>Crikvenica, Croatia</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>app.julija@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-facebook-messenger"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Facebook Messenger</h3>
+                            <a href="https://www.facebook.com/appJulija/" target="_blank" class="btn btn-primary">Message Us</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-map">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Apartments Julija</h3>
+                    <p>Your perfect Adriatic getaway awaits in beautiful Crikvenica, Croatia.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#apartments">Apartments</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Brace dr. Sobol 16B<br>Crikvenica, Croatia</p>
+                    <p>app.julija@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Apartments Julija. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Gallery Modal -->
+    <div class="modal" id="galleryModal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="gallery-container">
+                <button class="gallery-nav prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <img src="" alt="Apartment Gallery" id="galleryImage">
+                <button class="gallery-nav next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="gallery-thumbnails" id="galleryThumbnails"></div>
+        </div>
+    </div>
+
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDut3IyxXJwxXpbnKxjFVZ66rAW_HSY1gs"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="./js/script.js"></script>
 </body>
 </html>
