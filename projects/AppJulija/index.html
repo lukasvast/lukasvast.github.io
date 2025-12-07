@@ -34,7 +34,7 @@
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#apartments" class="nav-link">Apartments</a></li>
                 <li><a href="#amenities" class="nav-link">Amenities</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#contact" class="nav-link">Book Direct</a></li>
             </ul>
         </div>
     </nav>
@@ -46,7 +46,10 @@
             <h1 class="hero-title">Apartments Julija</h1>
             <p class="hero-subtitle">Your Perfect Adriatic Getaway</p>
             <p class="hero-description">Luxury vacation apartments on the stunning North Adriatic Coast</p>
-            <a href="#apartments" class="btn btn-primary">Explore Our Apartments</a>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Book Direct & Save</a>
+                <a href="#apartments" class="btn btn-secondary">Explore Our Apartments</a>
+            </div>
         </div>
         <div class="scroll-indicator">
             <i class="fas fa-chevron-down"></i>
@@ -63,12 +66,12 @@
             <div class="about-content">
                 <div class="about-text">
                     <h3>Experience the Adriatic Dream</h3>
-                    <p>Vacation apartments located at the coast of North Adriatic Sea. We have 8 apartments available that can accommodate from 2 to 4 people in each apartment.</p>
+                    <p>Vacation apartments located at the coast of North Adriatic Sea. We have 9 apartments available that can accommodate from 2 to 4 people in each apartment.</p>
                     <p>All of our guests have free wireless internet access, international satellite TV access, and access to an outside grill area. Our apartments are all air conditioned.</p>
                     <p>We are very close to the beach and restaurants which are within a 5 minutes walking distance. The city center of Crikvenica is within a 1 kilometer walking distance from the house.</p>
                     <div class="about-stats">
                         <div class="stat">
-                            <span class="stat-number">8</span>
+                            <span class="stat-number">9</span>
                             <span class="stat-label">Apartments</span>
                         </div>
                         <div class="stat">
@@ -224,6 +227,22 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="apartment-card" data-apartment="9">
+                    <div class="apartment-image">
+                        <img src="./img/A9/1.jpg" alt="Apartment 9">
+                        <div class="apartment-overlay">
+                            <button class="btn btn-secondary view-gallery" data-apartment="9">View Gallery</button>
+                        </div>
+                    </div>
+                    <div class="apartment-info">
+                        <h3>Apartment 9</h3>
+                        <div class="capacity">
+                            <i class="fas fa-users"></i>
+                            <span>Capacity: 2+2</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -308,20 +327,68 @@
                     <h2>Nautika Julija - Boat Charter</h2>
                     <p>Explore the stunning Adriatic coastline with our boat charter service. We offer boat rentals with and without a skipper, perfect for discovering hidden beaches, crystal-clear waters, and beautiful islands.</p>
                     <p>Whether you're an experienced sailor or prefer to relax while a professional skipper guides you, we have the perfect option for your adventure on the Adriatic Sea.</p>
-                    <p>For booking and additional information, contact us:</p>
+                    <p><strong>Book your boat adventure by calling:</strong></p>
                     <div class="contact-details">
                         <div class="contact-item">
                             <i class="fas fa-user"></i>
                             <span>Hrvoje Svast</span>
                         </div>
-                        <div class="contact-item">
+                        <div class="contact-item contact-highlight">
                             <i class="fas fa-phone"></i>
-                            <span>+49-175-2031680</span>
+                            <a href="tel:+4917520316800" style="color: inherit; text-decoration: none;">
+                                <strong>+49-175-2031680</strong>
+                            </a>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
                             <span>hrvojesvast@gmail.com</span>
                         </div>
+                        <div class="contact-item">
+                            <i class="fab fa-instagram"></i>
+                            <a href="https://www.instagram.com/nautika_julija/?hl=en" target="_blank" style="color: inherit; text-decoration: none;">
+                                @nautika_julija
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What Our Guests Say</h2>
+                <div class="section-divider"></div>
+                <p class="section-description">Read reviews from our satisfied guests on Booking.com</p>
+            </div>
+            <div class="reviews-content">
+                <div class="review-card">
+                    <div class="review-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>See Our Reviews</h3>
+                    <p>Check out what our international guests are saying about their stays at Apartments Julija.</p>
+                    <a href="https://www.booking.com/hotel/hr/apartments-julija-crikvenica.en-gb.html" target="_blank" class="btn btn-outline">
+                        <i class="fab fa-booking"></i> View Reviews (English)
+                    </a>
+                </div>
+                <div class="review-card">
+                    <div class="review-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Gästebewertungen</h3>
+                    <p>Lesen Sie, was unsere deutschen Gäste über ihren Aufenthalt sagen.</p>
+                    <a href="https://www.booking.com/hotel/hr/apartments-julija-crikvenica2.de.html" target="_blank" class="btn btn-outline">
+                        <i class="fab fa-booking"></i> Bewertungen ansehen (Deutsch)
+                    </a>
+                </div>
+                <div class="review-highlight">
+                    <i class="fas fa-quote-left"></i>
+                    <p>Don't just take our word for it - see why guests love staying with us! Our Booking.com reviews showcase real experiences from travelers around the world.</p>
+                    <div class="booking-note">
+                        <strong>Prefer to book directly?</strong> Contact us for the best rates and personalized service!
                     </div>
                 </div>
             </div>
@@ -332,9 +399,9 @@
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Get In Touch</h2>
+                <h2 class="section-title">Book Direct & Save</h2>
                 <div class="section-divider"></div>
-                <p class="section-description">Feel free to ask us about anything regarding your stay at Apartments Julija</p>
+                <p class="section-description">Contact us directly for the best rates and personalized service. We're here to make your stay perfect!</p>
             </div>
             <div class="contact-content">
                 <div class="contact-info">

@@ -82,6 +82,16 @@ const apartmentGalleries = {
         './img/A8/5.jpg',
         './img/A8/6.jpg',
         './img/A8/7.JPG'
+    ],
+    9: [
+        './img/A9/1.jpg',
+        './img/A9/2.jpg',
+        './img/A9/3.jpg',
+        './img/A9/4.jpg',
+        './img/A9/5.jpg',
+        './img/A9/6.jpg',
+        './img/A9/7.jpg',
+        './img/A9/8.jpg'
     ]
 };
 
