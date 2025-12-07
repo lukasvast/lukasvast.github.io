@@ -19,6 +19,9 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./css/style.css">
+
+    <!-- Translations -->
+    <script src="./js/translations.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -33,11 +36,20 @@
                 <span></span>
             </div>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#apartments" class="nav-link">Apartments</a></li>
-                <li><a href="#amenities" class="nav-link">Amenities</a></li>
-                <li><a href="#contact" class="nav-link">Book Direct</a></li>
+                <li><a href="#home" class="nav-link active" data-i18n="nav_home">Home</a></li>
+                <li><a href="#about" class="nav-link" data-i18n="nav_about">About</a></li>
+                <li><a href="#apartments" class="nav-link" data-i18n="nav_apartments">Apartments</a></li>
+                <li><a href="#amenities" class="nav-link" data-i18n="nav_amenities">Amenities</a></li>
+                <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Book Direct</a></li>
+                <li class="lang-switcher">
+                    <button class="lang-btn active" data-lang="en" title="English">EN</button>
+                    <button class="lang-btn" data-lang="de" title="Deutsch">DE</button>
+                    <button class="lang-btn" data-lang="hr" title="Hrvatski">HR</button>
+                    <button class="lang-btn" data-lang="hu" title="Magyar">HU</button>
+                    <button class="lang-btn" data-lang="pl" title="Polski">PL</button>
+                    <button class="lang-btn" data-lang="it" title="Italiano">IT</button>
+                    <button class="lang-btn" data-lang="cs" title="Čeština">CZ</button>
+                </li>
             </ul>
         </div>
     </nav>
@@ -46,12 +58,12 @@
     <section class="hero" id="home">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="hero-title">Apartments Julija</h1>
-            <p class="hero-subtitle">Your Perfect Adriatic Getaway</p>
-            <p class="hero-description">Family-owned vacation apartments with over 30 years of experience on the beautiful North Adriatic Coast</p>
+            <h1 class="hero-title" data-i18n="hero_title">Apartments Julija</h1>
+            <p class="hero-subtitle" data-i18n="hero_subtitle">Your Perfect Adriatic Getaway</p>
+            <p class="hero-description" data-i18n="hero_description">Family-owned vacation apartments with over 30 years of experience on the beautiful North Adriatic Coast</p>
             <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary">Book Direct & Save</a>
-                <a href="#apartments" class="btn btn-secondary">Explore Our Apartments</a>
+                <a href="#contact" class="btn btn-primary" data-i18n="hero_btn_book">Book Direct & Save</a>
+                <a href="#apartments" class="btn btn-secondary" data-i18n="hero_btn_explore">Explore Our Apartments</a>
             </div>
         </div>
         <div class="scroll-indicator">
@@ -63,27 +75,27 @@
     <section class="about" id="about">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Welcome to Apartments Julija</h2>
+                <h2 class="section-title" data-i18n="about_title">Welcome to Apartments Julija</h2>
                 <div class="section-divider"></div>
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>A Family Tradition Since the 1990s</h3>
-                    <p>Welcome to our family-owned vacation home on the North Adriatic Coast. With over 30 years of experience, we're proud to offer a welcoming atmosphere perfect for families, couples, and friends looking for a comfortable stay in Crikvenica.</p>
-                    <p>We offer 9 fully equipped apartments accommodating 2-6 guests, all with free Wi-Fi, international satellite TV, and air conditioning. Enjoy our self-service BBQ area with complimentary wood and grilling equipment.</p>
-                    <p><strong>Flexible Self Check-In/Out:</strong> Check-in anytime after 14:00, check-out by 10:00. Limited on-site parking available (6 spaces), but free public parking is right in front and behind the house - you'll easily find a spot! Best part? Once parked, you won't need your car - the beach is just a 5-minute walk away, a small market is nearby, and there's even a charming tourist "train" station right in front of our house!</p>
+                    <h3 data-i18n="about_heading">A Family Tradition Since the 1990s</h3>
+                    <p data-i18n="about_p1">Welcome to our family-owned vacation home on the North Adriatic Coast. With over 30 years of experience, we're proud to offer a welcoming atmosphere perfect for families, couples, and friends looking for a comfortable stay in Crikvenica.</p>
+                    <p data-i18n="about_p2">We offer 9 fully equipped apartments accommodating 2-6 guests, all with free Wi-Fi, international satellite TV, and air conditioning. Enjoy our self-service BBQ area with complimentary wood and grilling equipment.</p>
+                    <p data-i18n="about_p3"><strong>Flexible Self Check-In/Out:</strong> Check-in anytime after 14:00, check-out by 10:00. Limited on-site parking available (6 spaces), but free public parking is right in front and behind the house - you'll easily find a spot! Best part? Once parked, you won't need your car - the beach is just a 5-minute walk away, a small market is nearby, and there's even a charming tourist "train" station right in front of our house!</p>
                     <div class="about-stats">
                         <div class="stat">
                             <span class="stat-number">9</span>
-                            <span class="stat-label">Apartments</span>
+                            <span class="stat-label" data-i18n="stat_apartments">Apartments</span>
                         </div>
                         <div class="stat">
                             <span class="stat-number">5 min</span>
-                            <span class="stat-label">To Beach</span>
+                            <span class="stat-label" data-i18n="stat_beach">To Beach</span>
                         </div>
                         <div class="stat">
                             <span class="stat-number">30+</span>
-                            <span class="stat-label">Years Experience</span>
+                            <span class="stat-label" data-i18n="stat_experience">Years Experience</span>
                         </div>
                     </div>
                 </div>
@@ -98,23 +110,23 @@
     <section class="apartments" id="apartments">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Our Apartments</h2>
+                <h2 class="section-title" data-i18n="apartments_title">Our Apartments</h2>
                 <div class="section-divider"></div>
-                <p class="section-description">Choose from our collection of beautifully furnished apartments</p>
+                <p class="section-description" data-i18n="apartments_description">Choose from our collection of beautifully furnished apartments</p>
             </div>
             <div class="apartments-grid">
                 <div class="apartment-card" data-apartment="1">
                     <div class="apartment-image">
                         <img src="./img/A1/1.JPG" alt="Apartment 1">
                         <div class="apartment-overlay">
-                            <button class="btn btn-secondary view-gallery" data-apartment="1">View Gallery</button>
+                            <button class="btn btn-secondary view-gallery" data-apartment="1" data-i18n="btn_view_gallery">View Gallery</button>
                         </div>
                     </div>
                     <div class="apartment-info">
                         <h3>Apartment 1</h3>
                         <div class="capacity">
                             <i class="fas fa-users"></i>
-                            <span>Capacity: 2+1</span>
+                            <span><span data-i18n="apartment_capacity">Capacity</span>: 2</span>
                         </div>
                     </div>
                 </div>
@@ -123,14 +135,14 @@
                     <div class="apartment-image">
                         <img src="./img/A2/1.JPG" alt="Apartment 2">
                         <div class="apartment-overlay">
-                            <button class="btn btn-secondary view-gallery" data-apartment="2">View Gallery</button>
+                            <button class="btn btn-secondary view-gallery" data-apartment="2" data-i18n="btn_view_gallery">View Gallery</button>
                         </div>
                     </div>
                     <div class="apartment-info">
                         <h3>Apartment 2</h3>
                         <div class="capacity">
                             <i class="fas fa-users"></i>
-                            <span>Capacity: 2+1</span>
+                            <span><span data-i18n="apartment_capacity">Capacity</span>: 2+1</span>
                         </div>
                     </div>
                 </div>
@@ -139,14 +151,14 @@
                     <div class="apartment-image">
                         <img src="./img/A3/1.jpg" alt="Apartment 3">
                         <div class="apartment-overlay">
-                            <button class="btn btn-secondary view-gallery" data-apartment="3">View Gallery</button>
+                            <button class="btn btn-secondary view-gallery" data-apartment="3" data-i18n="btn_view_gallery">View Gallery</button>
                         </div>
                     </div>
                     <div class="apartment-info">
                         <h3>Apartment 3</h3>
                         <div class="capacity">
                             <i class="fas fa-users"></i>
-                            <span>Capacity: 2</span>
+                            <span><span data-i18n="apartment_capacity">Capacity</span>: 2</span>
                         </div>
                     </div>
                 </div>
@@ -155,14 +167,14 @@
                     <div class="apartment-image">
                         <img src="./img/A4/1.jpg" alt="Apartment 4">
                         <div class="apartment-overlay">
-                            <button class="btn btn-secondary view-gallery" data-apartment="4">View Gallery</button>
+                            <button class="btn btn-secondary view-gallery" data-apartment="4" data-i18n="btn_view_gallery">View Gallery</button>
                         </div>
                     </div>
                     <div class="apartment-info">
                         <h3>Apartment 4</h3>
                         <div class="capacity">
                             <i class="fas fa-users"></i>
-                            <span>Capacity: 2+1</span>
+                            <span><span data-i18n="apartment_capacity">Capacity</span>: 2+1</span>
                         </div>
                     </div>
                 </div>
@@ -171,14 +183,14 @@
                     <div class="apartment-image">
                         <img src="./img/A5/1.JPG" alt="Apartment 5">
                         <div class="apartment-overlay">
-                            <button class="btn btn-secondary view-gallery" data-apartment="5">View Gallery</button>
+                            <button class="btn btn-secondary view-gallery" data-apartment="5" data-i18n="btn_view_gallery">View Gallery</button>
                         </div>
                     </div>
                     <div class="apartment-info">
                         <h3>Apartment 5</h3>
                         <div class="capacity">
                             <i class="fas fa-users"></i>
-                            <span>Capacity: 2+2</span>
+                            <span><span data-i18n="apartment_capacity">Capacity</span>: 2+2</span>
                         </div>
                     </div>
                 </div>
@@ -187,14 +199,14 @@
                     <div class="apartment-image">
                         <img src="./img/A6/1.JPG" alt="Apartment 6">
                         <div class="apartment-overlay">
-                            <button class="btn btn-secondary view-gallery" data-apartment="6">View Gallery</button>
+                            <button class="btn btn-secondary view-gallery" data-apartment="6" data-i18n="btn_view_gallery">View Gallery</button>
                         </div>
                     </div>
                     <div class="apartment-info">
                         <h3>Apartment 6</h3>
                         <div class="capacity">
                             <i class="fas fa-users"></i>
-                            <span>Capacity: 2+1</span>
+                            <span><span data-i18n="apartment_capacity">Capacity</span>: 2</span>
                         </div>
                     </div>
                 </div>
@@ -203,14 +215,14 @@
                     <div class="apartment-image">
                         <img src="./img/A7/1.jpg" alt="Apartment 7">
                         <div class="apartment-overlay">
-                            <button class="btn btn-secondary view-gallery" data-apartment="7">View Gallery</button>
+                            <button class="btn btn-secondary view-gallery" data-apartment="7" data-i18n="btn_view_gallery">View Gallery</button>
                         </div>
                     </div>
                     <div class="apartment-info">
                         <h3>Apartment 7</h3>
                         <div class="capacity">
                             <i class="fas fa-users"></i>
-                            <span>Capacity: 2+2</span>
+                            <span><span data-i18n="apartment_capacity">Capacity</span>: 2+2</span>
                         </div>
                     </div>
                 </div>
@@ -219,14 +231,14 @@
                     <div class="apartment-image">
                         <img src="./img/A8/1.JPG" alt="Apartment 8">
                         <div class="apartment-overlay">
-                            <button class="btn btn-secondary view-gallery" data-apartment="8">View Gallery</button>
+                            <button class="btn btn-secondary view-gallery" data-apartment="8" data-i18n="btn_view_gallery">View Gallery</button>
                         </div>
                     </div>
                     <div class="apartment-info">
                         <h3>Apartment 8</h3>
                         <div class="capacity">
                             <i class="fas fa-users"></i>
-                            <span>Capacity: 2+2</span>
+                            <span><span data-i18n="apartment_capacity">Capacity</span>: 2+2</span>
                         </div>
                     </div>
                 </div>
@@ -235,14 +247,14 @@
                     <div class="apartment-image">
                         <img src="./img/A9/1.jpg" alt="Apartment 9">
                         <div class="apartment-overlay">
-                            <button class="btn btn-secondary view-gallery" data-apartment="9">View Gallery</button>
+                            <button class="btn btn-secondary view-gallery" data-apartment="9" data-i18n="btn_view_gallery">View Gallery</button>
                         </div>
                     </div>
                     <div class="apartment-info">
                         <h3>Apartment 9</h3>
                         <div class="capacity">
                             <i class="fas fa-users"></i>
-                            <span>Capacity: 4+2</span>
+                            <span><span data-i18n="apartment_capacity">Capacity</span>: 4+2</span>
                         </div>
                     </div>
                 </div>
@@ -254,66 +266,66 @@
     <section class="amenities" id="amenities">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Amenities</h2>
+                <h2 class="section-title" data-i18n="amenities_title">Amenities & Features</h2>
                 <div class="section-divider"></div>
-                <p class="section-description">Everything you need for a perfect vacation</p>
+                <p class="section-description" data-i18n="amenities_description">Everything you need for a comfortable stay</p>
             </div>
             <div class="amenities-grid">
                 <div class="amenity-card">
                     <div class="amenity-icon">
                         <i class="fas fa-tv"></i>
                     </div>
-                    <h3>Satellite TV</h3>
-                    <p>International satellite TV access in all apartments</p>
+                    <h3 data-i18n="amenity_tv">Satellite TV</h3>
+                    <p data-i18n="amenity_tv_desc">International satellite TV access in all apartments</p>
                 </div>
                 <div class="amenity-card">
                     <div class="amenity-icon">
                         <i class="fas fa-wifi"></i>
                     </div>
-                    <h3>Free WiFi</h3>
-                    <p>High-speed wireless internet access</p>
+                    <h3 data-i18n="amenity_wifi">Free WiFi</h3>
+                    <p data-i18n="amenity_wifi_desc">High-speed wireless internet access</p>
                 </div>
                 <div class="amenity-card">
                     <div class="amenity-icon">
                         <i class="fas fa-snowflake"></i>
                     </div>
-                    <h3>Air Conditioning</h3>
-                    <p>All apartments are fully air conditioned</p>
+                    <h3 data-i18n="amenity_ac">Air Conditioning</h3>
+                    <p data-i18n="amenity_ac_desc">All apartments are fully air conditioned</p>
                 </div>
                 <div class="amenity-card">
                     <div class="amenity-icon">
                         <i class="fas fa-umbrella-beach"></i>
                     </div>
-                    <h3>Beach Nearby</h3>
-                    <p>Just a 5-minute walk to the beach</p>
+                    <h3 data-i18n="amenity_beach">Beach Nearby</h3>
+                    <p data-i18n="amenity_beach_desc">Just a 5-minute walk to the beach</p>
                 </div>
                 <div class="amenity-card">
                     <div class="amenity-icon">
                         <i class="fas fa-fire"></i>
                     </div>
-                    <h3>Self-Service BBQ</h3>
-                    <p>Free BBQ area with wood & grilling equipment - just clean up after yourself!</p>
+                    <h3 data-i18n="amenity_bbq">Self-Service BBQ</h3>
+                    <p data-i18n="amenity_bbq_desc">Free BBQ area with wood & grilling equipment - just clean up after yourself!</p>
                 </div>
                 <div class="amenity-card">
                     <div class="amenity-icon">
                         <i class="fas fa-parking"></i>
                     </div>
-                    <h3>Parking Available</h3>
-                    <p>Limited on-site parking (6 spaces) + abundant free public parking nearby</p>
+                    <h3 data-i18n="amenity_parking">Parking Available</h3>
+                    <p data-i18n="amenity_parking_desc">Limited on-site parking (6 spaces) + abundant free public parking nearby</p>
                 </div>
                 <div class="amenity-card">
                     <div class="amenity-icon">
                         <i class="fas fa-key"></i>
                     </div>
-                    <h3>Self Check-In/Out</h3>
-                    <p>Flexible arrival after 14:00, departure by 10:00 - come whenever suits you!</p>
+                    <h3 data-i18n="amenity_checkin">Self Check-In/Out</h3>
+                    <p data-i18n="amenity_checkin_desc">Flexible arrival after 14:00, departure by 10:00 - come whenever suits you!</p>
                 </div>
                 <div class="amenity-card">
                     <div class="amenity-icon">
                         <i class="fas fa-city"></i>
                     </div>
-                    <h3>City Center</h3>
-                    <p>15-minute walk to Crikvenica city center</p>
+                    <h3 data-i18n="amenity_city">City Center</h3>
+                    <p data-i18n="amenity_city_desc">15-minute walk to Crikvenica city center</p>
                 </div>
             </div>
         </div>
@@ -323,9 +335,9 @@
     <section class="boats" id="boats">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Nautika Julija - Boat Charter</h2>
+                <h2 class="section-title" data-i18n="boats_title">Nautika Julija - Boat Charter</h2>
                 <div class="section-divider"></div>
-                <p class="section-description">Explore the stunning Adriatic coastline with our boat charter service. We offer boat rentals with and without a skipper, perfect for discovering hidden beaches and beautiful islands.</p>
+                <p class="section-description" data-i18n="boats_description">Explore the stunning Adriatic coastline with our boat charter service. We offer boat rentals with and without a skipper, perfect for discovering hidden beaches and beautiful islands.</p>
             </div>
 
             <div class="boats-grid">
@@ -333,7 +345,7 @@
                     <div class="boat-image">
                         <img src="https://static1.clickandboat.com/v1/p/60Fk2O8Av6MEcxqWYyXvOI1qgQmKgDxI.big.jpg" alt="Orizzonti Nautilus 670">
                         <div class="boat-overlay">
-                            <span class="btn btn-secondary">Book on Click&Boat</span>
+                            <span class="btn btn-secondary" data-i18n="boat_btn">Book on Click&Boat</span>
                         </div>
                     </div>
                     <div class="boat-info">
@@ -346,7 +358,7 @@
                     <div class="boat-image">
                         <img src="https://static1.clickandboat.com/v1/p/lKuj5qk0zvGRxqx03zdVUvm9RvsTri0u.big.jpg" alt="Oki Boats Barracuda 545">
                         <div class="boat-overlay">
-                            <span class="btn btn-secondary">Book on Click&Boat</span>
+                            <span class="btn btn-secondary" data-i18n="boat_btn">Book on Click&Boat</span>
                         </div>
                     </div>
                     <div class="boat-info">
@@ -358,8 +370,8 @@
 
             <div class="boat-contact">
                 <div class="boat-contact-content">
-                    <h3>Contact Hrvoje for Direct Booking</h3>
-                    <p>Get the best rates by booking directly with us!</p>
+                    <h3 data-i18n="boat_contact_title">Contact Hrvoje for Direct Booking</h3>
+                    <p data-i18n="boat_contact_desc">Get the best rates by booking directly with us!</p>
                     <div class="boat-contact-details">
                         <a href="tel:+385916070651" class="boat-contact-item">
                             <i class="fas fa-phone"></i>
@@ -370,7 +382,7 @@
                             <span>@nautika_julija</span>
                         </a>
                     </div>
-                    <p class="boat-note"><small>Boat images courtesy of Click&Boat</small></p>
+                    <p class="boat-note" data-i18n="boat_note"><small>Boat images courtesy of Click&Boat</small></p>
                 </div>
             </div>
         </div>
@@ -380,27 +392,27 @@
     <section class="reviews">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">What Our Guests Say</h2>
+                <h2 class="section-title" data-i18n="reviews_title">What Our Guests Say</h2>
                 <div class="section-divider"></div>
-                <p class="section-description">Read reviews from our satisfied guests on Booking.com</p>
+                <p class="section-description" data-i18n="reviews_description">Read reviews from our satisfied guests on Booking.com</p>
             </div>
             <div class="reviews-content">
                 <div class="review-card-main">
                     <div class="review-icon">
                         <i class="fas fa-star"></i>
                     </div>
-                    <h3>See What Our Guests Say</h3>
-                    <p>Read reviews from our satisfied guests on Booking.com. We have two property listings with hundreds of real reviews from travelers around the world.</p>
+                    <h3 data-i18n="reviews_heading">See What Our Guests Say</h3>
+                    <p data-i18n="reviews_text">Read reviews from our satisfied guests on Booking.com. We have two property listings with hundreds of real reviews from travelers around the world.</p>
                     <div class="review-buttons">
                         <a href="https://www.booking.com/hotel/hr/apartments-julija-crikvenica.en-gb.html" target="_blank" class="btn btn-outline">
-                            <i class="fas fa-external-link-alt"></i> View Property 1 Reviews
+                            <i class="fas fa-external-link-alt"></i> <span data-i18n="reviews_btn_property1">View Property 1 Reviews</span>
                         </a>
                         <a href="https://www.booking.com/hotel/hr/apartments-julija-crikvenica2.en-gb.html" target="_blank" class="btn btn-outline">
-                            <i class="fas fa-external-link-alt"></i> View Property 2 Reviews
+                            <i class="fas fa-external-link-alt"></i> <span data-i18n="reviews_btn_property2">View Property 2 Reviews</span>
                         </a>
                     </div>
                     <div class="booking-note">
-                        <strong>Want the best rates?</strong> Contact us directly on WhatsApp for exclusive discounts and personalized service!
+                        <strong data-i18n="reviews_note_strong">Want the best rates?</strong> <span data-i18n="reviews_note_text">Contact us directly on WhatsApp for exclusive discounts and personalized service!</span>
                     </div>
                 </div>
             </div>
@@ -411,9 +423,9 @@
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Book Direct & Save</h2>
+                <h2 class="section-title" data-i18n="contact_title">Book Direct & Save</h2>
                 <div class="section-divider"></div>
-                <p class="section-description">Contact us directly for the best rates and personalized service. We're here to make your stay perfect!</p>
+                <p class="section-description" data-i18n="contact_description">Contact us directly for the best rates and personalized service. We're here to make your stay perfect!</p>
             </div>
             <div class="contact-content">
                 <div class="contact-info">
@@ -422,10 +434,10 @@
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div class="contact-details">
-                            <h3>Email Us</h3>
+                            <h3 data-i18n="contact_email_title">Email Us</h3>
                             <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 15px;">app.julija@gmail.com</p>
                             <a href="mailto:app.julija@gmail.com" class="btn btn-primary">
-                                <i class="fas fa-envelope"></i> Send Email
+                                <i class="fas fa-envelope"></i> <span data-i18n="contact_email_btn">Send Email</span>
                             </a>
                         </div>
                     </div>
@@ -434,12 +446,12 @@
                             <i class="fab fa-whatsapp"></i>
                         </div>
                         <div class="contact-details">
-                            <h3>WhatsApp - Best Way to Book!</h3>
+                            <h3 data-i18n="contact_whatsapp_title">WhatsApp - Best Way to Book!</h3>
                             <div class="contact-item">
                                 <p style="font-size: 1.4rem; font-weight: 600; margin-bottom: 15px;">+385 92 404 2165</p>
                             </div>
                             <a href="https://wa.me/385924042165" target="_blank" class="btn btn-primary">
-                                <i class="fab fa-whatsapp"></i> Message on WhatsApp
+                                <i class="fab fa-whatsapp"></i> <span data-i18n="contact_whatsapp_btn">Message on WhatsApp</span>
                             </a>
                         </div>
                     </div>
@@ -457,25 +469,25 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Apartments Julija</h3>
-                    <p>Your perfect Adriatic getaway awaits in beautiful Crikvenica, Croatia.</p>
+                    <p data-i18n="footer_tagline">Your perfect Adriatic getaway awaits in beautiful Crikvenica, Croatia.</p>
                 </div>
                 <div class="footer-section">
-                    <h3>Quick Links</h3>
+                    <h3 data-i18n="footer_quick_links">Quick Links</h3>
                     <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#apartments">Apartments</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#home" data-i18n="nav_home">Home</a></li>
+                        <li><a href="#about" data-i18n="nav_about">About</a></li>
+                        <li><a href="#apartments" data-i18n="nav_apartments">Apartments</a></li>
+                        <li><a href="#contact" data-i18n="nav_contact">Book Direct</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>Contact</h3>
+                    <h3 data-i18n="footer_contact">Contact</h3>
                     <p>Brace dr. Sobol 16B<br>Crikvenica, Croatia</p>
                     <p>app.julija@gmail.com</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Apartments Julija. All rights reserved.</p>
+                <p data-i18n="footer_copyright">&copy; 2025 Apartments Julija. All rights reserved.</p>
             </div>
         </div>
     </footer>
