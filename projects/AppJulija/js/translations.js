@@ -64,21 +64,24 @@ const translations = {
         reviews_description: "Read reviews from our satisfied guests on Booking.com",
         reviews_heading: "See What Our Guests Say",
         reviews_text: "Read reviews from our satisfied guests on Booking.com. We have two property listings with hundreds of real reviews from travelers around the world.",
-        reviews_btn1: "View Property 1 Reviews",
-        reviews_btn2: "View Property 2 Reviews",
-        reviews_note: "<strong>Want the best rates?</strong> Contact us directly on WhatsApp for exclusive discounts and personalized service!",
+        reviews_btn_property1: "View Property 1 Reviews",
+        reviews_btn_property2: "View Property 2 Reviews",
+        reviews_note_strong: "Want the best rates?",
+        reviews_note_text: "Contact us directly on WhatsApp for exclusive discounts and personalized service!",
 
         // Contact
         contact_title: "Book Direct & Save",
         contact_description: "Contact us directly for the best rates and personalized service. We're here to make your stay perfect!",
-        contact_email: "Email Us",
+        contact_email_title: "Email Us",
         contact_email_btn: "Send Email",
-        contact_whatsapp: "WhatsApp - Best Way to Book!",
+        contact_whatsapp_title: "WhatsApp - Best Way to Book!",
         contact_whatsapp_btn: "Message on WhatsApp",
 
         // Footer
-        footer_text: "Apartments Julija - Your home away from home on the Croatian coast",
-        footer_rights: "All rights reserved."
+        footer_tagline: "Your perfect Adriatic getaway awaits in beautiful Crikvenica, Croatia.",
+        footer_quick_links: "Quick Links",
+        footer_contact: "Contact",
+        footer_copyright: "&copy; 2025 Apartments Julija. All rights reserved."
     },
 
     de: {
@@ -145,21 +148,24 @@ const translations = {
         reviews_description: "Lesen Sie Bewertungen unserer zufriedenen Gäste auf Booking.com",
         reviews_heading: "Sehen Sie, Was Unsere Gäste Sagen",
         reviews_text: "Lesen Sie Bewertungen unserer zufriedenen Gäste auf Booking.com. Wir haben zwei Objektanzeigen mit Hunderten von echten Bewertungen von Reisenden aus der ganzen Welt.",
-        reviews_btn1: "Bewertungen Objekt 1 Ansehen",
-        reviews_btn2: "Bewertungen Objekt 2 Ansehen",
-        reviews_note: "<strong>Die besten Preise?</strong> Kontaktieren Sie uns direkt über WhatsApp für exklusive Rabatte und persönlichen Service!",
+        reviews_btn_property1: "Bewertungen Objekt 1 Ansehen",
+        reviews_btn_property2: "Bewertungen Objekt 2 Ansehen",
+        reviews_note_strong: "Die besten Preise?",
+        reviews_note_text: "Kontaktieren Sie uns direkt über WhatsApp für exklusive Rabatte und persönlichen Service!",
 
         // Contact
         contact_title: "Direkt Buchen & Sparen",
         contact_description: "Kontaktieren Sie uns direkt für die besten Preise und persönlichen Service. Wir sind hier, um Ihren Aufenthalt perfekt zu machen!",
-        contact_email: "E-Mail Schreiben",
+        contact_email_title: "E-Mail Schreiben",
         contact_email_btn: "E-Mail Senden",
-        contact_whatsapp: "WhatsApp - Beste Buchungsmöglichkeit!",
+        contact_whatsapp_title: "WhatsApp - Beste Buchungsmöglichkeit!",
         contact_whatsapp_btn: "Über WhatsApp Schreiben",
 
         // Footer
-        footer_text: "Apartments Julija - Ihr Zuhause fernab von Zuhause an der kroatischen Küste",
-        footer_rights: "Alle Rechte vorbehalten."
+        footer_tagline: "Ihr perfekter adriatischer Rückzugsort erwartet Sie im schönen Crikvenica, Kroatien.",
+        footer_quick_links: "Schnelllinks",
+        footer_contact: "Kontakt",
+        footer_copyright: "&copy; 2025 Apartments Julija. Alle Rechte vorbehalten."
     },
 
     hr: {
@@ -226,21 +232,24 @@ const translations = {
         reviews_description: "Pročitajte recenzije naših zadovoljnih gostiju na Booking.com",
         reviews_heading: "Pogledajte Što Naši Gosti Kažu",
         reviews_text: "Pročitajte recenzije naših zadovoljnih gostiju na Booking.com. Imamo dva oglasa s stotinama pravih recenzija putnika iz cijelog svijeta.",
-        reviews_btn1: "Pogledaj Recenzije Objekta 1",
-        reviews_btn2: "Pogledaj Recenzije Objekta 2",
-        reviews_note: "<strong>Želite najbolje cijene?</strong> Kontaktirajte nas izravno putem WhatsAppa za ekskluzivne popuste i personalizirani servis!",
+        reviews_btn_property1: "Pogledaj Recenzije Objekta 1",
+        reviews_btn_property2: "Pogledaj Recenzije Objekta 2",
+        reviews_note_strong: "Želite najbolje cijene?",
+        reviews_note_text: "Kontaktirajte nas izravno putem WhatsAppa za ekskluzivne popuste i personalizirani servis!",
 
         // Contact
         contact_title: "Rezervirajte Izravno i Uštedite",
         contact_description: "Kontaktirajte nas izravno za najbolje cijene i personalizirani servis. Tu smo da vaš boravak učinimo savršenim!",
-        contact_email: "Pošaljite Email",
+        contact_email_title: "Pošaljite Email",
         contact_email_btn: "Pošalji Email",
-        contact_whatsapp: "WhatsApp - Najbolji Način Rezervacije!",
+        contact_whatsapp_title: "WhatsApp - Najbolji Način Rezervacije!",
         contact_whatsapp_btn: "Pošalji Poruku na WhatsApp",
 
         // Footer
-        footer_text: "Apartmani Julija - Vaš dom daleko od doma na hrvatskoj obali",
-        footer_rights: "Sva prava pridržana."
+        footer_tagline: "Vaš savršeni bijeg na Jadranu čeka vas u prekrasnoj Crikvenici, Hrvatska.",
+        footer_quick_links: "Brzi Linkovi",
+        footer_contact: "Kontakt",
+        footer_copyright: "&copy; 2025 Apartmani Julija. Sva prava pridržana."
     },
 
     hu: {
@@ -307,21 +316,24 @@ const translations = {
         reviews_description: "Olvassa el elégedett vendégeink véleményét a Booking.com-on",
         reviews_heading: "Nézze Meg, Mit Mondanak Vendégeink",
         reviews_text: "Olvassa el elégedett vendégeink véleményét a Booking.com-on. Két szálláshely-hirdetésünk van több száz valódi véleménnyel utazóktól szerte a világról.",
-        reviews_btn1: "1. Szálláshely Véleményeinek Megtekintése",
-        reviews_btn2: "2. Szálláshely Véleményeinek Megtekintése",
-        reviews_note: "<strong>Akarja a legjobb árakat?</strong> Vegye fel velünk közvetlenül a kapcsolatot WhatsApp-on exkluzív kedvezményekért és személyre szabott szolgáltatásért!",
+        reviews_btn_property1: "1. Szálláshely Véleményeinek Megtekintése",
+        reviews_btn_property2: "2. Szálláshely Véleményeinek Megtekintése",
+        reviews_note_strong: "Akarja a legjobb árakat?",
+        reviews_note_text: "Vegye fel velünk közvetlenül a kapcsolatot WhatsApp-on exkluzív kedvezményekért és személyre szabott szolgáltatásért!",
 
         // Contact
         contact_title: "Foglaljon Közvetlenül és Takarítson Meg",
         contact_description: "Vegye fel velünk közvetlenül a kapcsolatot a legjobb árakért és személyre szabott szolgáltatásért. Itt vagyunk, hogy tartózkodását tökéletessé tegyük!",
-        contact_email: "Írjon Nekünk",
+        contact_email_title: "Írjon Nekünk",
         contact_email_btn: "Email Küldése",
-        contact_whatsapp: "WhatsApp - Legjobb Foglalási Mód!",
+        contact_whatsapp_title: "WhatsApp - Legjobb Foglalási Mód!",
         contact_whatsapp_btn: "Üzenet Küldése WhatsApp-on",
 
         // Footer
-        footer_text: "Julija Apartmanok - Az Ön otthona otthonától távol a horvát parton",
-        footer_rights: "Minden jog fenntartva."
+        footer_tagline: "Az Ön tökéletes adriai menedéke vár Önt a gyönyörű Crikvenicában, Horvátországban.",
+        footer_quick_links: "Gyors Linkek",
+        footer_contact: "Kapcsolat",
+        footer_copyright: "&copy; 2025 Julija Apartmanok. Minden jog fenntartva."
     },
 
     pl: {
@@ -388,21 +400,24 @@ const translations = {
         reviews_description: "Przeczytaj opinie naszych zadowolonych gości na Booking.com",
         reviews_heading: "Zobacz, Co Mówią Nasi Goście",
         reviews_text: "Przeczytaj opinie naszych zadowolonych gości na Booking.com. Mamy dwa ogłoszenia nieruchomości z setkami prawdziwych recenzji podróżników z całego świata.",
-        reviews_btn1: "Zobacz Opinie Nieruchomości 1",
-        reviews_btn2: "Zobacz Opinie Nieruchomości 2",
-        reviews_note: "<strong>Chcesz najlepsze ceny?</strong> Skontaktuj się z nami bezpośrednio przez WhatsApp, aby uzyskać ekskluzywne rabaty i spersonalizowaną obsługę!",
+        reviews_btn_property1: "Zobacz Opinie Nieruchomości 1",
+        reviews_btn_property2: "Zobacz Opinie Nieruchomości 2",
+        reviews_note_strong: "Chcesz najlepsze ceny?",
+        reviews_note_text: "Skontaktuj się z nami bezpośrednio przez WhatsApp, aby uzyskać ekskluzywne rabaty i spersonalizowaną obsługę!",
 
         // Contact
         contact_title: "Rezerwuj Bezpośrednio i Oszczędzaj",
         contact_description: "Skontaktuj się z nami bezpośrednio, aby uzyskać najlepsze ceny i spersonalizowaną obsługę. Jesteśmy tutaj, aby Twój pobyt był idealny!",
-        contact_email: "Napisz do Nas",
+        contact_email_title: "Napisz do Nas",
         contact_email_btn: "Wyślij Email",
-        contact_whatsapp: "WhatsApp - Najlepszy Sposób na Rezerwację!",
+        contact_whatsapp_title: "WhatsApp - Najlepszy Sposób na Rezerwację!",
         contact_whatsapp_btn: "Wyślij Wiadomość przez WhatsApp",
 
         // Footer
-        footer_text: "Apartamenty Julija - Twój dom z dala od domu na chorwackim wybrzeżu",
-        footer_rights: "Wszelkie prawa zastrzeżone."
+        footer_tagline: "Twoja idealna ucieczka nad Adriatyk czeka w pięknej Crikvenicy w Chorwacji.",
+        footer_quick_links: "Szybkie Linki",
+        footer_contact: "Kontakt",
+        footer_copyright: "&copy; 2025 Apartamenty Julija. Wszelkie prawa zastrzeżone."
     },
 
     it: {
@@ -469,21 +484,24 @@ const translations = {
         reviews_description: "Leggi le recensioni dei nostri ospiti soddisfatti su Booking.com",
         reviews_heading: "Guarda Cosa Dicono i Nostri Ospiti",
         reviews_text: "Leggi le recensioni dei nostri ospiti soddisfatti su Booking.com. Abbiamo due annunci di proprietà con centinaia di recensioni reali da viaggiatori di tutto il mondo.",
-        reviews_btn1: "Visualizza Recensioni Proprietà 1",
-        reviews_btn2: "Visualizza Recensioni Proprietà 2",
-        reviews_note: "<strong>Vuoi le migliori tariffe?</strong> Contattaci direttamente su WhatsApp per sconti esclusivi e servizio personalizzato!",
+        reviews_btn_property1: "Visualizza Recensioni Proprietà 1",
+        reviews_btn_property2: "Visualizza Recensioni Proprietà 2",
+        reviews_note_strong: "Vuoi le migliori tariffe?",
+        reviews_note_text: "Contattaci direttamente su WhatsApp per sconti esclusivi e servizio personalizzato!",
 
         // Contact
         contact_title: "Prenota Direttamente e Risparmia",
         contact_description: "Contattaci direttamente per le migliori tariffe e servizio personalizzato. Siamo qui per rendere il tuo soggiorno perfetto!",
-        contact_email: "Inviaci una Email",
+        contact_email_title: "Inviaci una Email",
         contact_email_btn: "Invia Email",
-        contact_whatsapp: "WhatsApp - Miglior Modo per Prenotare!",
+        contact_whatsapp_title: "WhatsApp - Miglior Modo per Prenotare!",
         contact_whatsapp_btn: "Invia Messaggio su WhatsApp",
 
         // Footer
-        footer_text: "Appartamenti Julija - La tua casa lontano da casa sulla costa croata",
-        footer_rights: "Tutti i diritti riservati."
+        footer_tagline: "La tua perfetta fuga adriatica ti aspetta nella bellissima Crikvenica, Croazia.",
+        footer_quick_links: "Link Rapidi",
+        footer_contact: "Contatto",
+        footer_copyright: "&copy; 2025 Appartamenti Julija. Tutti i diritti riservati."
     },
 
     cs: {
@@ -550,21 +568,24 @@ const translations = {
         reviews_description: "Přečtěte si recenze našich spokojených hostů na Booking.com",
         reviews_heading: "Podívejte se, Co Říkají Naši Hosté",
         reviews_text: "Přečtěte si recenze našich spokojených hostů na Booking.com. Máme dva inzeráty ubytování se stovkami skutečných recenzí od cestovatelů z celého světa.",
-        reviews_btn1: "Zobrazit Recenze Ubytování 1",
-        reviews_btn2: "Zobrazit Recenze Ubytování 2",
-        reviews_note: "<strong>Chcete nejlepší ceny?</strong> Kontaktujte nás přímo přes WhatsApp pro exkluzivní slevy a personalizovanou službu!",
+        reviews_btn_property1: "Zobrazit Recenze Ubytování 1",
+        reviews_btn_property2: "Zobrazit Recenze Ubytování 2",
+        reviews_note_strong: "Chcete nejlepší ceny?",
+        reviews_note_text: "Kontaktujte nás přímo přes WhatsApp pro exkluzivní slevy a personalizovanou službu!",
 
         // Contact
         contact_title: "Rezervujte Přímo a Ušetřete",
         contact_description: "Kontaktujte nás přímo pro nejlepší ceny a personalizovanou službu. Jsme tu, abychom váš pobyt učinili dokonalým!",
-        contact_email: "Napište Nám",
+        contact_email_title: "Napište Nám",
         contact_email_btn: "Odeslat Email",
-        contact_whatsapp: "WhatsApp - Nejlepší Způsob Rezervace!",
+        contact_whatsapp_title: "WhatsApp - Nejlepší Způsob Rezervace!",
         contact_whatsapp_btn: "Poslat Zprávu přes WhatsApp",
 
         // Footer
-        footer_text: "Apartmány Julija - Váš domov daleko od domova na chorvatském pobřeží",
-        footer_rights: "Všechna práva vyhrazena."
+        footer_tagline: "Váš dokonalý únik k Jadranu vás čeká v krásné Crikvenici v Chorvatsku.",
+        footer_quick_links: "Rychlé Odkazy",
+        footer_contact: "Kontakt",
+        footer_copyright: "&copy; 2025 Apartmány Julija. Všechna práva vyhrazena."
     }
 };
 
