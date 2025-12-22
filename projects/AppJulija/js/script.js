@@ -1,99 +1,52 @@
-// Apartment Gallery Data
-const apartmentGalleries = {
-    1: [
-        './img/A1/1.JPG',
-        './img/A1/2.JPG',
-        './img/A1/3.JPG',
-        './img/A1/4.JPG',
-        './img/A1/5.jpg',
-        './img/A1/6.jpg',
-        './img/A1/7.JPG',
-        './img/A1/8.JPG',
-        './img/A1/9.JPG'
-    ],
-    2: [
-        './img/A2/1.JPG',
-        './img/A2/2.JPG',
-        './img/A2/3.jpg',
-        './img/A2/4.jpg',
-        './img/A2/5.jpg',
-        './img/A2/6.JPG',
-        './img/A2/7.JPG',
-        './img/A2/8.JPG'
-    ],
-    3: [
-        './img/A3/1.jpg',
-        './img/A3/2.jpg',
-        './img/A3/3.jpg',
-        './img/A3/4.jpg',
-        './img/A3/5.jpg',
-        './img/A3/6.jpg',
-        './img/A3/7.jpg',
-        './img/A3/8.jpg'
-    ],
-    4: [
-        './img/A4/1.jpg',
-        './img/A4/2.jpg',
-        './img/A4/3.jpg',
-        './img/A4/4.jpg',
-        './img/A4/5.jpg',
-        './img/A4/6.jpg',
-        './img/A4/7.jpg',
-        './img/A4/8.JPG'
-    ],
-    5: [
-        './img/A5/1.JPG',
-        './img/A5/2.JPG',
-        './img/A5/3.jpg',
-        './img/A5/4.jpg',
-        './img/A5/5.jpg',
-        './img/A5/6.jpg',
-        './img/A5/7.JPG'
-    ],
-    6: [
-        './img/A6/1.JPG',
-        './img/A6/2.JPG',
-        './img/A6/3.JPG',
-        './img/A6/4.JPG',
-        './img/A6/5.JPG',
-        './img/A6/6.jpg',
-        './img/A6/7.JPG',
-        './img/A6/8.JPG',
-        './img/A6/9.JPG'
-    ],
-    7: [
-        './img/A7/1.jpg',
-        './img/A7/2.jpg',
-        './img/A7/3.jpg',
-        './img/A7/4.jpg',
-        './img/A7/5.jpg',
-        './img/A7/6.jpg',
-        './img/A7/7.jpg',
-        './img/A7/8.jpg',
-        './img/A7/9.jpg',
-        './img/A7/10.jpg',
-        './img/A7/11.JPG'
-    ],
-    8: [
-        './img/A8/1.JPG',
-        './img/A8/2.JPG',
-        './img/A8/3.jpg',
-        './img/A8/4.jpg',
-        './img/A8/5.jpg',
-        './img/A8/6.jpg',
-        './img/A8/7.JPG'
-    ],
-    9: [
-        './img/A9/1.jpg',
-        './img/A9/2.jpg',
-        './img/A9/3.jpg',
-        './img/A9/4.jpg',
-        './img/A9/5.jpg',
-        './img/A9/6.jpg',
-        './img/A9/7.jpg',
-        './img/A9/8.jpg'
-    ]
-};
+// Apartment Gallery Data - Auto-detected
+const apartmentGalleries = {};
+const imageExtensions = ['jpg', 'JPG', 'jpeg', 'JPEG', 'png', 'PNG'];
+const maxImagesPerApartment = 50; // Maximum images to check per apartment
+
+// Function to check if an image exists
+async function imageExists(url) {
+    return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => resolve(true);
+        img.onerror = () => resolve(false);
+        img.src = url;
+    });
+}
+
+// Auto-detect images for all apartments
+async function loadApartmentGalleries() {
+    const totalApartments = 9; // Total number of apartments
+
+    for (let apartmentNum = 1; apartmentNum <= totalApartments; apartmentNum++) {
+        apartmentGalleries[apartmentNum] = [];
+
+        // Try to load images sequentially
+        for (let imageNum = 1; imageNum <= maxImagesPerApartment; imageNum++) {
+            let foundImage = false;
+
+            // Try different extensions
+            for (const ext of imageExtensions) {
+                const imagePath = `./img/A${apartmentNum}/${imageNum}.${ext}`;
+
+                if (await imageExists(imagePath)) {
+                    apartmentGalleries[apartmentNum].push(imagePath);
+                    foundImage = true;
+                    break; // Found the image, no need to check other extensions
+                }
+            }
+
+            // If no image found with any extension, assume no more images
+            if (!foundImage) {
+                break;
+            }
+        }
+
+        console.log(`Loaded ${apartmentGalleries[apartmentNum].length} images for Apartment ${apartmentNum}`);
+    }
+}
+
+// Initialize galleries on page load
+let galleriesLoaded = false;
 
 // Current gallery state
 let currentApartment = 1;
@@ -174,20 +127,30 @@ const viewGalleryBtns = document.querySelectorAll('.view-gallery');
 
 // Open gallery modal
 viewGalleryBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
+    btn.addEventListener('click', async (e) => {
         e.stopPropagation();
         const apartmentNum = parseInt(btn.getAttribute('data-apartment'));
+        await ensureGalleriesLoaded();
         openGallery(apartmentNum);
     });
 });
 
 // Also open gallery when clicking on apartment card
 document.querySelectorAll('.apartment-card').forEach(card => {
-    card.addEventListener('click', () => {
+    card.addEventListener('click', async () => {
         const apartmentNum = parseInt(card.getAttribute('data-apartment'));
+        await ensureGalleriesLoaded();
         openGallery(apartmentNum);
     });
 });
+
+// Ensure galleries are loaded before opening
+async function ensureGalleriesLoaded() {
+    if (!galleriesLoaded) {
+        await loadApartmentGalleries();
+        galleriesLoaded = true;
+    }
+}
 
 function openGallery(apartmentNum) {
     currentApartment = apartmentNum;
@@ -273,58 +236,49 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// ===== Google Maps Initialization =====
+// ===== Leaflet Map Initialization =====
 function initMap() {
-    const location = { lat: 45.183672, lng: 14.6810937 };
+    const location = [45.183672, 14.6810937];
 
-    const map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 16,
+    // Initialize the map
+    const map = L.map('map', {
         center: location,
-        scrollwheel: false,
-        draggable: true,
-        styles: [
-            {
-                "featureType": "water",
-                "elementType": "geometry",
-                "stylers": [{ "color": "#89c4f4" }]
-            },
-            {
-                "featureType": "landscape",
-                "elementType": "geometry",
-                "stylers": [{ "color": "#f8f9fa" }]
-            },
-            {
-                "featureType": "road",
-                "elementType": "geometry",
-                "stylers": [{ "color": "#ffffff" }]
-            }
-        ]
+        zoom: 16,
+        scrollWheelZoom: false,
+        dragging: true
     });
 
-    const marker = new google.maps.Marker({
-        position: location,
-        map: map,
-        title: 'Apartments Julija',
-        animation: google.maps.Animation.DROP
+    // Add OpenStreetMap tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 19
+    }).addTo(map);
+
+    // Create custom marker icon
+    const customIcon = L.icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
     });
 
-    const infoWindow = new google.maps.InfoWindow({
-        content: `
-            <div style="padding: 10px;">
-                <h3 style="margin: 0 0 10px 0; color: #2c5f8d;">Apartments Julija</h3>
-                <p style="margin: 0;">Brace dr. Sobol 16B<br>Crikvenica, Croatia</p>
-            </div>
-        `
-    });
+    // Add marker
+    const marker = L.marker(location, { icon: customIcon }).addTo(map);
 
-    marker.addListener('click', () => {
-        infoWindow.open(map, marker);
-    });
+    // Add popup to marker
+    marker.bindPopup(`
+        <div style="padding: 10px;">
+            <h3 style="margin: 0 0 10px 0; color: #2c5f8d;">Apartments Julija</h3>
+            <p style="margin: 0;">Brace dr. Sobol 16B<br>Crikvenica, Croatia</p>
+        </div>
+    `);
 }
 
-// Initialize map when Google Maps API is loaded
+// Initialize map when Leaflet is loaded
 window.addEventListener('load', () => {
-    if (typeof google !== 'undefined') {
+    if (typeof L !== 'undefined') {
         initMap();
     }
 });
@@ -357,10 +311,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ===== Preload Critical Images =====
-window.addEventListener('load', () => {
-    // Preload first image of each apartment for better performance
+window.addEventListener('load', async () => {
+    // Load all apartment galleries on page load for better performance
+    await loadApartmentGalleries();
+    galleriesLoaded = true;
+
+    // Preload first image of each apartment
     Object.keys(apartmentGalleries).forEach(key => {
-        const img = new Image();
-        img.src = apartmentGalleries[key][0];
+        if (apartmentGalleries[key].length > 0) {
+            const img = new Image();
+            img.src = apartmentGalleries[key][0];
+        }
     });
 });
