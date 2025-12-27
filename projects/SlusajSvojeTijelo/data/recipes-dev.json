@@ -8,11 +8,13 @@
       "sol",
       "papar"
     ],
-    "instructions": "Na maslinovom ulju prodinstati nasjeckani luk i češnjak. Dodati rajčice i kuhati 20 minuta. Začiniti sa solju i paprom. Izmiksati u glatku juhu.",
+    "instructions": "<ol><li><strong>Pripremite</strong> sastojke: narežite luk i češnjak na sitno.</li><li>Zagrijte maslinovo ulje u loncu i <strong>prodinstajte</strong> luk i češnjak <em>2-3 minute</em> dok ne postanu meki.</li><li>Dodajte rajčice i kuhajte <em>20 minuta</em> na srednjoj temperaturi.</li><li>Začinite sa solju i paprom po ukusu.</li><li>Izmiksajte mikserom u glatku juhu i poslužite toplo.</li><li><b>aaa</b>aa<i>aaa</i></li></ol><ul><li><font color=\"#9a3412\"><i>test</i></font></li></ul>",
+    "labels": [
+      "family friendly"
+    ],
+    "mealType": "lunch",
     "name": "Test Recept 1 - Juha od rajčice",
     "rating": 4,
-    "labels": ["family friendly"],
-    "mealType": "lunch",
     "season": "autumn"
   },
   {
@@ -23,10 +25,13 @@
       "med po želji, lol"
     ],
     "instructions": "Zobene pahuljice kuhati u mlijeku 5 minuta. Dodati narezanu bananu i med po želji. Poslužiti toplo.",
+    "labels": [
+      "quick and easy",
+      "glutenfree"
+    ],
+    "mealType": "breakfast",
     "name": "Test Recept 2 - Zobena kaša",
-    "rating": 5,
-    "labels": ["quick and easy", "glutenfree"],
-    "mealType": "breakfast"
+    "rating": 5
   },
   {
     "ingredients": [
@@ -38,10 +43,13 @@
       "sol"
     ],
     "instructions": "Salatu oprati i osušiti. Dodati narezanu fetu i rajčice. Preliti mješavinom ulja i limunova soka. Začiniti solju.",
+    "labels": [
+      "glutenfree",
+      "low-foodmap"
+    ],
+    "mealType": "lunch",
     "name": "Test Recept 3 - Salata sa sirom",
     "rating": 3,
-    "labels": ["glutenfree", "low-foodmap"],
-    "mealType": "lunch",
     "season": "summer"
   }
 ]

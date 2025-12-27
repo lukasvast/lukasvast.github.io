@@ -15,5 +15,10 @@ Please rewrite the instructions to be:
 5. Keep the same language (Croatian) and tone
 6. Don't add ingredients that aren't in the list
 7. Make sure each step is actionable, clear and crucially not too long
+8. Format using HTML for better presentation:
+   - Use <strong> for important terms or actions
+   - Use <ol> and <li> for numbered steps
+   - Use <p> for paragraphs
+   - You can use <em> for tips or notes
 
-Return ONLY the improved instructions text, nothing else. No preamble, no explanation, just the instructions.
+Return ONLY the improved instructions as HTML, nothing else. No preamble, no explanation, no markdown, just the HTML-formatted instructions.

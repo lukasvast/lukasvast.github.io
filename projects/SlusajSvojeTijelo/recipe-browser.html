@@ -101,6 +101,80 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
+        .active-filters-bar {
+            background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+            border: 2px solid #fed7aa;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            display: none;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            box-shadow: 0 2px 8px rgba(249, 115, 22, 0.1);
+        }
+
+        .active-filters-bar.visible {
+            display: flex;
+        }
+
+        .active-filters-label {
+            font-weight: 600;
+            color: #9a3412;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .active-filter-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 12px;
+            background: white;
+            border: 2px solid #f97316;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #1f2937;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .active-filter-tag:hover {
+            background: #fef3e7;
+            transform: translateY(-1px);
+        }
+
+        .active-filter-tag .remove-icon {
+            color: #f97316;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .active-rating-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 12px;
+            background: white;
+            border: 2px solid #f97316;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #1f2937;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .active-rating-tag:hover {
+            background: #fef3e7;
+            transform: translateY(-1px);
+        }
+
+        .active-rating-tag .remove-icon {
+            color: #f97316;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
         .welcome {
             text-align: center;
             padding: 100px 20px;
@@ -303,6 +377,78 @@
             padding: 0;
         }
 
+        /* HTML formatting within instructions */
+        .instructions h1,
+        .instructions h2,
+        .instructions h3,
+        .instructions h4 {
+            color: #ea580c;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+            font-weight: 600;
+        }
+
+        .instructions h1 { font-size: 1.5em; }
+        .instructions h2 { font-size: 1.3em; }
+        .instructions h3 { font-size: 1.1em; }
+        .instructions h4 { font-size: 1em; }
+
+        .instructions p {
+            margin-bottom: 1em;
+        }
+
+        .instructions ul,
+        .instructions ol {
+            margin: 1em 0;
+            padding-left: 2em;
+        }
+
+        .instructions li {
+            margin-bottom: 0.5em;
+        }
+
+        .instructions strong,
+        .instructions b {
+            color: #ea580c;
+            font-weight: 600;
+        }
+
+        .instructions em,
+        .instructions i {
+            color: #9a3412;
+            font-style: italic;
+        }
+
+        .instructions code {
+            background: #fed7aa;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+
+        .instructions pre {
+            background: #fed7aa;
+            padding: 12px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 1em 0;
+        }
+
+        .instructions blockquote {
+            border-left: 3px solid #fb923c;
+            padding-left: 1em;
+            margin: 1em 0;
+            color: #9a3412;
+            font-style: italic;
+        }
+
+        .instructions hr {
+            border: none;
+            border-top: 2px solid #fed7aa;
+            margin: 1.5em 0;
+        }
+
         textarea {
             width: 100%;
             min-height: 250px;
@@ -316,6 +462,58 @@
         }
 
         textarea:focus {
+            outline: none;
+            border-color: #f97316;
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+        }
+
+        /* Rich text editor toolbar */
+        .editor-toolbar {
+            display: flex;
+            gap: 4px;
+            padding: 8px;
+            background: #fff;
+            border: 2px solid #fed7aa;
+            border-bottom: none;
+            border-radius: 10px 10px 0 0;
+            flex-wrap: wrap;
+        }
+
+        .toolbar-btn {
+            padding: 8px 12px;
+            border: 1px solid #fed7aa;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            min-width: 40px;
+            transition: all 0.2s;
+        }
+
+        .toolbar-btn:hover {
+            background: #fff7ed;
+            border-color: #fb923c;
+        }
+
+        .toolbar-btn:active {
+            background: #fed7aa;
+        }
+
+        .toolbar-separator {
+            width: 1px;
+            background: #fed7aa;
+            margin: 0 4px;
+        }
+
+        .instructions.editing[contenteditable="true"] {
+            border: 2px solid #fed7aa;
+            border-top: none;
+            border-radius: 0 0 10px 10px;
+            padding: 18px;
+            background: white;
+        }
+
+        .instructions.editing[contenteditable="true"]:focus {
             outline: none;
             border-color: #f97316;
             box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
@@ -723,6 +921,10 @@
         </div>
 
         <div class="main-content" id="mainContent">
+            <div class="active-filters-bar" id="activeFiltersBar">
+                <span class="active-filters-label">Active filters:</span>
+                <div id="activeFilterTags"></div>
+            </div>
             <div class="welcome">
                 <h2>👋 Welcome</h2>
                 <p>Select a recipe from the list</p>
@@ -887,6 +1089,46 @@
 
             updateRecipeList();
             updateRecipeCount();
+            updateActiveFiltersBar();
+        }
+
+        // Update the active filters bar
+        function updateActiveFiltersBar() {
+            const bar = document.getElementById('activeFiltersBar');
+            const tagsContainer = document.getElementById('activeFilterTags');
+
+            const hasActiveFilters = activeFilters.labels.length > 0 || activeFilters.minRating > 0;
+
+            if (hasActiveFilters) {
+                bar.classList.add('visible');
+
+                let tagsHtml = '';
+
+                // Add label filter tags
+                activeFilters.labels.forEach(label => {
+                    const config = getLabelConfig(label);
+                    tagsHtml += `
+                        <span class="active-filter-tag" onclick="toggleLabelFilter('${label}')">
+                            ${config.icon} ${label}
+                            <span class="remove-icon">×</span>
+                        </span>
+                    `;
+                });
+
+                // Add rating filter tag
+                if (activeFilters.minRating > 0) {
+                    tagsHtml += `
+                        <span class="active-rating-tag" onclick="toggleRatingFilter(${activeFilters.minRating})">
+                            ⭐ ${activeFilters.minRating}+ stars
+                            <span class="remove-icon">×</span>
+                        </span>
+                    `;
+                }
+
+                tagsContainer.innerHTML = tagsHtml;
+            } else {
+                bar.classList.remove('visible');
+            }
         }
 
         // Search functionality
@@ -1062,9 +1304,32 @@
 
                 <div class="recipe-section">
                     <h3>👨‍🍳 Instructions</h3>
-                    <div class="instructions editing">
-                        <textarea id="instructions">${recipe.instructions}</textarea>
+
+                    <!-- Rich text editor toolbar -->
+                    <div class="editor-toolbar">
+                        <button type="button" class="toolbar-btn" onclick="formatText('bold')" title="Bold (Ctrl+B)">
+                            <strong>B</strong>
+                        </button>
+                        <button type="button" class="toolbar-btn" onclick="formatText('italic')" title="Italic (Ctrl+I)">
+                            <em>I</em>
+                        </button>
+                        <span class="toolbar-separator"></span>
+                        <button type="button" class="toolbar-btn" onclick="formatText('insertOrderedList')" title="Numbered List">
+                            ≡
+                        </button>
+                        <button type="button" class="toolbar-btn" onclick="formatText('insertUnorderedList')" title="Bulleted List">
+                            •
+                        </button>
+                        <span class="toolbar-separator"></span>
+                        <button type="button" class="toolbar-btn" onclick="clearFormatting()" title="Clear Formatting">
+                            ✕
+                        </button>
                     </div>
+
+                    <div class="instructions editing"
+                         id="instructionsEditor"
+                         contenteditable="true"
+                         style="min-height: 250px; max-height: 500px; overflow-y: auto; cursor: text;">${recipe.instructions}</div>
                 </div>
             `;
         }
@@ -1087,8 +1352,9 @@
             const ingredientInputs = document.querySelectorAll('#ingredientsList input');
             recipe.ingredients = Array.from(ingredientInputs).map(input => input.value).filter(v => v.trim());
 
-            // Update instructions
-            recipe.instructions = document.getElementById('instructions').value;
+            // Update instructions from rich text editor
+            const instructionsEditor = document.getElementById('instructionsEditor');
+            recipe.instructions = instructionsEditor.innerHTML;
 
             // Save to server
             try {
@@ -1290,7 +1556,7 @@
                     const isActive = activeFilters.labels.includes(label);
                     return `
                         <span class="filter-label ${isActive ? 'active' : ''}"
-                              onclick="toggleLabelFilter('${label}')"
+                              onclick="event.stopPropagation(); toggleLabelFilter('${label}');"
                               style="${!isActive ? `border-color: ${config.color};` : ''}">
                             ${config.icon} ${label}
                         </span>
@@ -1304,27 +1570,38 @@
             const filtersContainer = document.getElementById('filters');
             const existingSections = filtersContainer.querySelectorAll('.filter-section');
 
-            // Remove old exclusive sections (keep only first 2: Labels and Min. Rating)
+            // Save the collapsed state of each section before rebuilding
+            const collapsedStates = {};
             existingSections.forEach((section, index) => {
-                if (index >= 2) section.remove();
+                if (index >= 2) {
+                    const titleEl = section.querySelector('.filter-title');
+                    const titleText = titleEl ? titleEl.querySelector('span').textContent : null;
+                    if (titleText) {
+                        collapsedStates[titleText] = titleEl.classList.contains('collapsed');
+                    }
+                    section.remove();
+                }
             });
 
             // Add exclusive label group sections
             Object.entries(exclusiveLabelGroups).forEach(([groupName, groupLabels]) => {
+                // Check if this section was previously expanded (not collapsed)
+                const isCollapsed = collapsedStates[groupName] !== false; // Default to collapsed if not found
+
                 const section = document.createElement('div');
                 section.className = 'filter-section';
                 section.innerHTML = `
-                    <div class="filter-title collapsed" onclick="toggleFilterSection(this)">
+                    <div class="filter-title ${isCollapsed ? 'collapsed' : ''}" onclick="toggleFilterSection(this)">
                         <span>${groupName}</span>
                         <span class="toggle-icon">▼</span>
                     </div>
-                    <div class="filter-labels collapsed">
+                    <div class="filter-labels ${isCollapsed ? 'collapsed' : ''}">
                         ${groupLabels.map(label => {
                             const config = getLabelConfig(label);
                             const isActive = activeFilters.labels.includes(label);
                             return `
                                 <span class="filter-label ${isActive ? 'active' : ''}"
-                                      onclick="toggleLabelFilter('${label}')"
+                                      onclick="event.stopPropagation(); toggleLabelFilter('${label}');"
                                       style="${!isActive ? `border-color: ${config.color};` : ''}">
                                     ${config.icon} ${label}
                                 </span>
@@ -1339,15 +1616,79 @@
         }
 
         function toggleLabelFilter(label) {
-            const index = activeFilters.labels.indexOf(label);
-            if (index > -1) {
-                activeFilters.labels.splice(index, 1);
+            const mealTypes = exclusiveLabelGroups['Meal Type'];
+            const seasons = exclusiveLabelGroups['Season'];
+
+            // Check if this is an exclusive label (meal type or season)
+            const isMealType = mealTypes.includes(label);
+            const isSeason = seasons.includes(label);
+
+            if (isMealType || isSeason) {
+                // Single-select behavior for exclusive labels
+                const exclusiveLabels = isMealType ? mealTypes : seasons;
+
+                // Remove all labels from this exclusive group
+                activeFilters.labels = activeFilters.labels.filter(l => !exclusiveLabels.includes(l));
+
+                // Toggle the clicked label
+                const index = activeFilters.labels.indexOf(label);
+                if (index === -1) {
+                    activeFilters.labels.push(label);
+                }
             } else {
-                activeFilters.labels.push(label);
+                // Multi-select behavior for regular labels
+                const index = activeFilters.labels.indexOf(label);
+                if (index > -1) {
+                    activeFilters.labels.splice(index, 1);
+                } else {
+                    activeFilters.labels.push(label);
+                }
             }
+
             updateFilterLabels();
             applyFilters();
         }
+
+        // Rich text editor functions
+        function formatText(command) {
+            document.execCommand(command, false, null);
+            document.getElementById('instructionsEditor').focus();
+        }
+
+        function clearFormatting() {
+            const selection = window.getSelection();
+            if (!selection.rangeCount) return;
+
+            const range = selection.getRangeAt(0);
+            const selectedText = range.toString();
+
+            if (selectedText) {
+                const textNode = document.createTextNode(selectedText);
+                range.deleteContents();
+                range.insertNode(textNode);
+            }
+
+            document.getElementById('instructionsEditor').focus();
+        }
+
+        // Add keyboard shortcuts for rich text editor
+        document.addEventListener('keydown', function(e) {
+            const editor = document.getElementById('instructionsEditor');
+            if (!editor || document.activeElement !== editor) return;
+
+            if (e.ctrlKey || e.metaKey) {
+                switch(e.key.toLowerCase()) {
+                    case 'b':
+                        e.preventDefault();
+                        formatText('bold');
+                        break;
+                    case 'i':
+                        e.preventDefault();
+                        formatText('italic');
+                        break;
+                }
+            }
+        });
 
         function filterByRating(rating) {
             activeFilters.minRating = rating;

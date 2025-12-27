@@ -93,11 +93,44 @@ python3 scripts/enhance_recipes.py --dev --prompt custom_prompt.txt
 
 - **name**: Recipe name (required)
 - **ingredients**: Array of ingredient strings (required)
-- **instructions**: Cooking instructions (required)
+- **instructions**: Cooking instructions - supports HTML formatting (required)
 - **rating**: 0-5 stars (optional, default: 0)
 - **labels**: Regular labels like "glutenfree", "family friendly" (optional)
 - **mealType**: One of: breakfast, lunch, snack, dessert (optional)
 - **season**: One of: spring, summer, autumn, winter (optional)
+
+### HTML Formatting in Instructions
+
+The instructions field supports HTML for rich formatting. When editing recipes, a rich text editor (similar to MS Word) is provided for easy formatting without knowing HTML.
+
+#### Rich Text Editor Features
+
+When editing a recipe, you'll see a toolbar with these formatting options:
+- **B** - Bold text (Ctrl/Cmd+B)
+- **I** - Italic text (Ctrl/Cmd+I)
+- **≡** - Numbered list
+- **•** - Bulleted list
+- **✕** - Clear formatting
+
+The editor provides a WYSIWYG (What You See Is What You Get) experience, making it easy for non-technical users to format recipes beautifully.
+
+#### HTML Structure (for reference)
+
+```json
+{
+  "instructions": "<ol><li><strong>Prepare</strong> the ingredients by chopping vegetables.</li><li>Heat oil in a pan for <em>2-3 minutes</em>.</li><li>Add the vegetables and <strong>sauté</strong> until tender.</li></ol>"
+}
+```
+
+Supported HTML tags:
+- `<ol>`, `<ul>`, `<li>` - Lists
+- `<p>` - Paragraphs
+- `<strong>`, `<b>` - Bold/important text (orange color)
+- `<em>`, `<i>` - Italic/emphasis text
+- `<h1>`, `<h2>`, `<h3>`, `<h4>` - Headings
+- `<hr>` - Horizontal line
+- `<blockquote>` - Quoted text
+- `<code>`, `<pre>` - Code formatting
 
 ## Development
 
