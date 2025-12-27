@@ -40,21 +40,32 @@ echo ""
 read -p "Your choice [1/2] (default: 1): " choice
 choice=${choice:-1}
 
+echo ""
+read -p "Limit number of recipes? (press Enter for all, or type a number like 5): " limit
+
+LIMIT_ARG=""
+if [ -n "$limit" ] && [ "$limit" -gt 0 ] 2>/dev/null; then
+    LIMIT_ARG="--limit $limit"
+    echo "Will process first $limit recipes"
+fi
+
 if [ "$choice" = "2" ]; then
     echo ""
-    echo "Processing recipes.json (122 recipes)..."
-    echo "This may take a while and use API credits."
+    echo "Processing recipes.json..."
+    if [ -z "$limit" ]; then
+        echo "This will process all 122 recipes and may take a while."
+    fi
     read -p "Continue? (yes/no): " confirm
     if [ "$confirm" != "yes" ]; then
         echo "Cancelled."
         exit 0
     fi
-    python3 enhance_recipes.py --input recipes.json
+    python3 enhance_recipes.py --input recipes.json $LIMIT_ARG
     OUTPUT_FILE="recipes-enhanced.json"
 else
     echo ""
     echo "Processing recipes-dev.json..."
-    python3 enhance_recipes.py --dev
+    python3 enhance_recipes.py --dev $LIMIT_ARG
     OUTPUT_FILE="recipes-dev-enhanced.json"
 fi
 

@@ -62,7 +62,7 @@ def enhance_instructions(client, recipe):
         print(f"  Error details: {type(e).__name__}")
         return recipe['instructions']  # Return original on error
 
-def process_recipes(input_file='recipes.json', output_file=None, dry_run=False):
+def process_recipes(input_file='recipes.json', output_file=None, dry_run=False, limit=None):
     """Process all recipes and enhance their instructions."""
 
     if output_file is None:
@@ -83,6 +83,11 @@ def process_recipes(input_file='recipes.json', output_file=None, dry_run=False):
     print(f"Loading recipes from {input_file}...")
     with open(input_file, 'r', encoding='utf-8') as f:
         recipes = json.load(f)
+
+    # Apply limit if specified
+    if limit and limit > 0:
+        recipes = recipes[:limit]
+        print(f"Limiting to first {limit} recipes (out of {len(recipes)} total)")
 
     print(f"Found {len(recipes)} recipes to process")
 
@@ -127,6 +132,7 @@ if __name__ == '__main__':
     parser.add_argument('--output', help='Output JSON file (defaults to input file)')
     parser.add_argument('--dry-run', action='store_true', help='Test without saving changes')
     parser.add_argument('--dev', action='store_true', help='Process recipes-dev.json instead')
+    parser.add_argument('--limit', type=int, help='Limit number of recipes to process (e.g., --limit 5)')
 
     args = parser.parse_args()
 
@@ -137,5 +143,6 @@ if __name__ == '__main__':
     process_recipes(
         input_file=args.input,
         output_file=args.output,
-        dry_run=args.dry_run
+        dry_run=args.dry_run,
+        limit=args.limit
     )
