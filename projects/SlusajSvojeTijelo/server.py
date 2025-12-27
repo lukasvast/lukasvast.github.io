@@ -29,6 +29,12 @@ def index():
     return send_from_directory('.', 'recipe-browser.html')
 
 
+@app.route('/assets/<path:filename>')
+def serve_assets(filename):
+    """Serve static assets (CSS, JS, etc.)"""
+    return send_from_directory('assets', filename)
+
+
 @app.route('/api/recipes', methods=['GET'])
 def get_recipes():
     """Get all recipes"""
