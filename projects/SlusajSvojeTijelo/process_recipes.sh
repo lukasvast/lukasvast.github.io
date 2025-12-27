@@ -1,0 +1,65 @@
+#!/bin/bash
+# Script to enhance recipe instructions using AI
+
+set -e
+
+cd "$(dirname "$0")"
+
+echo "=========================================="
+echo "Recipe Enhancement Script"
+echo "=========================================="
+
+echo ""
+echo "Setting up environment..."
+if [ ! -d "venv" ]; then
+    echo "  Creating virtual environment..."
+    python3 -m venv venv
+    source venv/bin/activate
+    echo "  Installing dependencies..."
+    pip install -q anthropic
+else
+    source venv/bin/activate
+fi
+
+echo ""
+if [ -z "$ANTHROPIC_API_KEY" ]; then
+    echo "Enter your Anthropic API key:"
+    echo "(Get it from: https://console.anthropic.com/settings/keys)"
+    read -r ANTHROPIC_API_KEY
+    export ANTHROPIC_API_KEY
+fi
+
+echo ""
+echo "This script will enhance recipe instructions to make them clearer."
+echo "Enhanced recipes will be saved to a new file with -enhanced suffix."
+echo ""
+echo "Select which file to process:"
+echo "  1) recipes-dev.json → recipes-dev-enhanced.json"
+echo "  2) recipes.json → recipes-enhanced.json"
+echo ""
+read -p "Your choice [1/2] (default: 1): " choice
+choice=${choice:-1}
+
+if [ "$choice" = "2" ]; then
+    echo ""
+    echo "Processing recipes.json (122 recipes)..."
+    echo "This may take a while and use API credits."
+    read -p "Continue? (yes/no): " confirm
+    if [ "$confirm" != "yes" ]; then
+        echo "Cancelled."
+        exit 0
+    fi
+    python3 enhance_recipes.py --input recipes.json
+    OUTPUT_FILE="recipes-enhanced.json"
+else
+    echo ""
+    echo "Processing recipes-dev.json..."
+    python3 enhance_recipes.py --dev
+    OUTPUT_FILE="recipes-dev-enhanced.json"
+fi
+
+echo ""
+echo "=========================================="
+echo "✓ Done!"
+echo "Enhanced recipes saved to: $OUTPUT_FILE"
+echo "=========================================="

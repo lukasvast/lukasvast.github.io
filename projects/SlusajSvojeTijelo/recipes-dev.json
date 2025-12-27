@@ -1,0 +1,47 @@
+[
+  {
+    "ingredients": [
+      "500g rajčica",
+      "1 luk",
+      "2 češnja češnjaka",
+      "maslinovo ulje",
+      "sol",
+      "papar"
+    ],
+    "instructions": "Na maslinovom ulju prodinstati nasjeckani luk i češnjak. Dodati rajčice i kuhati 20 minuta. Začiniti sa solju i paprom. Izmiksati u glatku juhu.",
+    "name": "Test Recept 1 - Juha od rajčice",
+    "rating": 4,
+    "labels": ["family friendly"],
+    "mealType": "lunch",
+    "season": "autumn"
+  },
+  {
+    "ingredients": [
+      "50g zobenih pahuljica",
+      "200ml mlijeka",
+      "1 banana",
+      "med po želji, lol"
+    ],
+    "instructions": "Zobene pahuljice kuhati u mlijeku 5 minuta. Dodati narezanu bananu i med po želji. Poslužiti toplo.",
+    "name": "Test Recept 2 - Zobena kaša",
+    "rating": 5,
+    "labels": ["quick and easy", "glutenfree"],
+    "mealType": "breakfast"
+  },
+  {
+    "ingredients": [
+      "100g miješane salate",
+      "50g feta sira",
+      "5 cherry rajčica",
+      "2 žlice maslinovog ulja",
+      "1 žlica limunova soka",
+      "sol"
+    ],
+    "instructions": "Salatu oprati i osušiti. Dodati narezanu fetu i rajčice. Preliti mješavinom ulja i limunova soka. Začiniti solju.",
+    "name": "Test Recept 3 - Salata sa sirom",
+    "rating": 3,
+    "labels": ["glutenfree", "low-foodmap"],
+    "mealType": "lunch",
+    "season": "summer"
+  }
+]
