@@ -19,7 +19,8 @@ CORS(app)
 
 # Determine which file to use based on mode
 DEV_MODE = '--dev' in sys.argv
-RECIPES_FILE = Path(__file__).parent / ('recipes-dev.json' if DEV_MODE else 'recipes.json')
+DATA_DIR = Path(__file__).parent / 'data'
+RECIPES_FILE = DATA_DIR / ('recipes-dev.json' if DEV_MODE else 'recipes.json')
 
 
 @app.route('/')
@@ -99,13 +100,14 @@ if __name__ == '__main__':
         print(f"⚠️  Warning: {RECIPES_FILE.name} not found!")
         if DEV_MODE:
             print("   Creating empty dev file from recipes.json...")
-            prod_file = Path(__file__).parent / 'recipes.json'
+            prod_file = DATA_DIR / 'recipes.json'
             if prod_file.exists():
                 import shutil
                 shutil.copy(prod_file, RECIPES_FILE)
                 print(f"   ✓ Created {RECIPES_FILE.name}")
             else:
                 print("   Creating empty recipes file...")
+                DATA_DIR.mkdir(exist_ok=True)
                 with open(RECIPES_FILE, 'w', encoding='utf-8') as f:
                     json.dump([], f)
                 print(f"   ✓ Created empty {RECIPES_FILE.name}")

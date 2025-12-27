@@ -3,7 +3,8 @@
 
 set -e
 
-cd "$(dirname "$0")"
+# Change to project root directory (parent of scripts/)
+cd "$(dirname "$0")/.."
 
 echo "=========================================="
 echo "Recipe Enhancement Script"
@@ -60,13 +61,13 @@ if [ "$choice" = "2" ]; then
         echo "Cancelled."
         exit 0
     fi
-    python3 enhance_recipes.py --input recipes.json $LIMIT_ARG
-    OUTPUT_FILE="recipes-enhanced.json"
+    python3 scripts/enhance_recipes.py --input data/recipes.json --output data/recipes-enhanced.json $LIMIT_ARG
+    OUTPUT_FILE="data/recipes-enhanced.json"
 else
     echo ""
     echo "Processing recipes-dev.json..."
-    python3 enhance_recipes.py --dev $LIMIT_ARG
-    OUTPUT_FILE="recipes-dev-enhanced.json"
+    python3 scripts/enhance_recipes.py --input data/recipes-dev.json --output data/recipes-dev-enhanced.json $LIMIT_ARG
+    OUTPUT_FILE="data/recipes-dev-enhanced.json"
 fi
 
 echo ""

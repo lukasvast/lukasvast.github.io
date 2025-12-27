@@ -10,9 +10,10 @@ import sys
 from pathlib import Path
 from anthropic import Anthropic
 
-def load_prompt(prompt_file='enhancement_prompt.txt'):
+def load_prompt(prompt_file='scripts/enhancement_prompt.txt'):
     """Load the enhancement prompt from a file."""
-    prompt_path = Path(__file__).parent / prompt_file
+    # If it's a relative path, resolve from current directory
+    prompt_path = Path(prompt_file)
 
     if not prompt_path.exists():
         print(f"Error: Prompt file not found: {prompt_path}")
@@ -123,18 +124,18 @@ if __name__ == '__main__':
     import argparse
 
     parser = argparse.ArgumentParser(description='Enhance recipe instructions using AI')
-    parser.add_argument('--input', default='recipes.json', help='Input JSON file')
-    parser.add_argument('--output', help='Output JSON file (defaults to input file)')
+    parser.add_argument('--input', default='data/recipes.json', help='Input JSON file')
+    parser.add_argument('--output', help='Output JSON file (defaults to input file with -enhanced suffix)')
     parser.add_argument('--dry-run', action='store_true', help='Test without saving changes')
     parser.add_argument('--dev', action='store_true', help='Process recipes-dev.json instead')
     parser.add_argument('--limit', type=int, help='Limit number of recipes to process (e.g., --limit 5)')
-    parser.add_argument('--prompt', default='enhancement_prompt.txt', help='Prompt template file')
+    parser.add_argument('--prompt', default='scripts/enhancement_prompt.txt', help='Prompt template file')
 
     args = parser.parse_args()
 
     # Handle dev mode
     if args.dev:
-        args.input = 'recipes-dev.json'
+        args.input = 'data/recipes-dev.json'
 
     process_recipes(
         input_file=args.input,
