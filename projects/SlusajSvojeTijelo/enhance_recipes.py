@@ -7,37 +7,28 @@ This script processes each recipe and uses AI to make instructions more clear an
 import json
 import os
 import sys
+from pathlib import Path
 from anthropic import Anthropic
 
-# Configurable prompt for recipe enhancement
-ENHANCEMENT_PROMPT = """You are a professional recipe editor. Your task is to improve the cooking instructions to make them clearer and easier to follow.
+def load_prompt(prompt_file='enhancement_prompt.txt'):
+    """Load the enhancement prompt from a file."""
+    prompt_path = Path(__file__).parent / prompt_file
 
-Given recipe name: {name}
-Given ingredients:
-{ingredients}
+    if not prompt_path.exists():
+        print(f"Error: Prompt file not found: {prompt_path}")
+        sys.exit(1)
 
-Current instructions:
-{instructions}
+    with open(prompt_path, 'r', encoding='utf-8') as f:
+        return f.read()
 
-Please rewrite the instructions to be:
-1. Clear and step-by-step
-2. More specific about cooking techniques (e.g., "prodinstati" should be explained as "sauté" or "fry until translucent")
-3. Include approximate times where helpful
-4. Better formatted with clear steps
-5. Keep the same language (Croatian) and tone
-6. Don't add ingredients that aren't in the list
-7. Make sure each step is actionable and clear
-
-Return ONLY the improved instructions text, nothing else. No preamble, no explanation, just the instructions."""
-
-def enhance_instructions(client, recipe):
+def enhance_instructions(client, recipe, prompt_template):
     """Use AI to enhance recipe instructions."""
 
     # Format ingredients as a numbered list
     ingredients_text = "\n".join(f"{i+1}. {ing}" for i, ing in enumerate(recipe['ingredients']))
 
     # Create the prompt
-    prompt = ENHANCEMENT_PROMPT.format(
+    prompt = prompt_template.format(
         name=recipe['name'],
         ingredients=ingredients_text,
         instructions=recipe['instructions']
@@ -62,7 +53,7 @@ def enhance_instructions(client, recipe):
         print(f"  Error details: {type(e).__name__}")
         return recipe['instructions']  # Return original on error
 
-def process_recipes(input_file='recipes.json', output_file=None, dry_run=False, limit=None):
+def process_recipes(input_file='recipes.json', output_file=None, dry_run=False, limit=None, prompt_file='enhancement_prompt.txt'):
     """Process all recipes and enhance their instructions."""
 
     if output_file is None:
@@ -75,6 +66,10 @@ def process_recipes(input_file='recipes.json', output_file=None, dry_run=False, 
     if not api_key:
         print("Error: ANTHROPIC_API_KEY environment variable not set")
         sys.exit(1)
+
+    # Load the enhancement prompt
+    print(f"Loading prompt from {prompt_file}...")
+    prompt_template = load_prompt(prompt_file)
 
     # Initialize Anthropic client
     client = Anthropic(api_key=api_key)
@@ -103,7 +98,7 @@ def process_recipes(input_file='recipes.json', output_file=None, dry_run=False, 
             print(f"  Original: {recipe['instructions'][:100]}...")
 
         # Enhance instructions
-        enhanced_instructions = enhance_instructions(client, recipe)
+        enhanced_instructions = enhance_instructions(client, recipe, prompt_template)
 
         # Create new recipe with enhanced instructions
         enhanced_recipe = recipe.copy()
@@ -133,6 +128,7 @@ if __name__ == '__main__':
     parser.add_argument('--dry-run', action='store_true', help='Test without saving changes')
     parser.add_argument('--dev', action='store_true', help='Process recipes-dev.json instead')
     parser.add_argument('--limit', type=int, help='Limit number of recipes to process (e.g., --limit 5)')
+    parser.add_argument('--prompt', default='enhancement_prompt.txt', help='Prompt template file')
 
     args = parser.parse_args()
 
@@ -144,5 +140,6 @@ if __name__ == '__main__':
         input_file=args.input,
         output_file=args.output,
         dry_run=args.dry_run,
-        limit=args.limit
+        limit=args.limit,
+        prompt_file=args.prompt
     )

@@ -1,0 +1,19 @@
+You are a professional recipe editor. Your task is to improve the cooking instructions to make them clearer and easier to follow.
+
+Given recipe name: {name}
+Given ingredients:
+{ingredients}
+
+Current instructions:
+{instructions}
+
+Please rewrite the instructions to be:
+1. Clear and step-by-step
+2. More specific about cooking techniques (e.g., "prodinstati" should be explained as "sauté" or "fry until translucent")
+3. Include approximate times where helpful
+4. Better formatted with clear steps
+5. Keep the same language (Croatian) and tone
+6. Don't add ingredients that aren't in the list
+7. Make sure each step is actionable and clear
+
+Return ONLY the improved instructions text, nothing else. No preamble, no explanation, just the instructions.
