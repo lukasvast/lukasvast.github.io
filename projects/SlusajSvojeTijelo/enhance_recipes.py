@@ -46,7 +46,7 @@ def enhance_instructions(client, recipe):
     try:
         # Call Claude API
         message = client.messages.create(
-            model="claude-3-5-sonnet-20241022",
+            model="claude-sonnet-4-5-20250929",
             max_tokens=2000,
             messages=[
                 {"role": "user", "content": prompt}
@@ -59,6 +59,7 @@ def enhance_instructions(client, recipe):
 
     except Exception as e:
         print(f"  ⚠️  Error enhancing recipe: {e}")
+        print(f"  Error details: {type(e).__name__}")
         return recipe['instructions']  # Return original on error
 
 def process_recipes(input_file='recipes.json', output_file=None, dry_run=False):
