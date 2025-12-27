@@ -50,19 +50,22 @@ python3 scripts/enhance_recipes.py --dev --limit 5
 
 ## Recipe Enhancement
 
-The recipe enhancement system uses Claude AI to make instructions clearer and more detailed.
+The recipe enhancement system uses Claude AI to improve recipes in three ways:
+1. **Fix Titles** - Ensures proper capitalization and grammar
+2. **Fix Ingredients** - Makes all ingredients lowercase and grammatically correct
+3. **Enhance Instructions** - Makes instructions clearer and more detailed
 
 ### Configuration
 
-Edit `scripts/enhancement_prompt.txt` to customize how recipes are enhanced. The prompt supports these placeholders:
+Edit `scripts/enhancement_prompt.txt` to customize how recipe instructions are enhanced. The prompt supports these placeholders:
 - `{name}` - Recipe name
 - `{ingredients}` - Formatted ingredient list
 - `{instructions}` - Current instructions
 
-### Options
+### Basic Usage
 
 ```bash
-# Enhance first 5 recipes from dev file
+# Enhance all aspects (titles, ingredients, instructions)
 python3 scripts/enhance_recipes.py --dev --limit 5
 
 # Enhance all production recipes
@@ -73,6 +76,43 @@ python3 scripts/enhance_recipes.py --dev --dry-run
 
 # Custom prompt file
 python3 scripts/enhance_recipes.py --dev --prompt custom_prompt.txt
+```
+
+### Selective Enhancement
+
+You can choose what to enhance using these flags:
+
+```bash
+# Only fix titles
+python3 scripts/enhance_recipes.py --dev --only-titles
+
+# Only fix ingredients
+python3 scripts/enhance_recipes.py --dev --only-ingredients
+
+# Only enhance instructions
+python3 scripts/enhance_recipes.py --dev --only-instructions
+
+# Enhance everything except titles
+python3 scripts/enhance_recipes.py --dev --skip-titles
+
+# Enhance everything except ingredients
+python3 scripts/enhance_recipes.py --dev --skip-ingredients
+
+# Enhance everything except instructions
+python3 scripts/enhance_recipes.py --dev --skip-instructions
+```
+
+### Examples
+
+```bash
+# Fix grammar on first 5 recipes (titles and ingredients only)
+python3 scripts/enhance_recipes.py --dev --limit 5 --skip-instructions
+
+# Only improve instructions for all recipes
+python3 scripts/enhance_recipes.py --input data/recipes.json --only-instructions
+
+# Test ingredient fixes without saving
+python3 scripts/enhance_recipes.py --dev --only-ingredients --dry-run
 ```
 
 ## Recipe JSON Structure

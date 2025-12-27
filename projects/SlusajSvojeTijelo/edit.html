@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Recipe</title>
+    <link rel="stylesheet" href="assets/css/edit-styles.css">
+</head>
+<body>
+    <div class="edit-container">
+        <div class="edit-header">
+            <button class="back-btn" onclick="goBack()">← Back</button>
+            <h1>Edit Recipe</h1>
+            <div class="action-buttons">
+                <button class="btn btn-save" onclick="saveRecipe()">💾 Save</button>
+                <button class="btn btn-cancel" onclick="cancelEdit()">✗ Cancel</button>
+            </div>
+        </div>
+
+        <div class="edit-content" id="editContent">
+            <div class="loading">Loading recipe...</div>
+        </div>
+    </div>
+
+    <script src="assets/js/edit.js"></script>
+</body>
+</html>

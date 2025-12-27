@@ -22,6 +22,77 @@ def load_prompt(prompt_file='scripts/enhancement_prompt.txt'):
     with open(prompt_path, 'r', encoding='utf-8') as f:
         return f.read()
 
+def fix_ingredients(client, ingredients):
+    """Use AI to fix ingredient grammar and ensure lowercase."""
+
+    ingredients_text = "\n".join(f"{i+1}. {ing}" for i, ing in enumerate(ingredients))
+
+    prompt = f"""You are a Croatian language expert. Fix the grammar and capitalization of these recipe ingredients.
+
+Current ingredients:
+{ingredients_text}
+
+Requirements:
+1. All ingredients should be lowercase (except proper nouns if absolutely necessary)
+2. Fix any grammatical errors in Croatian
+3. Keep the same meaning and quantities
+4. Return ONLY the corrected ingredients list, one per line, without numbers
+5. Keep the same order
+
+Return format: one ingredient per line, no numbering, no explanations."""
+
+    try:
+        message = client.messages.create(
+            model="claude-sonnet-4-5-20250929",
+            max_tokens=1000,
+            messages=[
+                {"role": "user", "content": prompt}
+            ]
+        )
+
+        # Parse the response
+        corrected = message.content[0].text.strip()
+        fixed_ingredients = [line.strip() for line in corrected.split('\n') if line.strip()]
+
+        return fixed_ingredients
+
+    except Exception as e:
+        print(f"  ⚠️  Error fixing ingredients: {e}")
+        return ingredients  # Return original on error
+
+
+def fix_title(client, title):
+    """Use AI to fix recipe title grammar and capitalization."""
+
+    prompt = f"""You are a Croatian language expert. Fix the grammar and capitalization of this recipe title.
+
+Current title: {title}
+
+Requirements:
+1. First letter should be capitalized, rest lowercase (except proper nouns if needed)
+2. Fix any grammatical errors in Croatian
+3. Keep it concise and clear
+4. Return ONLY the corrected title, nothing else
+
+Return the corrected title only, no explanations."""
+
+    try:
+        message = client.messages.create(
+            model="claude-sonnet-4-5-20250929",
+            max_tokens=200,
+            messages=[
+                {"role": "user", "content": prompt}
+            ]
+        )
+
+        corrected = message.content[0].text.strip()
+        return corrected
+
+    except Exception as e:
+        print(f"  ⚠️  Error fixing title: {e}")
+        return title  # Return original on error
+
+
 def enhance_instructions(client, recipe, prompt_template):
     """Use AI to enhance recipe instructions."""
 
@@ -54,7 +125,8 @@ def enhance_instructions(client, recipe, prompt_template):
         print(f"  Error details: {type(e).__name__}")
         return recipe['instructions']  # Return original on error
 
-def process_recipes(input_file='recipes.json', output_file=None, dry_run=False, limit=None, prompt_file='enhancement_prompt.txt'):
+def process_recipes(input_file='recipes.json', output_file=None, dry_run=False, limit=None, prompt_file='enhancement_prompt.txt',
+                    fix_titles=True, fix_ingredients_flag=True, enhance_instructions_flag=True):
     """Process all recipes and enhance their instructions."""
 
     if output_file is None:
@@ -96,20 +168,53 @@ def process_recipes(input_file='recipes.json', output_file=None, dry_run=False, 
         print(f"\n[{i}/{len(recipes)}] Processing: {recipe['name']}")
 
         if dry_run:
-            print(f"  Original: {recipe['instructions'][:100]}...")
+            print(f"  Original title: {recipe['name']}")
+            print(f"  Original ingredients: {recipe['ingredients'][:2]}...")
+            print(f"  Original instructions: {recipe['instructions'][:100]}...")
+
+        # Create enhanced recipe starting with original
+        enhanced_recipe = recipe.copy()
+
+        # Fix title
+        if fix_titles:
+            print(f"  → Fixing title...")
+            enhanced_title = fix_title(client, recipe['name'])
+            enhanced_recipe['name'] = enhanced_title
+        else:
+            enhanced_title = recipe['name']
+
+        # Fix ingredients
+        if fix_ingredients_flag:
+            print(f"  → Fixing ingredients...")
+            enhanced_ingredients = fix_ingredients(client, recipe['ingredients'])
+            enhanced_recipe['ingredients'] = enhanced_ingredients
+        else:
+            enhanced_ingredients = recipe['ingredients']
 
         # Enhance instructions
-        enhanced_instructions = enhance_instructions(client, recipe, prompt_template)
+        if enhance_instructions_flag:
+            print(f"  → Enhancing instructions...")
+            enhanced_instructions_text = enhance_instructions(client, recipe, prompt_template)
+            enhanced_recipe['instructions'] = enhanced_instructions_text
+        else:
+            enhanced_instructions_text = recipe['instructions']
 
-        # Create new recipe with enhanced instructions
-        enhanced_recipe = recipe.copy()
-        enhanced_recipe['instructions'] = enhanced_instructions
         enhanced_recipes.append(enhanced_recipe)
 
         if dry_run:
-            print(f"  Enhanced: {enhanced_instructions[:100]}...")
+            if fix_titles:
+                print(f"  Enhanced title: {enhanced_title}")
+            if fix_ingredients_flag:
+                print(f"  Enhanced ingredients: {enhanced_ingredients[:2]}...")
+            if enhance_instructions_flag:
+                print(f"  Enhanced instructions: {enhanced_instructions_text[:100]}...")
         else:
-            print(f"  ✓ Enhanced")
+            if fix_titles:
+                print(f"  ✓ Title: {enhanced_title}")
+            if fix_ingredients_flag:
+                print(f"  ✓ Ingredients: {len(enhanced_ingredients)} items")
+            if enhance_instructions_flag:
+                print(f"  ✓ Instructions enhanced")
 
     # Save results
     if not dry_run:
@@ -131,16 +236,54 @@ if __name__ == '__main__':
     parser.add_argument('--limit', type=int, help='Limit number of recipes to process (e.g., --limit 5)')
     parser.add_argument('--prompt', default='scripts/enhancement_prompt.txt', help='Prompt template file')
 
+    # Enhancement control flags
+    parser.add_argument('--skip-titles', action='store_true', help='Skip fixing recipe titles')
+    parser.add_argument('--skip-ingredients', action='store_true', help='Skip fixing ingredients')
+    parser.add_argument('--skip-instructions', action='store_true', help='Skip enhancing instructions')
+    parser.add_argument('--only-titles', action='store_true', help='Only fix titles')
+    parser.add_argument('--only-ingredients', action='store_true', help='Only fix ingredients')
+    parser.add_argument('--only-instructions', action='store_true', help='Only enhance instructions')
+
     args = parser.parse_args()
 
     # Handle dev mode
     if args.dev:
         args.input = 'data/recipes-dev.json'
 
+    # Determine what to enhance
+    fix_titles = True
+    fix_ingredients_flag = True
+    enhance_instructions_flag = True
+
+    # Handle "only" flags
+    if args.only_titles:
+        fix_titles = True
+        fix_ingredients_flag = False
+        enhance_instructions_flag = False
+    elif args.only_ingredients:
+        fix_titles = False
+        fix_ingredients_flag = True
+        enhance_instructions_flag = False
+    elif args.only_instructions:
+        fix_titles = False
+        fix_ingredients_flag = False
+        enhance_instructions_flag = True
+    else:
+        # Handle "skip" flags
+        if args.skip_titles:
+            fix_titles = False
+        if args.skip_ingredients:
+            fix_ingredients_flag = False
+        if args.skip_instructions:
+            enhance_instructions_flag = False
+
     process_recipes(
         input_file=args.input,
         output_file=args.output,
         dry_run=args.dry_run,
         limit=args.limit,
-        prompt_file=args.prompt
+        prompt_file=args.prompt,
+        fix_titles=fix_titles,
+        fix_ingredients_flag=fix_ingredients_flag,
+        enhance_instructions_flag=enhance_instructions_flag
     )

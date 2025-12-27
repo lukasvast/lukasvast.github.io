@@ -29,6 +29,12 @@ def index():
     return send_from_directory('.', 'recipe-browser.html')
 
 
+@app.route('/edit.html')
+def edit_page():
+    """Serve the edit HTML file"""
+    return send_from_directory('.', 'edit.html')
+
+
 @app.route('/assets/<path:filename>')
 def serve_assets(filename):
     """Serve static assets (CSS, JS, etc.)"""

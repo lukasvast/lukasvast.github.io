@@ -1,0 +1,366 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #141414;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* Edit Container */
+.edit-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Edit Header */
+.edit-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #1a1a1a;
+    border-radius: 12px;
+    flex-wrap: wrap;
+}
+
+.edit-header h1 {
+    flex: 1;
+    font-size: 28px;
+    color: #f97316;
+}
+
+.back-btn {
+    padding: 12px 20px;
+    background: rgba(255,255,255,0.1);
+    border: 2px solid #f97316;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.back-btn:hover {
+    background: rgba(249, 115, 22, 0.2);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-save {
+    background: #10b981;
+    color: #fff;
+}
+
+.btn-save:hover {
+    background: #059669;
+    transform: translateY(-2px);
+}
+
+.btn-cancel {
+    background: #ef4444;
+    color: #fff;
+}
+
+.btn-cancel:hover {
+    background: #dc2626;
+    transform: translateY(-2px);
+}
+
+/* Edit Content */
+.edit-content {
+    background: #1a1a1a;
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.form-section {
+    margin-bottom: 30px;
+}
+
+.form-section h2 {
+    font-size: 20px;
+    color: #f97316;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fb923c;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 15px;
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(249, 115, 22, 0.3);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    transition: all 0.2s;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #f97316;
+    background: rgba(255,255,255,0.1);
+}
+
+.form-input::placeholder {
+    color: rgba(255,255,255,0.3);
+}
+
+/* Rating Input */
+.rating-input {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.rating-star {
+    font-size: 32px;
+    cursor: pointer;
+    color: rgba(255,255,255,0.2);
+    transition: all 0.2s;
+}
+
+.rating-star:hover,
+.rating-star.active {
+    color: #fbbf24;
+    transform: scale(1.1);
+}
+
+/* Labels Selection */
+.labels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.label-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    background: rgba(255,255,255,0.05);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.label-checkbox:hover {
+    background: rgba(249, 115, 22, 0.1);
+    border-color: #f97316;
+}
+
+.label-checkbox.active {
+    background: rgba(249, 115, 22, 0.2);
+    border-color: #f97316;
+}
+
+.label-checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.select-input {
+    width: 100%;
+    padding: 15px;
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(249, 115, 22, 0.3);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.select-input:focus {
+    outline: none;
+    border-color: #f97316;
+    background: rgba(255,255,255,0.1);
+}
+
+.select-input option {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+/* Ingredients */
+.ingredient-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.ingredient-item input {
+    flex: 1;
+}
+
+.btn-remove {
+    padding: 10px 16px;
+    background: #ef4444;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-remove:hover {
+    background: #dc2626;
+}
+
+.btn-add {
+    width: 100%;
+    padding: 12px;
+    background: #10b981;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.2s;
+}
+
+.btn-add:hover {
+    background: #059669;
+}
+
+/* Rich Text Editor */
+.editor-toolbar {
+    display: flex;
+    gap: 5px;
+    padding: 10px;
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(249, 115, 22, 0.3);
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    flex-wrap: wrap;
+}
+
+.toolbar-btn {
+    padding: 8px 12px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(249, 115, 22, 0.3);
+    border-radius: 6px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 40px;
+}
+
+.toolbar-btn:hover {
+    background: rgba(249, 115, 22, 0.2);
+    border-color: #f97316;
+}
+
+.toolbar-btn:active {
+    background: rgba(249, 115, 22, 0.3);
+}
+
+.toolbar-separator {
+    width: 1px;
+    background: rgba(249, 115, 22, 0.3);
+    margin: 0 5px;
+}
+
+.instructions-editor {
+    width: 100%;
+    min-height: 300px;
+    padding: 20px;
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(249, 115, 22, 0.3);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.8;
+    overflow-y: auto;
+}
+
+.instructions-editor:focus {
+    outline: none;
+    background: rgba(255,255,255,0.08);
+}
+
+.instructions-editor strong,
+.instructions-editor b {
+    color: #f97316;
+}
+
+.instructions-editor em,
+.instructions-editor i {
+    color: #fb923c;
+}
+
+/* Loading */
+.loading {
+    text-align: center;
+    padding: 100px 20px;
+    font-size: 24px;
+    color: #f97316;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .edit-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .action-buttons {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .labels-grid {
+        grid-template-columns: 1fr;
+    }
+}
