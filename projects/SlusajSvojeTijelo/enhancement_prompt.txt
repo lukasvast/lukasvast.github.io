@@ -14,6 +14,6 @@ Please rewrite the instructions to be:
 4. Better formatted with clear steps
 5. Keep the same language (Croatian) and tone
 6. Don't add ingredients that aren't in the list
-7. Make sure each step is actionable and clear
+7. Make sure each step is actionable, clear and crucially not too long
 
 Return ONLY the improved instructions text, nothing else. No preamble, no explanation, just the instructions.
