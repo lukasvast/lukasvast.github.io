@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Browser</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="nav-left">
+            <button class="hamburger-menu" id="hamburgerBtn" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <h1 class="logo">Recipe Browser</h1>
+        </div>
+        <div class="nav-center">
+            <div class="search-container">
+                <input type="text" class="search-input" id="searchInput" placeholder="Search recipes (supports regex)...">
+                <button class="search-btn" onclick="performSearch()">🔍</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hamburger Side Menu -->
+    <div class="side-menu" id="sideMenu">
+        <div class="menu-header">
+            <h2>Filters</h2>
+            <button class="close-menu" onclick="toggleMenu()">✕</button>
+        </div>
+
+        <div class="menu-section">
+            <h3>Labels</h3>
+            <div class="filter-options" id="labelFilters"></div>
+        </div>
+
+        <div class="menu-section">
+            <h3>Meal Type</h3>
+            <div class="filter-options" id="mealTypeFilters"></div>
+        </div>
+
+        <div class="menu-section">
+            <h3>Season</h3>
+            <div class="filter-options" id="seasonFilters"></div>
+        </div>
+
+        <div class="menu-section">
+            <h3>Rating</h3>
+            <div class="filter-options" id="ratingFilters"></div>
+        </div>
+
+        <button class="clear-filters-btn" onclick="clearAllFilters()">Clear All Filters</button>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+    <!-- Main Content Area -->
+    <main class="main-container" id="mainContainer">
+        <div class="categories-container" id="categoriesContainer">
+            <!-- Categories will be dynamically populated -->
+        </div>
+    </main>
+
+    <!-- Recipe Detail Modal -->
+    <div class="recipe-modal" id="recipeModal">
+        <div class="modal-overlay" onclick="closeRecipeModal()"></div>
+        <div class="modal-container">
+            <button class="modal-close-btn" onclick="closeRecipeModal()">✕</button>
+            <div class="modal-content" id="modalContent">
+                <!-- Recipe details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
